@@ -1,4 +1,4 @@
-import { Carousel } from "@/components/Carousel";
+import { ProjectCarousel } from "@/components/ProjectCarousel";
 import { GradientSpheres } from "@/components/GradientSphere";
 import { TitleHeader } from "@/components/TitleHeader";
 
@@ -20,12 +20,11 @@ export const Projects = () => {
                     <TitleHeader
                         title={"My PROJECTS"}
                         text={"Check my recent project below for your Goal"}
-                        number={"03"}
                     />
 
                 </div>
                 <div className="md:mt-20 mt-10">
-                    <Carousel />
+                    <ProjectCarousel />
                 </div>
             </div>
         </section>

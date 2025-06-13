@@ -2,7 +2,6 @@
 
 import { Sparkles } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { HeroBoy } from "./HeroBoy";
 import { HeroAvatar } from "./HeroAvatar";
 
 export const HeroExperience = () => {

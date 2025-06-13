@@ -13,7 +13,6 @@ export const Contact = () => {
                 <TitleHeader
                     title={"Contact Me"}
                     text={"Let's collaborate on tailored, sustainable solutions"}
-                    number={"04"}
                 />
 
                 <div className="mt-20">

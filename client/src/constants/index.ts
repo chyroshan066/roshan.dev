@@ -26,67 +26,91 @@ const navItems: navItemType[] = [
 const bentoSocialLinks: bentoSocialLinkType[] = [
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/chyroshan066/",
     icon: "/images/fb.svg",
   },
   {
-    name: "Instagram",
-    href: "https://www.facebook.com/",
-    icon: "/images/insta.svg",
+    name: "Github",
+    href: "https://github.com/chyroshan066",
+    icon: "/images/github.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.facebook.com/",
+    href: "https://www.linkedin.com/in/chyroshan066/",
     icon: "/images/linkedin.svg",
   },
   {
     name: "WhatsApp",
-    href: "https://www.facebook.com/",
+    href: "https://web.whatsapp.com/",
     icon: "/images/whatsapp.svg",
   },
 ];
 
 const iconsList: iconsListType[] = [
   {
-    name: "html",
+    name: "HTML",
     image: "/images/html.svg",
   },
   {
-    name: "css",
+    name: "CSS",
     image: "/images/css.svg",
   },
   {
-    name: "javascript",
+    name: "JavaScript",
     image: "/images/js.svg",
   },
   {
-    name: "react",
-    image: "/images/react.svg",
+    name: "VS Code",
+    image: "/images/vs-code.svg",
   },
   {
-    name: "typescript",
+    name: "TypeScript",
     image: "/images/ts.svg",
   },
   {
-    name: "github",
+    name: "Git",
+    image: "/images/git.svg",
+  },
+  {
+    name: "Github",
     image: "/images/github.svg",
   },
   {
-    name: "gsap",
-    image: "/images/gsap.svg",
-  },
-  {
-    name: "threejs",
-    image: "/images/threejs.svg",
-  },
-  {
-    name: "figma",
+    name: "Figma",
     image: "/images/figma.svg",
   },
   {
-    name: "aws",
-    image: "/images/aws.svg",
+    name: "React",
+    image: "/images/react.svg",
   },
+  {
+    name: "Redux Toolkit",
+    image: "/images/redux.svg",
+  },
+  // {
+  //   name: "next",
+  //   image: "/images/next.svg",
+  // },
+  {
+    name: "Node.js",
+    image: "/images/node.svg",
+  },
+  {
+    name: "Express.js",
+    image: "/images/express.svg",
+  },
+  {
+    name: "PostgreSQL",
+    image: "/images/postgresql.svg",
+  },
+  {
+    name: "Prisma ORM",
+    image: "/images/prisma.svg",
+  },
+  // {
+  //   name: "aws",
+  //   image: "/images/aws.svg",
+  // },
 ];
 
 const slides: slideType[] = [
@@ -129,13 +153,6 @@ const slides: slideType[] = [
 
 const testimonials: testimonialType[] = [
   {
-    name: "John Miller",
-    pos: "Founder of ModernEdge Solutions",
-    review:
-      "David Jhon turned our vision into a stunning, functional platform that our customers love. Their creativity and technical expertise truly set them apart.",
-    imgPath: "/images/client1.png",
-  },
-  {
     name: "Emily Carter",
     pos: "UX Designer at PixelWorks Studio",
     review:
@@ -143,40 +160,39 @@ const testimonials: testimonialType[] = [
     imgPath: "/images/client2.png",
   },
   {
-    name: "Sarah Lopez",
-    pos: "Entrepreneur and Small Business Owner",
-    review:
-      "Exceeded my expectations with a unique and beautifully designed product that works flawlessly. Their creative touch is outstanding.",
-    imgPath: "/images/client3.png",
+    name: "Shalva Mosiashvili",
+    pos: "Digital Marketing Manager at ArcheaA Studio",
+    review:`I had the pleasure of working alongside Roshan at Proceedit, where he demonstrated strong technical skills and a collaborative approach. While he didn’t manage me directly, his contributions as a senior member were always insightful and valuable. Roshan’s ability to think strategically and solve complex problems was evident in the work he did, and I greatly benefited from his expertise.\n\nRoshan is a dedicated and reliable professional, and I truly appreciated the opportunity to learn from him. I highly recommend Roshan for any role requiring technical knowledge, leadership, and a problem-solving mindset.`,
+    imgPath: "/images/shalva-mosiashvili.png",
+    linkedinUrl: "https://www.linkedin.com/in/shalvamosiashvili/",
   },
   {
-    name: "David Chen",
-    pos: "Project Manager at CreativeSphere Agency",
-    review:
-      "Blends technical skills with bold creativity to deliver exceptional results. They push boundaries and elevate every project they work on.",
-    imgPath: "/images/client4.png",
+    name: "Dhinchak Puja",
+    pos: "Digital Marketing Manager at ArcheaA Studio",
+    review:`I had the pleasure of working alongside Roshan at Proceedit, where he demonstrated strong technical skills and a collaborative approach. While he didn’t manage me directly, his contributions as a senior member were always insightful and valuable. Roshan’s ability to think strategically and solve complex problems was evident in the work he did, and I greatly benefited from his expertise.\n\nRoshan is a dedicated and reliable professional, and I truly appreciated the opportunity to learn from him. I highly recommend Roshan for any role requiring technical knowledge, leadership, and a problem-solving mindset.`,
+    imgPath: "/images/client1.png",
   },
 ];
 
 const footerIconsList: footerIconListType[] = [
   {
     name: "Facebook",
-    href: "https://www.facebook.com/",
+    href: "https://www.facebook.com/chyroshan066/",
     icon: "/images/b-fb.svg",
   },
   {
-    name: "Instagram",
-    href: "https://www.facebook.com/",
-    icon: "/images/b-insta.svg",
+    name: "Github",
+    href: "https://github.com/chyroshan066",
+    icon: "/images/b-github.svg",
   },
   {
     name: "LinkedIn",
-    href: "https://www.facebook.com/",
+    href: "https://www.linkedin.com/in/chyroshan066/",
     icon: "/images/b-linked.svg",
   },
   {
     name: "WhatsApp",
-    href: "https://www.facebook.com/",
+    href: "https://web.whatsapp.com/",
     icon: "/images/b-whatsapp.svg",
   },
 ];

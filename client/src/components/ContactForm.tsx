@@ -97,7 +97,7 @@ export const ContactForm = () => {
                         id="message"
                         placeholder="Enter your message"
                         rows={5}
-                        className="input"
+                        className="input resize-none"
                     />
                     {errors.message && (<span className="text-red-500">{errors.message.message}</span>)}
                 </div>

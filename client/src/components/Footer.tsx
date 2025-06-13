@@ -1,16 +1,16 @@
 import { footerIconsList } from "@/constants";
 import Image from "next/image";
+import { Logo } from "./Logo";
 
 export const Footer = () => {
     return <>
         <div className="w-full flex-center flex-col md:gap-10 gap-7 bg-black-300 py-10">
-            <Image
-                src="/images/logo.png"
-                alt="logo"
-                width={28}
-                height={28}
-                className="object-cover object-center"
+
+            <Logo
+                size={"sm"}
+                variant={"footer"}
             />
+
             <div className="flex items-center md:gap-16 gap-8">
                 {footerIconsList.map((icon, index) => (
                     <div
@@ -18,11 +18,16 @@ export const Footer = () => {
                         className="cursor-pointer hover:-translate-y-5 transition-all duration-700"
                     >
                         <div className="relative md:size-10 size-8 aspect-square">
-                            <Image
-                                src={icon.icon}
-                                alt={icon.name}
-                                fill
-                            />
+                            <a
+                                href={icon.href}
+                                target="_blank"
+                            >
+                                <Image
+                                    src={icon.icon}
+                                    alt={icon.name}
+                                    fill
+                                />
+                            </a>
                         </div>
                     </div>
                 ))}

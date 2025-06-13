@@ -6,7 +6,7 @@ import gsap from "gsap";
 import Image from "next/image";
 import { useState } from "react";
 
-export const Carousel = () => {
+export const ProjectCarousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const prevSlide = () => {
@@ -52,24 +52,58 @@ export const Carousel = () => {
                                         className="object-cover object-center"
                                     />
                                 </div>
-                                <div className="absolute w-full h-20 bottom-0 left-0 bg-black-300/90 px-5">
+                                {/* Project name with links */}
+                                <div className="absolute w-full h-20 bottom-0 left-0 bg-black-300/90 px-3 md:px-5">
                                     <div className="flex h-full justify-between items-center">
                                         <div className="flex-center gap-2">
-                                            <p>{index + 1}.</p>
-                                            <p>{slide.title}</p>
+                                            <p className="text-sm md:text-base">{index}.</p>
+                                            <p className="text-sm md:text-base truncate">{slide.title}</p>
                                         </div>
-                                        <div className="flex-center gap-5">
-                                            <p>Preview Project</p>
-                                            <div className="relative md:size-10 size-7 aspect-square">
-                                                <Image
-                                                    src="/images/arrowupright.svg"
-                                                    alt="arrowupright"
-                                                    fill
-                                                />
-                                            </div>
+                                        <div className="flex items-center gap-2 md:gap-4">
+                                            {/* Source Code Link */}
+                                            <a
+                                                href=""
+                                                // href={slide.sourceUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1 md:gap-2 text-xs md:text-sm hover:text-blue-400 transition-colors group"
+                                            >
+                                                <span className="hidden sm:inline">Source</span>
+                                                <span className="sm:hidden">Code</span>
+                                                <div className="relative w-3 h-3 md:w-4 md:h-4 aspect-square group-hover:scale-110 transition-transform">
+                                                    <Image
+                                                        src="/images/github.svg"
+                                                        alt="github"
+                                                        fill
+                                                    />
+                                                </div>
+                                            </a>
+
+                                            {/* Divider */}
+                                            <div className="w-px h-4 bg-white-50/30"></div>
+
+                                            {/* Live Project Link */}
+                                            <a
+                                                href=""
+                                                // href={slide.liveUrl}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="flex items-center gap-1 md:gap-2 text-xs md:text-sm hover:text-pink-400 transition-colors group"
+                                            >
+                                                <span className="hidden sm:inline">Live</span>
+                                                <span className="sm:hidden">View</span>
+                                                <div className="relative w-3 h-3 md:w-4 md:h-4 aspect-square group-hover:scale-110 transition-transform">
+                                                    <Image
+                                                        src="/images/arrowupright.svg"
+                                                        alt="external link"
+                                                        fill
+                                                    />
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
+
 
                             </div>
                         ))}

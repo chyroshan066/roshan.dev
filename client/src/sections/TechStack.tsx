@@ -10,7 +10,6 @@ export const TechStack = () => {
 
                     <TitleHeader
                         title={"TECH STACK"}
-                        number={"02"}
                         text={"My Go-To Tools for Crafting Solutions"}
                     />
 

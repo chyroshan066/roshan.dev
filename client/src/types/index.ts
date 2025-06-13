@@ -25,6 +25,11 @@ export type testimonialType = {
     pos: string;
     review: string;
     imgPath: string;
+    linkedinUrl?: string;
+    facebookUrl?: string;
+    instagramUrl?: string;
+    tiktokUrl?: string;
+    xUrl?: string;
 }
 
 export type footerIconListType = {

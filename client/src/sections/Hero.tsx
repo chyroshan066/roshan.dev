@@ -19,10 +19,10 @@ export const Hero = () => {
                 <div className="container relative h-full w-full">
                     <div className="md:mt-40 mt-20">
                         <p className="font-medium md:text-2xl text-base">
-                            👋 Hey, I'm Here
+                            👋 Hey, I&apos;m Here
                         </p>
                         <h1 className="font-bold md:text-8xl text-5xl">ROSHAN CHAUDHARY</h1>
-                        <h1 className="font-bold md:text-9xl text-5xl">CREATIVE</h1>
+                        <h1 className="font-bold md:text-9xl text-5xl">FULL-STACK</h1>
                     </div>
                     <div className="absolute w-full z-30 bottom-20 right-0">
                         <div className="flex justify-between items-end">
