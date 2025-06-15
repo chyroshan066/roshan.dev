@@ -1,3 +1,4 @@
+import { LinkButton } from "@/components/buttons/LinkButton";
 import { TitleHeader } from "@/components/TitleHeader";
 
 export const MoreInfo = () => {
@@ -20,19 +21,25 @@ export const MoreInfo = () => {
                 </p>
 
                 <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl py-4 px-6 mt-8">
-                    <blockquote className="text-cyan-300 text-lg italic font-medium">
-                        "The best way to predict the future is to create it."
+                    <blockquote className="text-pink-100 text-lg italic font-medium">
+                        "First, solve the problem. Then, write the code."
                     </blockquote>
-                    <cite className="text-gray-400 text-sm block mt-2">— Peter Drucker</cite>
+                    <cite className="text-gray-400 text-sm block mt-2">— John Johnson</cite>
                 </div>
 
                 <div className="flex flex-wrap gap-4 mt-8">
-                    <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        View My Work
-                    </button>
-                    <button className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 backdrop-blur-sm">
-                        Let's Connect
-                    </button>
+
+                    <LinkButton
+                        btnText={"View My Work"}
+                        href={"/projects"}
+                    />
+
+                    <LinkButton
+                        btnText={"Let's Connect"}
+                        href={"/contact"}
+                        className={"border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white backdrop-blur-sm bg-transparent hover:bg-transparent"}
+                    />
+
                 </div>
             </div>
         </div>

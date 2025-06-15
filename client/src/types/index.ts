@@ -44,3 +44,19 @@ export type formType = {
     subject: string;
     message: string;
 }
+
+type certificateType = {
+    name: string;
+    color: string;
+}
+
+export type workExperienceType = {
+    id: number;
+    title: string
+    company: string
+    period: string
+    status: string
+    logo: "🏛️",
+    details: string[];
+    certificates: certificateType[];
+}

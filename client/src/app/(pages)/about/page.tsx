@@ -1,11 +1,12 @@
 import { AboutExperience } from "./_components/AboutExperience";
 import { MoreInfo } from "./_components/MoreInfo";
+import { WorkExperience } from "./_components/WorkExperience";
 
 export default function About() {
     return <>
         <section
             id="contact"
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative md:p-0 px-5 flex-col"
         >
             <div className="w-full h-full container md:my-30 my-10">
                 <div className="grid grid-cols-12">
@@ -25,6 +26,9 @@ export default function About() {
                     </div>
                 </div>
             </div>
+
+            <WorkExperience />
+
         </section>
     </>;
 }

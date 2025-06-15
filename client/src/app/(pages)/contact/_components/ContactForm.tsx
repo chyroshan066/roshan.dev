@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
+import { SubmitButton } from "@/components/buttons/SubmitButton";
 
 export const ContactForm = () => {
     const initialValues: formType = {
@@ -101,12 +102,11 @@ export const ContactForm = () => {
                     />
                     {errors.message && (<span className="text-red-500">{errors.message.message}</span>)}
                 </div>
-                <button
-                    type="submit"
-                    className="cursor-pointer w-full py-4 bg-blue-50 text-white-50 font-semibold rounded-md hover:bg-blue-600 transition-all duration-300"
-                >
-                    Send Message
-                </button>
+
+                <SubmitButton
+                    btnText={"Send Message"}
+                />
+
             </form>
         </div>
     </>;
