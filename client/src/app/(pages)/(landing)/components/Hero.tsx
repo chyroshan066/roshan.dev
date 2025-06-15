@@ -10,6 +10,7 @@ export const Hero = () => {
         >
 
             <div className="gradient-box w-full h-96 absolute bottom-0 left-0 z-20"></div>
+
             <GradientSpheres
                 sphere1Class={"gradient-sphere sphere-1"}
                 sphere2Class={"gradient-sphere sphere-2"}

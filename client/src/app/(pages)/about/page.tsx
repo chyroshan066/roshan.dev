@@ -1,5 +1,5 @@
-import { ContactForm } from "../contact/_components/ContactForm";
 import { AboutExperience } from "./_components/AboutExperience";
+import { MoreInfo } from "./_components/MoreInfo";
 
 export default function About() {
     return <>
@@ -7,7 +7,7 @@ export default function About() {
             id="contact"
             className="flex-center relative md:p-0 px-5"
         >
-            <div className="w-full h-full container md:my-40 my-20">
+            <div className="w-full h-full container md:my-30 my-10">
                 <div className="grid grid-cols-12">
                     <div className="md:col-span-5 col-span-12">
                         <div className="w-full md:h-full h-96 relative">
@@ -20,7 +20,7 @@ export default function About() {
                     </div>
                     <div className="md:col-span-7 col-span-12 md:order-none order-1 relative z-10">
 
-                        <ContactForm />
+                        <MoreInfo />
 
                     </div>
                 </div>
