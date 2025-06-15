@@ -1,5 +1,5 @@
 import { GradientSpheres } from "@/components/GradientSphere";
-import { HeroExperience } from "@/components/HeroExperience";
+import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
 
 export const Hero = () => {

@@ -1,4 +1,4 @@
-import { ProjectCarousel } from "@/components/ProjectCarousel";
+import { ProjectCarousel } from ".//ProjectCarousel";
 import { GradientSpheres } from "@/components/GradientSphere";
 import { TitleHeader } from "@/components/TitleHeader";
 

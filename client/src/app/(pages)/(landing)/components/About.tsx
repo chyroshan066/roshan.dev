@@ -4,7 +4,7 @@ import { GradientSpheres } from "@/components/GradientSphere";
 import { TitleHeader } from "@/components/TitleHeader";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";
-import { Alien } from "../../public/models/Alien";
+import { Alien } from "@/components/models/Alien";
 import { OrbitControls } from "@react-three/drei";
 import { bentoSocialLinks } from "@/constants";
 import gsap from "gsap";

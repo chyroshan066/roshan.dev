@@ -1,8 +1,6 @@
 import { GradientSpheres } from "@/components/GradientSphere";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { TitleHeader } from "@/components/TitleHeader";
-import { testimonials } from "@/constants";
 
 export const Testimonials = () => {
     return <>
@@ -24,18 +22,9 @@ export const Testimonials = () => {
                 />
 
                 <div className="mt-20">
-                    {/* <div className="grid md:grid-cols-2 gap-5">
-                        {testimonials.map((testimonial, index) => (
-
-                            <TestimonialCard
-                                key={index}
-                                testimonial={testimonial}
-                            />
-
-                        ))}
-                    </div> */}
 
                     <TestimonialCarousel />
+
                 </div>
             </div>
         </section>

@@ -2,10 +2,22 @@
 
 import { navItems } from "@/constants";
 import { Logo } from "./Logo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
     const [activeItem, setActiveItem] = useState("Home");
+    const pathname = usePathname();
+
+    useEffect(() => {
+        const currentNavItem = navItems.find(item => item.href === pathname);
+        if (currentNavItem) {
+            setActiveItem(currentNavItem.name);
+        } else if (pathname === "/") {
+            setActiveItem("Home");
+        }
+    }, [pathname]);
 
     return (
         <div className="w-full flex-center fixed z-50 top-0 left-0 md:p-0 px-5">
@@ -27,7 +39,7 @@ export const NavBar = () => {
                                     : 'after:bg-gray-200'
                                 }`}
                         >
-                            <a
+                            <Link
                                 className={`text-lg font-bold transition-colors duration-300 ${activeItem === item.name
                                     ? 'text-blue-400'
                                     : 'gradient-title hover:text-blue-300'
@@ -36,7 +48,7 @@ export const NavBar = () => {
                                 onClick={() => setActiveItem(item.name)}
                             >
                                 {item.name}
-                            </a>
+                            </Link>
                         </div>
                     ))}
                 </div>

@@ -1,21 +1,21 @@
+import { CallToAction } from "@/sections/CallToAction";
 import { Loader } from "@/components/Loader";
-import { About } from "@/sections/About";
-import { Contact } from "@/sections/Contact";
-import { Hero } from "@/sections/Hero";
-import { Projects } from "@/sections/Projects";
+import { About } from "./components/About";
+import { Hero } from "./components/Hero";
+import { Projects } from "./components/Projects";
 import { TechStack } from "@/sections/TechStack";
 import { Testimonials } from "@/sections/Testimonials";
 
 export default function Home() {
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <Hero />
       <About />
       <TechStack />
       <Projects />
       <Testimonials />
-      <Contact />
+      <CallToAction />
     </>
   );
 }

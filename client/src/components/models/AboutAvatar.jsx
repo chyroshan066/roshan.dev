@@ -1,20 +1,22 @@
+"use client"
+
 import React, { useEffect, useRef } from 'react'
 import { useGraph } from '@react-three/fiber'
 import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 
-export function ContactAvatar(props) {
+export function AboutAvatar(props) {
   const group = useRef();
   const { scene } = useGLTF('/models/avatar-transformed.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
-  const {animations } = useFBX("models/Wave Hip Hop Dance.fbx");
-  animations[0].name = "Dance";
+  const {animations } = useFBX("/models/Male Sitting Pose.fbx");
+  animations[0].name = "Sit";
   const action = useAnimations(animations, group);
 
   useEffect(() => {
-    action.actions["Dance"].play
+    action.actions["Sit"].play
     ();
   }, []);
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, useState } from 'react'
 import { useGraph } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
@@ -58,3 +60,4 @@ export function HeroAvatar(props) {
 }
 
 useGLTF.preload('/models/avatar-transformed.glb')
+

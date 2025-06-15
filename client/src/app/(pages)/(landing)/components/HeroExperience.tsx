@@ -2,7 +2,7 @@
 
 import { Sparkles } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { HeroAvatar } from "./HeroAvatar";
+import { HeroAvatar } from "@/components/models/HeroAvatar";
 
 export const HeroExperience = () => {
     return <>
@@ -29,10 +29,6 @@ export const HeroExperience = () => {
 
             <group>
 
-                {/* <HeroBoy
-                    scale={9}
-                    position={[0, -15, 0]}
-                /> */}
                 <HeroAvatar
                     scale={9}
                     position={[0, -15, 0]}

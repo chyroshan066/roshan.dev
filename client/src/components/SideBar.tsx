@@ -1,13 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { usePathname } from "next/navigation";
 
 export const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeItem, setActiveItem] = useState("Home");
+    const pathname = usePathname();
 
     const toggleSideBar = () => {
         setIsOpen(!isOpen);
@@ -47,6 +49,15 @@ export const SideBar = () => {
             });
         }
     }, [isOpen]);
+
+    useEffect(() => {
+        const currentNavItem = navItems.find(item => item.href === pathname);
+        if (currentNavItem) {
+            setActiveItem(currentNavItem.name);
+        } else if (pathname === "/") {
+            setActiveItem("Home");
+        }
+    }, [pathname]);
 
     return (
         <div className="md:hidden block">

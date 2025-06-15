@@ -1,10 +1,10 @@
 "use client";
 
+import { AboutAvatar } from "@/components/models/AboutAvatar";
 import { Text3D } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { ContactAvatar } from "./ContactAvatar";
 
-export const ContactExperience = () => {
+export const AboutExperience = () => {
     return <>
         <Canvas
             camera={{
@@ -13,14 +13,14 @@ export const ContactExperience = () => {
         >
             <ambientLight intensity={2} />
             <directionalLight
-                position={[-5, 5, 5]}
+                position={[5, 5, 5]}
                 intensity={5}
                 color={"#1c34ff"}
             />
-            <group rotation={[0, -0.5, 0]}>
+            <group rotation={[0, 0.5, 0]}>
 
                 <Text3D
-                    position={[-4, -3, -2]}
+                    position={[1, -3, -2]}
                     curveSegments={32}
                     bevelEnabled
                     bevelSize={0.04}
@@ -31,16 +31,17 @@ export const ContactExperience = () => {
                     size={1.5}
                     font="/fonts/Inter_Bold.json"
                 >
-                    {'hello'}
+                    {'ROSHAN'}
                     <meshNormalMaterial />
                 </Text3D>
 
-                <ContactAvatar
-                    scale={2.5}
-                    position={[-1, -3, 0]}
+                <AboutAvatar
+                    scale={3.1}
+                    position={[2, -2.4, 0]}
                 />
 
             </group>
         </Canvas>
     </>;
-}
+};
+

@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import { useGraph } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'

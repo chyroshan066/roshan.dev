@@ -3,23 +3,23 @@ import { bentoSocialLinkType, footerIconListType, iconsListType, navItemType, sl
 const navItems: navItemType[] = [
   {
     name: "Home",
-    href: "#home",
+    href: "/",
   },
   {
     name: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     name: "Projects",
-    href: "#projects",
+    href: "/projects",
   },
   {
-    name: "Testimonials",
-    href: "#testimonials",
+    name: "Services",
+    href: "/services",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
 

@@ -1,8 +1,8 @@
-import { ContactExperience } from "@/components/ContactExperience";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactExperience } from "./_components/ContactExperience";
+import { ContactForm } from "./_components/ContactForm";
 import { TitleHeader } from "@/components/TitleHeader";
 
-export const Contact = () => {
+export default function Contact() {
     return <>
         <section
             id="contact"
@@ -24,7 +24,9 @@ export const Contact = () => {
                         </div>
                         <div className="md:col-span-7 col-span-12">
                             <div className="w-full md:h-full h-96 md:absolute top-0 md:left-96 left-0 md:m-0 -mt-32">
+
                                 <ContactExperience />
+
                             </div>
                         </div>
                     </div>
