@@ -1,4 +1,6 @@
+import { TechStack } from "@/sections/TechStack";
 import { AboutExperience } from "./_components/AboutExperience";
+import { Education } from "./_components/Education";
 import { MoreInfo } from "./_components/MoreInfo";
 import { WorkExperience } from "./_components/WorkExperience";
 
@@ -28,7 +30,8 @@ export default function About() {
             </div>
 
             <WorkExperience />
-
+            <Education />
+            <TechStack />
         </section>
     </>;
 }

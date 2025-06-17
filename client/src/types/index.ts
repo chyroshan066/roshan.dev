@@ -60,3 +60,14 @@ export type workExperienceType = {
     details: string[];
     certificates: certificateType[];
 }
+
+export type eduactionType = {
+    id: number;
+    degree: string;
+    institution: string;
+    duration: string;
+    status: string;
+    description: string;
+    year: string;
+    position: number;
+}

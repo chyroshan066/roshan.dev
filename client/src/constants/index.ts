@@ -1,4 +1,4 @@
-import { bentoSocialLinkType, footerIconListType, iconsListType, navItemType, slideType, testimonialType, workExperienceType } from "@/types";
+import { bentoSocialLinkType, eduactionType, footerIconListType, iconsListType, navItemType, slideType, testimonialType, workExperienceType } from "@/types";
 
 export const navItems: navItemType[] = [
   {
@@ -261,5 +261,48 @@ export const workExperiences: workExperienceType[] = [
         { name: "CERTIFICATE", color: "bg-gray-600" },
         { name: "CERTIFICATE", color: "bg-purple-500" }
     ]
+  },
+];
+
+export const education: eduactionType[] = [
+  {
+      id: 1,
+      degree: "Bachelor in Engineering",
+      institution: "IOE Purwanchal Campus",
+      duration: "2023 - Present",
+      status: "Ongoing",
+      description: "Currently pursuing Bachelor's degree in Computer Engineering, focusing on software development, algorithms, and system design.",
+      year: "2023",
+      position: 100
+  },
+  {
+      id: 2,
+      degree: "Intermediate in Science",
+      institution: "Nidi Secondary School",
+      duration: "2020 - 2022",
+      status: "Completed",
+      description: "Currently pursuing Bachelor's degree in Computer Engineering, focusing on software development, algorithms, and system design.",
+      year: "2022",
+      position: 84.2105,
+  },
+  {
+      id: 3,
+      degree: "Secondary Education",
+      institution: "Commoners' Home for Education",
+      duration: "2017 - 2020",
+      status: "Completed",
+      description: "Represented School in InterSchool Speech and Quiz competiton. Won various competitions like speech, debate, chess, quiz and many more..",
+      year: "2020",
+      position: 73.6842,
+  },
+  {
+      id: 4,
+      degree: "Primary Education",
+      institution: "Abacus English Boarding School",
+      duration: "2007 - 2017",
+      status: "Completed",
+      description: "Represented School in InterSchool Speech and Quiz competiton. Won various competitions like speech, debate, chess, quiz and many more..",
+      year: "2017",
+      position: 57.894,
   },
 ];
