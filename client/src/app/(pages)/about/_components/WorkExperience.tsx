@@ -138,10 +138,10 @@ export const WorkExperience = () => {
                         return (
                             <div
                                 key={experience.id}
-                                className={`bg-black-300 rounded-2xl p-7 cursor-pointer transition-all duration-500 ease-in-out ${hoveredItem === null
+                                className={`bg-[#17151f]  border-gray-700 border-r border-b rounded-2xl p-7 cursor-pointer transition-all duration-500 ease-in-out ${hoveredItem === null
                                     ? 'opacity-100 scale-100'
                                     : isHovered
-                                        ? 'opacity-100 scale-105 shadow-xl ring-2 ring-blue-500/50'
+                                        ? 'opacity-100 scale-105 shadow-xl ring-2 ring-gray-500/50'
                                         : 'opacity-50 scale-95'
                                     }`}
                                 onMouseEnter={() => handleMouseEnter(experience.id)}

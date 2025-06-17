@@ -228,7 +228,7 @@ export const Education = () => {
                             }`}
                         style={style}
                     >
-                        <div className="bg-gray-900 backdrop-blur-lg border border-gray-700 rounded-2xl p-4 md:p-6 min-w-80 md:min-w-96 max-w-sm shadow-2xl">
+                        <div className="bg-[#17151f] backdrop-blur-lg border border-gray-700 rounded-2xl p-4 md:p-6 min-w-80 md:min-w-96 max-w-sm shadow-2xl">
                             <div className="flex items-center mb-4">
                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-xl flex items-center justify-center mr-3">
                                     <span className="text-white text-lg md:text-xl font-bold">

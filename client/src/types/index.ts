@@ -71,3 +71,13 @@ export type eduactionType = {
     year: string;
     position: number;
 }
+
+export type certificateType2 = {
+    id: number;
+    title: string;
+    organization: string;
+    date: string;
+    image: string;
+    description?: string;
+    credentialUrl?: string;
+}
