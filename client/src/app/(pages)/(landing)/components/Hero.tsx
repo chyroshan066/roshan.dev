@@ -1,14 +1,14 @@
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
+import { memo } from "react";
 
-export const Hero: React.FC = () => {
+export const Hero: React.FC = memo(() => {
     return <>
         <section
-            id="home"
             className="w-screen h-dvh overflow-hidden relative text-white-50 px-5 md:p-0"
         >
-            <div className="gradient-box w-full h-96 absolute bottom-0 left-0 z-20"></div>
+            <div className="gradient-box w-full h-96 absolute bottom-0 left-0 z-20 will-change-transform"></div>
 
             <GradientSpheres
                 sphere1Class={"gradient-sphere sphere-1"}
@@ -28,12 +28,14 @@ export const Hero: React.FC = () => {
                         <div className="flex justify-between items-end">
                             <div className="flex flex-col items-center md:gap-5 gap-1">
                                 <p className="md:text-base text-xs">Explore</p>
-                                <div className="relative size-7 aspect-square">
+                                <div className="relative size-7 aspect-square will-change-transform">
                                     <Image
                                         src="/images/arrowdown.svg"
                                         alt="arrowdown"
                                         fill
                                         className="animate-bounce"
+                                        priority
+                                        sizes="28px"  // Added: explicit sizes for better optimization
                                     />
                                 </div>
                             </div>
@@ -43,6 +45,8 @@ export const Hero: React.FC = () => {
                                     alt="shape"
                                     width={100}
                                     height={100}
+                                    priority
+                                    sizes="(max-width: 768px) 60px, 100px"
                                 />
                                 <h1 className="font-bold md:text-9xl text-5xl">DEVELOPER</h1>
                             </div>
@@ -57,4 +61,6 @@ export const Hero: React.FC = () => {
             </div>
         </section>
     </>;
-}
+});
+
+Hero.displayName = 'Hero';
