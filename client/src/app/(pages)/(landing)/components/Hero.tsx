@@ -2,13 +2,12 @@ import { GradientSpheres } from "@/components/GradientSphere";
 import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
     return <>
         <section
             id="home"
             className="w-screen h-dvh overflow-hidden relative text-white-50 px-5 md:p-0"
         >
-
             <div className="gradient-box w-full h-96 absolute bottom-0 left-0 z-20"></div>
 
             <GradientSpheres

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useRef, useCallback, useMemo, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
@@ -8,101 +8,143 @@ import { navLinks } from "@/constants";
 
 export const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [activeItem, setActiveItem] = useState("Home");
     const pathname = usePathname();
+    const sideBarRef = useRef<HTMLDivElement>(null);
+    const itemsRef = useRef<HTMLDivElement[]>([]);
+    const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
-    const toggleSideBar = () => {
-        setIsOpen(!isOpen);
-    };
-
-    const handleNavClick = (itemName: string) => {
-        setActiveItem(itemName);
-        setTimeout(() => toggleSideBar(), 300);
-    };
-
-    useGSAP(() => {
-        const tl = gsap.timeline();
-
-        if (isOpen) {
-            tl.to(".side-bar-bg", {
-                x: 0,
-                opacity: 1,
-                ease: "power2.inOut",
-            });
-            tl.to(
-                ".side-bar-item",
-                {
-                    opacity: 1,
-                    stagger: 0.05,
-                    ease: "power2.inOut",
-                },
-                "<"
-            );
-        } else {
-            tl.to(".side-bar-bg", {
-                x: "100%",
-                opacity: 0,
-                ease: "power2.inOut",
-            });
-            tl.to(".side-bar-item", {
-                opacity: 0,
-            });
-        }
-    }, [isOpen]);
+    // Initialize activeStates with false values to ensure consistent SSR
+    const [activeStates, setActiveStates] = useState(navLinks.map(() => false));
 
     useEffect(() => {
-        const currentNavItem = navLinks.find(item => item.href === pathname);
-        if (currentNavItem) {
-            setActiveItem(currentNavItem.name);
-        } else if (pathname === "/") {
-            setActiveItem("Home");
-        }
+        // Update active states after hydration
+        setActiveStates(
+            navLinks.map(link =>
+                pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/")
+            )
+        );
     }, [pathname]);
+
+    //explain
+    const toggleSideBar = useCallback(() => {
+        setIsOpen(prev => !prev);
+    }, []);
+
+    // Optimized nav click handler with useCallback
+    const handleNavClick = useCallback((itemName: string) => {
+        setTimeout(toggleSideBar, 300);
+    }, [toggleSideBar]);
+
+    // const activeStates = useMemo(() => {
+    //     return navLinks.map(link =>
+    //         pathname === link.href || (pathname.startsWith(link.href) && link.href !== "/")
+    //     );
+    // }, [pathname]);
+
+    useGSAP(() => {
+        if (!sideBarRef.current) return;
+
+        // Reuse timeline instead of creating new one
+        if (!timelineRef.current) {
+            timelineRef.current = gsap.timeline({ paused: true });
+
+            // Set up animations once
+            timelineRef.current
+                .set(sideBarRef.current, { x: "100%", opacity: 0 })
+                .to(sideBarRef.current, {
+                    x: 0,
+                    opacity: 1,
+                    duration: 0.4,
+                    ease: "power2.inOut",
+                })
+                .to(
+                    itemsRef.current,
+                    {
+                        opacity: 1,
+                        duration: 0.3,
+                        stagger: 0.05,
+                        ease: "power2.inOut",
+                    },
+                    "<0.1"
+                );
+        }
+
+        // Control playback direction instead of recreating animations
+        if (isOpen) {
+            timelineRef.current.play();
+        } else {
+            timelineRef.current.reverse();
+        }
+
+        // Cleanup function
+        return () => {
+            timelineRef.current?.kill();
+            timelineRef.current = null;
+        };
+    }, [isOpen]);
+
+    // Ref callback for nav items
+    const setItemRef = useCallback((el: HTMLDivElement | null, index: number) => {
+        if (el) {
+            itemsRef.current[index] = el;
+        }
+    }, []);
+
+    const baseLinkClass = "relative inline-block text-lg font-bold transition-colors duration-300";
+    const activeLinkClass = "text-blue-400 after:bg-blue-400 after:w-full after:scale-x-100";
+    const inactiveLinkClass = "text-white after:bg-gray-200 after:w-full after:scale-x-0 after:origin-bottom-right hover:after:scale-x-100 hover:after:origin-bottom-left";
 
     return (
         <div className="md:hidden block">
-            <div
-                className="fixed top-0 right-0 z-50 p-4"
+            <button
+                className="fixed top-0 right-0 z-50 p-4 text-white text-2xl cursor-pointer"
                 onClick={toggleSideBar}
+                aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
+                aria-expanded={isOpen}
             >
-                <button className="text-white text-2xl">
-                    ☰
-                </button>
-            </div>
-            {/* Overlay - closes sidebar when clicked */}
-            {isOpen && (
-                <div
-                    className="fixed inset-0 z-30"
-                    onClick={toggleSideBar}
-                />
-            )}
-            <div className="side-bar-bg fixed top-0 right-0 h-full w-80 z-40 transform translate-x-full opacity-0">
+                {isOpen ? "✕" : "☰"}
+            </button>
+
+            {/* Overlay */}
+            <div
+                className={`fixed inset-0 z-30 bg-black transition-opacity duration-300 ${isOpen ? "opacity-50 pointer-events-auto" : "opacity-0 pointer-events-none"
+                    }`}
+                onClick={toggleSideBar}
+                aria-hidden={!isOpen}
+            />
+
+            {/* Sidebar */}
+            <div
+                ref={sideBarRef}
+                className="side-bar-bg fixed top-0 right-0 h-full w-80 z-40 transform translate-x-full opacity-0"
+                role="navigation"
+                aria-label="Mobile navigation"
+            >
                 <div className="p-6 pt-16">
-                    <div className="flex flex-col space-y-6">
-                        {navLinks.map((item, index) => (
+                    <nav className="flex flex-col space-y-6">
+                        {navLinks.map((link, index) => (
                             <div
-                                key={index}
+                                key={link.href}
+                                ref={(el) => setItemRef(el, index)}
                                 className="side-bar-item opacity-0 cursor-pointer"
                             >
                                 <a
-                                    className={`relative text-lg font-bold transition-colors duration-300 
-                                    after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full 
-                                    after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left
-                                    hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300
-                                    ${activeItem === item.name
-                                            ? 'text-blue-400 after:bg-blue-400 after:scale-x-100 after:origin-bottom-left'
-                                            : 'text-white after:bg-gray-200'
+                                    className={`${baseLinkClass} 
+                                        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:transition-all after:ease-in-out after:duration-300
+                                        ${activeStates[index]
+                                            ? activeLinkClass : inactiveLinkClass
                                         }`}
-                                    href={item.href}
-                                    onClick={() => handleNavClick(item.name)}
+                                    href={link.href}
+                                    onClick={() => handleNavClick(link.name)}
+                                    aria-current={activeStates[index] ? "page" : undefined}
                                 >
-                                    {item.name}
+                                    {link.name}
                                 </a>
                             </div>
                         ))}
-                    </div>
+                    </nav>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };

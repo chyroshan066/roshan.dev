@@ -4,7 +4,7 @@ import { navLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/blocks/Logo";
-import { memo, useMemo, useCallback } from "react";
+import { memo, useMemo } from "react";
 
 const NavItem = memo(({
     link, isActive
@@ -41,7 +41,7 @@ const NavItem = memo(({
 
 NavItem.displayName = 'NavItem';
 
-export const NavBar = () => {
+export const NavBar: React.FC = () => {
     const pathname = usePathname();
 
     // Memoize active states calculation
