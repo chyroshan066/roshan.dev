@@ -1,6 +1,6 @@
 "use client";
 
-import { TitleHeader } from '@/components/TitleHeader';
+import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { workExperiences } from '@/constants';
 import React, { useState, useCallback } from 'react';
 

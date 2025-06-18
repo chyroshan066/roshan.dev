@@ -1,5 +1,5 @@
 import { TechIcon } from "@/components/TechIcon";
-import { TitleHeader } from "@/components/TitleHeader";
+import { TitleHeader } from "@/components/blocks/TitleHeader";
 import { iconsList } from "@/constants";
 
 export const TechStack = () => {

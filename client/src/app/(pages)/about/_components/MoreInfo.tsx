@@ -1,5 +1,5 @@
 import { LinkButton } from "@/components/buttons/LinkButton";
-import { TitleHeader } from "@/components/TitleHeader";
+import { TitleHeader } from "@/components/blocks/TitleHeader";
 
 export const MoreInfo = () => {
     return (

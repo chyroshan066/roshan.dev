@@ -1,6 +1,6 @@
 import { ContactExperience } from "./_components/ContactExperience";
 import { ContactForm } from "./_components/ContactForm";
-import { TitleHeader } from "@/components/TitleHeader";
+import { TitleHeader } from "@/components/blocks/TitleHeader";
 
 export default function Contact() {
     return <>

@@ -1,7 +1,7 @@
 "use client";
 
 import { GradientSpheres } from '@/components/blocks/GradientSphere';
-import { TitleHeader } from '@/components/TitleHeader';
+import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { education } from '@/constants';
 import React, { useState, useEffect, useRef } from 'react';
 

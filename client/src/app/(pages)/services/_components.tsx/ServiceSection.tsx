@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { services } from '@/constants';
 import { GradientSpheres } from '@/components/blocks/GradientSphere';
-import { TitleHeader } from '@/components/TitleHeader';
+import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 

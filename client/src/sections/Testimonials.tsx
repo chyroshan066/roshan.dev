@@ -1,6 +1,6 @@
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
-import { TitleHeader } from "@/components/TitleHeader";
+import { TitleHeader } from "@/components/blocks/TitleHeader";
 
 export const Testimonials = () => {
     return <>
