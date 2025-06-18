@@ -44,7 +44,6 @@ export const About = () => {
 
     return <>
         <section
-            id="about"
             className="flex-center relative md:p-0 px-5"
         >
 
