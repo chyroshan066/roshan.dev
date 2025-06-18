@@ -1,6 +1,6 @@
 "use client";
 
-import { GradientSpheres } from "@/components/GradientSphere";
+import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TitleHeader } from "@/components/TitleHeader";
 import { Canvas } from "@react-three/fiber";
 import Image from "next/image";

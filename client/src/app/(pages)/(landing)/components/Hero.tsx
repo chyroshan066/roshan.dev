@@ -1,4 +1,4 @@
-import { GradientSpheres } from "@/components/GradientSphere";
+import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
 

@@ -7,6 +7,7 @@ import { projectType } from '@/types';
 import { projects } from '@/constants';
 import { TitleHeader } from '@/components/TitleHeader';
 import Image from 'next/image';
+import { GradientSpheres } from '@/components/blocks/GradientSphere';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -148,6 +149,11 @@ export const ProjectsSection: React.FC = () => {
             ref={sectionRef}
             className="flex-center relative md:p-0 px-5"
         >
+            <GradientSpheres
+                sphere1Class={"about-gradient-sphere about-sphere-1"}
+                sphere2Class={"about-gradient-sphere about-sphere-2"}
+            />
+
             <div className="container w-full h-full md:mt-40 mt-20 mb-10 relative z-10 px-5 md:p-0">
 
                 <TitleHeader

@@ -1,4 +1,4 @@
-import { GradientSpheres } from "@/components/GradientSphere";
+import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TestimonialCarousel } from "@/components/TestimonialCarousel";
 import { TitleHeader } from "@/components/TitleHeader";
 

@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { certificates } from '@/constants';
-import { GradientSpheres } from '@/components/GradientSphere';
+import { GradientSpheres } from '@/components/blocks/GradientSphere';
 import { TitleHeader } from '@/components/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';

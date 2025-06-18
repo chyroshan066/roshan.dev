@@ -2,7 +2,7 @@
 
 import { Sparkles } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { memo, useMemo } from "react";
+import { memo, Suspense, useMemo } from "react";
 import { HeroAvatar } from "@/components/models/HeroAvatar";
 
 export const HeroExperience = memo(() => {
@@ -44,15 +44,33 @@ export const HeroExperience = memo(() => {
         dpr: [1, 2] as [number, number], // Limit device pixel ratio for performance on high-DPI displays
     }), []);
 
-    return <>
-        <Canvas {...canvasConfig}>
+    const AvatarLoadingFallback = () => (
+        <mesh position={[0, -15, 0]}>
+            {/* Simple placeholder geometry while avatar loads */}
+            <boxGeometry args={[2, 4, 1]} />
+            <meshBasicMaterial color="#444" opacity={0.3} transparent />
+        </mesh>
+    );
+
+    const PriorityContent = memo(() => (
+        <>
             {lightingSetup}
 
-            <Sparkles {...sparklesConfig} />
+            {/* PRIORITY 1: Avatar loads first with Suspense boundary */}
+            <Suspense fallback={<AvatarLoadingFallback />}>
+                <group>
+                    <HeroAvatar {...avatarProps} />
+                </group>
+            </Suspense>
 
-            <group>
-                <HeroAvatar {...avatarProps} />
-            </group>
+            {/* PRIORITY 2: Sparkles load after avatar is ready */}
+            <Sparkles {...sparklesConfig} />
+        </>
+    ));
+
+    return <>
+        <Canvas {...canvasConfig}>
+            <PriorityContent />
         </Canvas>
     </>;
 });

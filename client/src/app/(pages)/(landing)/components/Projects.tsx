@@ -1,5 +1,5 @@
 import { ProjectCarousel } from ".//ProjectCarousel";
-import { GradientSpheres } from "@/components/GradientSphere";
+import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TitleHeader } from "@/components/TitleHeader";
 
 export const Projects = () => {
