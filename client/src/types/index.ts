@@ -14,10 +14,21 @@ export type iconsListType = {
     image: string;
 }
 
-export type slideType = {
+// export type slideType = {
+//     id: number;
+//     title: string;
+//     img: string;
+// }
+
+export type projectType = {
     id: number;
     title: string;
+    description?: string;
     img: string;
+    technologies?: string[];
+    category?: 'personal' | 'client';
+    liveURL?: string;
+    githubURL?: string;
 }
 
 export type testimonialType = {
@@ -81,3 +92,19 @@ export type certificateType2 = {
     description?: string;
     credentialUrl?: string;
 }
+
+type Technology = {
+    name: string;
+    icon: string;
+    color?: string;
+}
+
+export type serviceType = {
+    id: number;
+    title: string;
+    description: string;
+    features: string[];
+    technologies: Technology[];
+    icon: string;
+}
+

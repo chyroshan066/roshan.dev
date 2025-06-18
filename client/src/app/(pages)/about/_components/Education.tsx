@@ -74,7 +74,7 @@ export const Education = () => {
             top = dotRect.bottom + 16;
             arrowDirection = 'up';
         } else if (spaceAbove >= tooltipHeight) {
-            top = dotRect.top - tooltipHeight - 16;
+            top = dotRect.top - tooltipHeight - 10;
             arrowDirection = 'down';
         } else {
             if (spaceBelow > spaceAbove) {

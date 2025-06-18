@@ -119,7 +119,7 @@ export const TestimonialCard = ({
                                         >
                                             <div className="relative w-8 h-8 lg:w-10 lg:h-10 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
                                                 <Image
-                                                    src="/images/fb.svg"
+                                                    src="/images/social-icons/fb.svg"
                                                     alt="fb"
                                                     fill
                                                     className="filter invert"
@@ -134,7 +134,7 @@ export const TestimonialCard = ({
                                         >
                                             <div className="relative w-8 h-8 lg:w-10 lg:h-10 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
                                                 <Image
-                                                    src="/images/linkedin.svg"
+                                                    src="/images/social-icons/linkedin.svg"
                                                     alt="fb"
                                                     fill
                                                     className="filter invert"
@@ -149,7 +149,7 @@ export const TestimonialCard = ({
                                         >
                                             <div className="relative w-8 h-8 lg:w-10 lg:h-10 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
                                                 <Image
-                                                    src="/images/insta.svg"
+                                                    src="/images/social-icons/insta.svg"
                                                     alt="fb"
                                                     fill
                                                     className="filter invert"
@@ -164,7 +164,7 @@ export const TestimonialCard = ({
                                         >
                                             <div className="relative w-8 h-8 lg:w-10 lg:h-10 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
                                                 <Image
-                                                    src="/images/x.svg"
+                                                    src="/images/social-icons/x.svg"
                                                     alt="fb"
                                                     fill
                                                     className="filter invert"
@@ -179,7 +179,7 @@ export const TestimonialCard = ({
                                         >
                                             <div className="relative w-8 h-8 lg:w-10 lg:h-10 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
                                                 <Image
-                                                    src="/images/tiktok.svg"
+                                                    src="/images/social-icons/tiktok.svg"
                                                     alt="fb"
                                                     fill
                                                     className="filter invert"
@@ -251,7 +251,7 @@ export const TestimonialCard = ({
                                 >
                                     <div className="relative md:size-12 size-5 aspect-square">
                                         <Image
-                                            src="/images/fb.svg"
+                                            src="/images/social-icons/fb.svg"
                                             alt="x"
                                             fill
                                             className="group-hover:mix-blend-luminosity transition-all duration-700"
@@ -266,7 +266,7 @@ export const TestimonialCard = ({
                                 >
                                     <div className="relative md:size-12 size-5 aspect-square">
                                         <Image
-                                            src="/images/linkedin.svg"
+                                            src="/images/social-icons/linkedin.svg"
                                             alt="x"
                                             fill
                                             className="group-hover:mix-blend-luminosity transition-all duration-700"
@@ -281,7 +281,7 @@ export const TestimonialCard = ({
                                 >
                                     <div className="relative md:size-12 size-5 aspect-square">
                                         <Image
-                                            src="/images/insta.svg"
+                                            src="/images/social-icons/insta.svg"
                                             alt="x"
                                             fill
                                             className="group-hover:mix-blend-luminosity transition-all duration-700"
@@ -296,7 +296,7 @@ export const TestimonialCard = ({
                                 >
                                     <div className="relative md:size-12 size-5 aspect-square">
                                         <Image
-                                            src="/images/x.svg"
+                                            src="/images/social-icons/x.svg"
                                             alt="x"
                                             fill
                                             className="group-hover:mix-blend-luminosity transition-all duration-700"
@@ -311,7 +311,7 @@ export const TestimonialCard = ({
                                 >
                                     <div className="relative md:size-12 size-5 aspect-square">
                                         <Image
-                                            src="/images/tiktok.svg"
+                                            src="/images/social-icons/tiktok.svg"
                                             alt="x"
                                             fill
                                             className="group-hover:mix-blend-luminosity transition-all duration-700"

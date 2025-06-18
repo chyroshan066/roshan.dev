@@ -110,8 +110,8 @@ export const Certificate: React.FC = () => {
             <div className="container w-full h-full md:my-40 my-20 relative z-10  md:px-0 px-6">
 
                 <TitleHeader
-                    title={"Badges of Honor 🏆"}
-                    text={"These credentials symbolize my dedication to quality and excellence in building robust web applications."}
+                    title={"CERTIFICATIONS 🏆"}
+                    text={"Validated skills through industry-recognized certifications and training."}
                 />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-20 mt-15">

@@ -1,4 +1,4 @@
-import { bentoSocialLinkType, certificateType2, eduactionType, footerIconListType, iconsListType, navItemType, slideType, testimonialType, workExperienceType } from "@/types";
+import { bentoSocialLinkType, certificateType2, eduactionType, footerIconListType, iconsListType, navItemType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
 
 export const navItems: navItemType[] = [
   {
@@ -27,127 +27,165 @@ export const bentoSocialLinks: bentoSocialLinkType[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",
-    icon: "/images/fb.svg",
+    icon: "/images/social-icons/fb.svg",
   },
   {
     name: "Github",
     href: "https://github.com/chyroshan066",
-    icon: "/images/github.svg",
+    icon: "/images/tech-icons/github.svg",
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: "/images/linkedin.svg",
+    icon: "/images/social-icons/linkedin.svg",
   },
   {
     name: "WhatsApp",
     href: "https://web.whatsapp.com/",
-    icon: "/images/whatsapp.svg",
+    icon: "/images/social-icons/whatsapp.svg",
   },
 ];
 
 export const iconsList: iconsListType[] = [
   {
     name: "HTML",
-    image: "/images/html.svg",
+    image: "/images/tech-icons/html.svg",
   },
   {
     name: "CSS",
-    image: "/images/css.svg",
+    image: "/images/tech-icons/css.svg",
   },
   {
     name: "JavaScript",
-    image: "/images/js.svg",
+    image: "/images/tech-icons/js.svg",
   },
   {
     name: "VS Code",
-    image: "/images/vs-code.svg",
+    image: "/images/tech-icons/vs-code.svg",
   },
   {
     name: "TypeScript",
-    image: "/images/ts.svg",
+    image: "/images/tech-icons/ts.svg",
   },
   {
     name: "Git",
-    image: "/images/git.svg",
+    image: "/images/tech-icons/git.svg",
   },
   {
     name: "Github",
-    image: "/images/github.svg",
+    image: "/images/tech-icons/github.svg",
   },
   {
     name: "Figma",
-    image: "/images/figma.svg",
+    image: "/images/tech-icons/figma.svg",
   },
   {
     name: "React",
-    image: "/images/react.svg",
+    image: "/images/tech-icons/react.svg",
+  },
+  {
+    name: "next",
+    image: "https://www.svgrepo.com/show/368858/nextjs.svg",
   },
   {
     name: "Redux Toolkit",
-    image: "/images/redux.svg",
+    image: "/images/tech-icons/redux.svg",
   },
-  // {
-  //   name: "next",
-  //   image: "/images/next.svg",
-  // },
+  {
+    name: "GSAP",
+    image: "/images/tech-icons/gsap.svg",
+  },
   {
     name: "Node.js",
-    image: "/images/node.svg",
+    image: "/images/tech-icons/node.svg",
   },
   {
     name: "Express.js",
-    image: "/images/express.svg",
+    image: "/images/tech-icons/express.svg",
   },
   {
     name: "PostgreSQL",
-    image: "/images/postgresql.svg",
+    image: "/images/tech-icons/postgresql.svg",
   },
   {
     name: "Prisma ORM",
-    image: "/images/prisma.svg",
+    image: "/images/tech-icons/prisma.svg",
   },
   // {
   //   name: "aws",
-  //   image: "/images/aws.svg",
+  //   image: "/images/tech-icons/aws.svg",
   // },
 ];
 
-export const slides: slideType[] = [
+export const projects: projectType[] = [
   {
     id: 1,
     title: "Sofi",
+    description: "",
     img: "/images/p1.png",
+    technologies: [],
+    category: "personal",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 2,
     title: "Jasmina",
+    description: "",
     img: "/images/p2.png",
+    technologies: [],
+    category: "client",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 3,
     title: "d.tampe",
+    description: "",
     img: "/images/p3.png",
+    technologies: [],
+    category: "personal",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 4,
     title: "Blimp.gr",
     img: "/images/p4.png",
+    technologies: [],
+    category: "client",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 5,
     title: "Hawk Style Design",
+    description: "",
     img: "/images/p5.png",
+    technologies: [],
+    category: "personal",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 6,
     title: "Lewis",
+    description: "",
     img: "/images/p6.png",
+    technologies: [],
+    category: "personal",
+    liveURL: "",
+    githubURL: "",
   },
   {
     id: 7,
     title: "Sofi",
+    description: "",
     img: "/images/p1.png",
+    technologies: [],
+    category: "personal",
+    liveURL: "",
+    githubURL: "",
   },
 ];
 
@@ -163,7 +201,7 @@ export const testimonials: testimonialType[] = [
     name: "Shalva Mosiashvili",
     pos: "Digital Marketing Manager at ArcheaA Studio",
     review:`I had the pleasure of working alongside Roshan at Proceedit, where he demonstrated strong technical skills and a collaborative approach. While he didn’t manage me directly, his contributions as a senior member were always insightful and valuable. Roshan’s ability to think strategically and solve complex problems was evident in the work he did, and I greatly benefited from his expertise.\n\nRoshan is a dedicated and reliable professional, and I truly appreciated the opportunity to learn from him. I highly recommend Roshan for any role requiring technical knowledge, leadership, and a problem-solving mindset.`,
-    imgPath: "/images/shalva-mosiashvili.png",
+    imgPath: "/images/testimonials/shalva-mosiashvili.png",
     linkedinUrl: "https://www.linkedin.com/in/shalvamosiashvili/",
   },
   {
@@ -178,22 +216,22 @@ export const footerIconsList: footerIconListType[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",
-    icon: "/images/b-fb.svg",
+    icon: "/images/footer-icons/b-fb.svg",
   },
   {
     name: "Github",
     href: "https://github.com/chyroshan066",
-    icon: "/images/b-github.svg",
+    icon: "/images/footer-icons/b-github.svg",
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: "/images/b-linked.svg",
+    icon: "/images/footer-icons/b-linked.svg",
   },
   {
     name: "WhatsApp",
     href: "https://web.whatsapp.com/",
-    icon: "/images/b-whatsapp.svg",
+    icon: "/images/footer-icons/b-whatsapp.svg",
   },
 ];
 
@@ -264,6 +302,10 @@ export const workExperiences: workExperienceType[] = [
   },
 ];
 
+const startedYear = 2007;
+const currentYear = new Date().getFullYear();
+const totalAcademicTime = currentYear - startedYear;
+
 export const education: eduactionType[] = [
   {
       id: 1,
@@ -272,7 +314,7 @@ export const education: eduactionType[] = [
       duration: "2023 - Present",
       status: "Ongoing",
       description: "Currently pursuing Bachelor's degree in Computer Engineering, focusing on software development, algorithms, and system design.",
-      year: "2023",
+      year: `${currentYear > 2027? 2027 : currentYear}`,
       position: 100
   },
   {
@@ -281,9 +323,9 @@ export const education: eduactionType[] = [
       institution: "Nidi Secondary School",
       duration: "2020 - 2022",
       status: "Completed",
-      description: "Currently pursuing Bachelor's degree in Computer Engineering, focusing on software development, algorithms, and system design.",
+      description: "Intermediate of Science (Physics Major) - Developed strong analytical and mathematical reasoning skills through rigorous coursework in physics and related sciences",
       year: "2022",
-      position: 84.2105,
+      position: ((2022 - startedYear) / totalAcademicTime) * 100,
   },
   {
       id: 3,
@@ -293,7 +335,7 @@ export const education: eduactionType[] = [
       status: "Completed",
       description: "Represented School in InterSchool Speech and Quiz competiton. Won various competitions like speech, debate, chess, quiz and many more..",
       year: "2020",
-      position: 73.6842,
+      position: ((2020 - startedYear) / totalAcademicTime) * 100,
   },
   {
       id: 4,
@@ -301,9 +343,9 @@ export const education: eduactionType[] = [
       institution: "Abacus English Boarding School",
       duration: "2007 - 2017",
       status: "Completed",
-      description: "Represented School in InterSchool Speech and Quiz competiton. Won various competitions like speech, debate, chess, quiz and many more..",
+      description: "Built essential academic foundations while actively exploring diverse extracurricular activities. Learned karate, developing discipline and physical coordination alongside various other ECA pursuits that fostered well-rounded personal growth during these formative years.",
       year: "2017",
-      position: 57.894,
+      position: ((2017 - startedYear) / totalAcademicTime) * 100,
   },
 ];
 
@@ -391,4 +433,126 @@ export const certificates: certificateType2[] = [
       image: '/images/certificates/c10.jpg',
       description: 'Successfully completed internship as a Web Developer, focusing on modern web technologies and best practices.',
   },
+];
+
+export const services: serviceType[] = [
+  {
+    id: 1,
+    title: 'Frontend Development',
+    description: 'Building responsive, user-friendly web applications with modern frameworks and best practices.',
+    features: [
+      'Responsive Web Design',
+      'Interactive UI Components',
+      'Cross-Browser Compatibility',
+      'Mobile-First Development',
+      'Performance Optimization',
+      'SEO-Friendly Development',
+      'TypeScript Integration',
+      'Modern CSS Frameworks',
+      'API Integration',
+      'Smooth Animations',
+      'User Experience Optimization',
+      'Scalable Architecture',
+      'Security Implementation',
+      'Documentation & Support'
+    ],
+    technologies: [
+      { 
+        name: 'React.js', 
+        icon: '/images/tech-icons/react.svg', 
+        color: '#61dbfb' 
+      },
+      { 
+        name: 'Next.js', 
+        icon: 'https://www.svgrepo.com/show/368858/nextjs.svg', 
+        // color: '#FFFFFF' 
+      },
+      { 
+        name: 'Redux Toolkit', 
+        icon: '/images/tech-icons/redux.svg', 
+        color: '#764abc' 
+      },
+      // { 
+      //   name: 'ShadCN UI', 
+      //   icon: '/images/tech-icons/redux.svg', 
+      //   color: '#FFFFFF' 
+      // },
+      { 
+        name: 'GSAP', 
+        icon: '/images/tech-icons/gsap.svg', 
+        // color: '#FFFFFF' 
+      },
+      { 
+        name: 'Tailwind CSS', 
+        icon: '/images/tech-icons/tailwindcss.svg', 
+        color: '#00bcff' 
+      },
+      { 
+        name: 'TypeScript', 
+        icon: '/images/tech-icons/ts.svg', 
+        color: '#007ACC' 
+      },
+      { 
+        name: 'Figma', 
+        icon: '/images/tech-icons/figma.svg', 
+        // color: '#007ACC' 
+      },
+      { 
+        name: 'JavaScript', 
+        icon: '/images/tech-icons/js.svg', 
+        color: '#F0DB4F' 
+      },
+      { 
+        name: 'HTML', 
+        icon: '/images/tech-icons/html.svg', 
+        color: '#30B7BA' 
+      },
+      { 
+        name: 'CSS', 
+        icon: '/images/tech-icons/css.svg', 
+        // color: '#30B7BA' 
+      },
+    ],
+    icon: '🌐'
+  },
+    {
+        id: 2,
+        title: 'Backend Development',
+        description: 'Building robust server-side architecture with secure APIs and scalable database solutions.',
+        features: [
+          'RESTful API Development',
+          'Database Design & Management',
+          'Server-Side Architecture',
+          'Authentication & Authorization',
+          'Data Security & Encryption',
+          'Performance Optimization',
+          'Scalable Architecture',
+          'Third-Party Integrations',
+          'Error Handling & Logging',
+          'Documentation & Testing',
+        ],
+        technologies: [
+            { 
+              name: 'Node.js', 
+              icon: '/images/tech-icons/node.svg', 
+              color: '#3C873A' 
+            },
+            { 
+              name: 'Express.js', 
+              icon: '/images/tech-icons/express.svg', 
+              // color: '#3C873A' 
+            },
+            { 
+              name: 'PostgreSQL', 
+              icon: '/images/tech-icons/postgresql.svg', 
+              color: '#0064a5' 
+            },
+            { 
+              name: 'Prisma ORM', 
+              icon: '/images/tech-icons/prisma.svg', 
+              color: '#5a67d9' 
+            },
+        ],
+        icon: '⚙️'
+    },
 ];

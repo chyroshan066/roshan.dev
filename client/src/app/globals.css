@@ -226,7 +226,6 @@ section{
       rgba(11, 6, 32, 0) 100%
     );
   }
-
   .carousel-gradient-right-box {
     background: rgb(11, 6, 32);
     background: linear-gradient(
@@ -260,6 +259,13 @@ section{
     border-bottom: 1px solid rgba(255, 255, 255, 0.01);
     background: rgba(23, 21, 31, 0.7);
     backdrop-filter: blur(10px);
+  }
+  .tech-icon {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(100%) saturate(7471%) hue-rotate(232deg) brightness(106%) contrast(106%);
+    transition: filter 0.3s ease;
+  }
+  .features-list {
+    transition: all 1s ease-in-out;
   }
 }
 

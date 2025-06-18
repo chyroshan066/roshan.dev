@@ -6,12 +6,12 @@ export const CallToAction = () => {
     return (
         <div className="relative md:mt-35 sm:mt-25 mt-22 sm:mb-0 px-6 overflow-hidden">
 
-            <div className="relative z-10 max-w-4xl mx-auto text-center">
+            <div className="relative z-10 max-w-6xl mx-auto text-center">
                 <div className="mb-8">
 
                     <TitleHeader
-                        title={"Ready to Build Something Exceptional 🚀"}
-                        text={"Got a bold idea or a project that needs a touch of magic? Whether it's web, app, or something in between—I'm all in. Open to freelance work, collaborations, or full-time roles. Let's bring something extraordinary to life."}
+                        title={"Let's Build Something Extraordinary Together 🚀"}
+                        text={"Every extraordinary project starts with a shared vision. I bring full-stack expertise and creative problem-solving to teams ready to push boundaries. Whether you're launching something new or reimagining what's possible—let's combine our talents and create magic."}
                         className={"md:mb-0 mb-4"}
                     />
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { slides } from "@/constants";
+import { projects } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
@@ -10,11 +10,11 @@ export const ProjectCarousel = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
 
     const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + (slides.length - 1)) % (slides.length - 1));
+        setCurrentSlide((prev) => (prev - 1 + (projects.length - 1)) % (projects.length - 1));
     };
 
     const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % (slides.length - 1));
+        setCurrentSlide((prev) => (prev + 1) % (projects.length - 1));
     };
 
     useGSAP(() => {
@@ -39,14 +39,14 @@ export const ProjectCarousel = () => {
             <div className="w-full relative lg:h-[60vh] md:h[40vh] h-[60vh]">
                 <div className="absolute w-full -left-[43vw] top-0">
                     <div className="flex w-full lg:h-[60vh] md:h[40vh] h-[60vh] items-center gap-[3vw]">
-                        {slides.map((slide, index) => (
+                        {projects.map((project, index) => (
                             <div
                                 key={index}
                                 className="slider-item w-[60vw] h-full flex-none relative overflow-hidden"
                             >
                                 <div className="relative w-full h-full aspect-square">
                                     <Image
-                                        src={slide.img}
+                                        src={project.img}
                                         alt="slide"
                                         fill
                                         className="object-cover object-center"
@@ -57,7 +57,7 @@ export const ProjectCarousel = () => {
                                     <div className="flex h-full justify-between items-center">
                                         <div className="flex-center gap-2">
                                             <p className="text-sm md:text-base">{index}.</p>
-                                            <p className="text-sm md:text-base truncate">{slide.title}</p>
+                                            <p className="text-sm md:text-base truncate">{project.title}</p>
                                         </div>
                                         <div className="flex items-center gap-2 md:gap-4">
                                             {/* Source Code Link */}
@@ -72,7 +72,7 @@ export const ProjectCarousel = () => {
                                                 <span className="sm:hidden">Code</span>
                                                 <div className="relative w-3 h-3 md:w-4 md:h-4 aspect-square group-hover:scale-110 transition-transform">
                                                     <Image
-                                                        src="/images/github.svg"
+                                                        src="/images/tech-icons/github.svg"
                                                         alt="github"
                                                         fill
                                                     />
