@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { navItems } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { usePathname } from "next/navigation";
+import { navLinks } from "@/constants";
 
 export const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +51,7 @@ export const SideBar = () => {
     }, [isOpen]);
 
     useEffect(() => {
-        const currentNavItem = navItems.find(item => item.href === pathname);
+        const currentNavItem = navLinks.find(item => item.href === pathname);
         if (currentNavItem) {
             setActiveItem(currentNavItem.name);
         } else if (pathname === "/") {
@@ -79,7 +79,7 @@ export const SideBar = () => {
             <div className="side-bar-bg fixed top-0 right-0 h-full w-80 z-40 transform translate-x-full opacity-0">
                 <div className="p-6 pt-16">
                     <div className="flex flex-col space-y-6">
-                        {navItems.map((item, index) => (
+                        {navLinks.map((item, index) => (
                             <div
                                 key={index}
                                 className="side-bar-item opacity-0 cursor-pointer"

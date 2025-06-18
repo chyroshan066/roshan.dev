@@ -1,6 +1,6 @@
 import { footerIconsList } from "@/constants";
 import Image from "next/image";
-import { Logo } from "./Logo";
+import { Logo } from "./blocks/Logo";
 
 export const Footer = () => {
     return <>

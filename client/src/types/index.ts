@@ -1,4 +1,4 @@
-export type navItemType = {
+export type navLinkType = {
     name: string;
     href: string;
 }

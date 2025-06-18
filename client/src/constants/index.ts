@@ -1,27 +1,6 @@
-import { bentoSocialLinkType, certificateType2, eduactionType, footerIconListType, iconsListType, navItemType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
+import { bentoSocialLinkType, certificateType2, eduactionType, footerIconListType, iconsListType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
 
-export const navItems: navItemType[] = [
-  {
-    name: "Home",
-    href: "/",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-  {
-    name: "Projects",
-    href: "/projects",
-  },
-  {
-    name: "Services",
-    href: "/services",
-  },
-  {
-    name: "Contact",
-    href: "/contact",
-  },
-];
+export * from "./nav-links";
 
 export const bentoSocialLinks: bentoSocialLinkType[] = [
   {
