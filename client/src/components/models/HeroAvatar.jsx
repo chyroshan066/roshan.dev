@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useCallback, useEffect, useMemo, memo  } from 'react'
 import { useFrame, useGraph } from '@react-three/fiber'
-import { useGLTF } from '@react-three/drei'
+import { useAnimations, useFBX, useGLTF } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib';
 import * as THREE from "three";
 import { useGSAP } from '@gsap/react';
@@ -20,6 +20,16 @@ export const HeroAvatar = memo(function HeroAvatar(props) {
   // Throttled mouse position for better performance
   const mousePosition = useRef(new THREE.Vector2());
   const lastMouseUpdate = useRef(0);
+
+  const {animations } = useFBX("/models/Male Standing Pose.fbx");
+  animations[0].name = "Dance";
+  const { actions } = useAnimations(animations, group);
+  
+  useEffect(() => {
+    if (actions && actions["Dance"]) {
+      actions["Dance"].play();
+    }
+  }, [actions ]);
 
   // Cache head object reference for better performance
   useEffect(() => {

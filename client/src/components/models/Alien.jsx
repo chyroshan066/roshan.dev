@@ -5,7 +5,7 @@ import { useGraph } from '@react-three/fiber'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { SkeletonUtils } from 'three-stdlib'
 
-export function Alien(props) {
+export default function Alien(props) {
   const group = React.useRef()
   const { scene, animations } = useGLTF('/models/alien-transformed.glb')
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
