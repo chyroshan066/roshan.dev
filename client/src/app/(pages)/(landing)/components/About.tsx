@@ -11,6 +11,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { memo, lazy, Suspense } from "react";
 import { bentoSocialLinkType } from "@/types";
+import { AlienExperience } from "./AlienExperience";
 
 // Lazy load the Alien component since it's heavy 3D content
 const Alien = lazy(() => import("@/components/models/Alien"));
@@ -153,22 +154,9 @@ export const About = () => {
                             <div className="bg-[#c8d751] hover:cursor-grab rounded-2xl w-full md:h-full h-60">
                                 <div className="w-full h-full">
                                     <Suspense fallback={<AlienLoadingFallback />}>
-                                        <Canvas
-                                            gl={{ antialias: false }} // Reduced anti-aliasing for better performance
-                                            dpr={[1, 2]} // Limit device pixel ratio for performance
-                                        >
-                                            <OrbitControls
-                                                enableZoom={false}
-                                                // enablePan={false} // Disable pan for better UX
-                                                dampingFactor={0.05} // Add damping for smoother controls
-                                                enableDamping
-                                            />
-                                            <Alien
-                                                scale={2}
-                                                position={[0, -5.5, 0]}
-                                                rotation={[0, -0.5, 0]}
-                                            />
-                                        </Canvas>
+
+                                        <AlienExperience />
+
                                     </Suspense>
                                 </div>
                             </div>
