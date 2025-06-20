@@ -1,4 +1,4 @@
-import { CallToAction } from "@/sections/CallToAction";
+import { CallToAction } from "@/components/blocks/CallToAction";
 import { ServicesSection } from "./_components.tsx/ServiceSection";
 
 export default function Services() {

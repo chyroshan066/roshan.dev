@@ -1,4 +1,4 @@
-import { CallToAction } from "@/sections/CallToAction";
+import { CallToAction } from "@/components/blocks/CallToAction";
 import { Loader } from "@/components/Loader";
 import { About } from "./components/About";
 import { Hero } from "./components/Hero";
