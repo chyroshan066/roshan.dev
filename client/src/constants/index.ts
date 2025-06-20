@@ -1,80 +1,9 @@
-import { certificateType2, eduactionType, footerIconListType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
+import { certificateType2, eduactionType, footerIconListType, serviceType, testimonialType, workExperienceType } from "@/types";
 
 export * from "./nav-links";
 export * from "./social-links";
 export * from "./tech-icons";
-
-export const projects: projectType[] = [
-  {
-    id: 1,
-    title: "Sofi",
-    description: "Project build using react.js and next.js",
-    img: "/images/p1.png",
-    technologies: ["Next", "Node", "Express"],
-    category: "personal",
-    liveURL: "http://localhost:3000",
-    githubURL: "http://localhost:3000",
-  },
-  {
-    id: 2,
-    title: "Jasmina",
-    description: "",
-    img: "/images/p2.png",
-    technologies: [],
-    category: "client",
-    liveURL: "",
-    githubURL: "",
-  },
-  {
-    id: 3,
-    title: "d.tampe",
-    description: "",
-    img: "/images/p3.png",
-    technologies: [],
-    category: "personal",
-    liveURL: "",
-    githubURL: "",
-  },
-  {
-    id: 4,
-    title: "Blimp.gr",
-    img: "/images/p4.png",
-    technologies: [],
-    category: "client",
-    liveURL: "",
-    githubURL: "",
-  },
-  {
-    id: 5,
-    title: "Hawk Style Design",
-    description: "",
-    img: "/images/p5.png",
-    technologies: [],
-    category: "personal",
-    liveURL: "",
-    githubURL: "",
-  },
-  {
-    id: 6,
-    title: "Lewis",
-    description: "",
-    img: "/images/p6.png",
-    technologies: [],
-    category: "client",
-    liveURL: "",
-    githubURL: "",
-  },
-  {
-    id: 7,
-    title: "Sofi",
-    description: "",
-    img: "/images/p1.png",
-    technologies: [],
-    category: "personal",
-    liveURL: "",
-    githubURL: "",
-  },
-];
+export * from "./projects";
 
 export const testimonials: testimonialType[] = [
   {

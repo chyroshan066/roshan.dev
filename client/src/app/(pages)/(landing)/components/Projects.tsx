@@ -1,8 +1,11 @@
-import { ProjectCarousel } from ".//ProjectCarousel";
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TitleHeader } from "@/components/blocks/TitleHeader";
+import { lazy, Suspense } from 'react';
+import { memo } from 'react';
 
-export const Projects = () => {
+const ProjectCarousel = lazy(() => import('./ProjectCarousel'));  // lazy-loading requires default export
+
+export const Projects = memo(() => {
     return <>
         <section
             id="projects"
@@ -24,9 +27,15 @@ export const Projects = () => {
 
                 </div>
                 <div className="md:mt-20 mt-10">
-                    <ProjectCarousel />
+
+                    <Suspense fallback={<div>Loading projects...</div>}>
+                        <ProjectCarousel />
+                    </Suspense>
+
                 </div>
             </div>
         </section>
     </>;
-}
+});
+
+Projects.displayName = "Projects";
