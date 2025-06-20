@@ -1,52 +1,84 @@
 "use client";
 
-import Alien from "@/components/models/Alien"
 import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { useEffect, useRef, useState } from "react"
+import { Suspense, useMemo } from "react";
+import dynamic from "next/dynamic";
+
+// dynamic loading is just like the lazy loading but with additional parameters
+const Alien = dynamic(() => import("@/components/models/Alien"), {
+    ssr: false, // Disable SSR for 3D components
+});
+
+const LoadingFallback: React.FC = () => (
+    <div className="w-full h-full flex items-center justify-center bg-gray-900">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white"></div>
+    </div>
+);
 
 export const AlienExperience: React.FC = () => {
-    const [canvasKey, setCanvasKey] = useState(0)
-    const mountedRef = useRef(true)
+    const canvasConfig = useMemo(() => ({
+        gl: {
+            antialias: true,
+            preserveDrawingBuffer: false, // Disable to improve performance
+            powerPreference: "high-performance" as const,
+            alpha: true, // Disable alpha for better performance, makes background opaque
+            depth: true, // Enable depth buffer. Setting "true" allows object to be behind or infront of each other i.e; allows 3D layering
+            stencil: false, // Disable stencil buffer for performance. "Stencil" defines area where you can/cannot paint
+            premultipliedAlpha: false, // Disable for better performance. Setting "premultipliedAlpha" to faslse allows you to mix color during painting and setting it to "true" allows you to pre-mix color with transparency.
+        },
+        dpr: [1, 2] as [number, number],
+        flat: true, // Disable tone mapping for better performance. Enhance colors if set to "false" and gives natural or unprocessed colors if set to "true"
+    }), []);
 
-    useEffect(() => {
-        // Force single render in strict mode
-        if (mountedRef.current) {
-            mountedRef.current = false
-            return
-        }
-
-        // Reset canvas on unmount/remount
-        setCanvasKey(prev => prev + 1)
-    }, [])
-
-    return (
-        <Canvas
-            key={canvasKey} // Force new Canvas instance
-            gl={{
-                antialias: false,
-                preserveDrawingBuffer: true, // Prevent context loss
-                powerPreference: "high-performance"
-            }}
-            dpr={[1, 2]}
-        >
-            <ambientLight intensity={0.5} />
+    const lightingSetup = useMemo(() => (
+        <>
+            <ambientLight
+                intensity={0.4}
+                color="#ffffff"
+            />
             <directionalLight
                 position={[10, 10, 5]}
-                intensity={1}
+                intensity={0.8}
+                castShadow={false}
+                color="#ffffff"
             />
+            {/* hemisphereLight creates environmental lighting */}
+            <hemisphereLight
+                args={["#ffffff", "#444444", 0.3]}
+            />
+        </>
+    ), []);
 
-            <OrbitControls
-                enableZoom={false}
-                enablePan={false}
-                dampingFactor={0.05}
-                enableDamping
-            />
-            <Alien
-                scale={2}
-                position={[0, -5.5, 0]}
-                rotation={[0, -0.5, 0]}
-            />
-        </Canvas>
-    )
-}
+    const orbitControlsConfig = useMemo(() => ({
+        enableZoom: false,
+        enablePan: false,
+        dampingFactor: 0.05,
+        enableDamping: true,
+        enableRotate: true,
+        autoRotate: false,
+        maxPolarAngle: Math.PI / 2, // Limit vertical rotation
+        minPolarAngle: Math.PI / 4, // Limit vertical rotation
+        rotateSpeed: 0.5, // Slower rotation for better UX
+    }), []);
+
+    const alienConfig = useMemo(() => ({
+        scale: 2,
+        position: [0, -5.5, 0] as [number, number, number],
+        rotation: [0, -0.5, 0] as [number, number, number],
+    }), []);
+
+    return (
+        <div className="w-full h-full relative">
+            <Canvas {...canvasConfig}>
+                <Suspense fallback={null}>
+                    {lightingSetup}
+
+                    <OrbitControls {...orbitControlsConfig} />
+
+                    <Alien {...alienConfig} />
+                </Suspense>
+            </Canvas>
+        </div>
+    );
+};
