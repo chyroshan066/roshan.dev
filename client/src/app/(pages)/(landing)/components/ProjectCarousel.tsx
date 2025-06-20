@@ -4,10 +4,21 @@ import { projects } from "@/constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
-import { useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-export const ProjectCarousel = () => {
+export const ProjectCarousel = memo(() => {
     const [currentSlide, setCurrentSlide] = useState(0);
+
+    useEffect(() => {
+        // Preload next/previous images
+        const preloadImage = (src: string) => {
+            const img = new window.Image();
+            img.src = src;
+        };
+
+        if (projects[currentSlide + 1]) preloadImage(projects[currentSlide + 1].img);
+        if (projects[currentSlide - 1]) preloadImage(projects[currentSlide - 1].img);
+    }, [currentSlide]);
 
     const prevSlide = () => {
         setCurrentSlide((prev) => (prev - 1 + (projects.length - 1)) % (projects.length - 1));
@@ -18,12 +29,13 @@ export const ProjectCarousel = () => {
     };
 
     useGSAP(() => {
-        gsap.to(".slider-item", {
+        gsap.to(`.slider-item`, {
             x: `-${currentSlide * 63}vw`,
             opacity: 1,
             duration: 1.2,
             ease: "expo.out",
         });
+
         gsap.fromTo(`.slider-item:nth-child(${currentSlide + 2}) img`, {
             scale: 2,
         }, {
@@ -47,9 +59,12 @@ export const ProjectCarousel = () => {
                                 <div className="relative w-full h-full aspect-square">
                                     <Image
                                         src={project.img}
-                                        alt="slide"
+                                        alt={project.title}
                                         fill
                                         className="object-cover object-center"
+                                        priority={index === currentSlide} // Priority for current slide
+                                        loading={Math.abs(index - currentSlide) <= 1 ? "eager" : "lazy"} // Eager load adjacent slides
+                                        sizes="(max-width: 768px) 60vw, (max-width: 1024px) 60vw, 60vw"
                                     />
                                 </div>
                                 {/* Project name with links */}
@@ -139,4 +154,6 @@ export const ProjectCarousel = () => {
             </div>
         </div>
     </>;
-}
+});
+
+ProjectCarousel.displayName = 'ProjectCarousel';
