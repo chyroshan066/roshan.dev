@@ -1,33 +1,11 @@
-import { certificateType2, eduactionType, footerIconListType, serviceType, workExperienceType } from "@/types";
+import { certificateType2, eduactionType, serviceType, workExperienceType } from "@/types";
 
 export * from "./nav-links";
 export * from "./social-links";
 export * from "./tech-icons";
 export * from "./projects";
 export * from "./testimonials";
-
-export const footerIconsList: footerIconListType[] = [
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/chyroshan066/",
-    icon: "/images/footer-icons/b-fb.svg",
-  },
-  {
-    name: "Github",
-    href: "https://github.com/chyroshan066",
-    icon: "/images/footer-icons/b-github.svg",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: "/images/footer-icons/b-linked.svg",
-  },
-  {
-    name: "WhatsApp",
-    href: "https://web.whatsapp.com/",
-    icon: "/images/footer-icons/b-whatsapp.svg",
-  },
-];
+export * from "./footer-icons";
 
 export const workExperiences: workExperienceType[] = [
   {
