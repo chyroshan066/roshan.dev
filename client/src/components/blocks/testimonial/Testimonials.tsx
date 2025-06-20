@@ -1,6 +1,9 @@
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
-import { TestimonialCarousel } from "@/components/blocks/testimonial/TestimonialCarousel";
+// import { TestimonialCarousel } from "@/components/blocks/testimonial/TestimonialCarousel";
 import { TitleHeader } from "@/components/blocks/TitleHeader";
+import { lazy } from "react";
+
+const TestimonialCarousel = lazy(() => import("@/components/blocks/testimonial/TestimonialCarousel"));
 
 export const Testimonials = () => {
     return <>
@@ -12,6 +15,7 @@ export const Testimonials = () => {
             <GradientSpheres
                 sphere1Class={"testimonial-gradient-sphere testimonial-sphere-1"}
                 sphere2Class={"testimonial-gradient-sphere testimonial-sphere-2"}
+
             />
 
             <div className="w-full h-full container relative z-10 ">

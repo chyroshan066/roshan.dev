@@ -7,7 +7,7 @@ import { useState, useCallback, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { TestimonialCard } from "./TestimonialCard";
 
-export const TestimonialCarousel = () => {
+const TestimonialCarousel = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
     const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -125,4 +125,4 @@ export const TestimonialCarousel = () => {
     </>;
 }
 
-
+export default TestimonialCarousel;

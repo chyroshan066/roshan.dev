@@ -3,7 +3,7 @@ import { Loader } from "@/components/Loader";
 import { About } from "./components/About";
 import { Hero } from "./components/Hero";
 import { Projects } from "./components/Projects";
-import { Testimonials } from "@/sections/Testimonials";
+import { Testimonials } from "@/components/blocks/testimonial/Testimonials";
 import { TechStack } from "@/components/blocks/tech/TechStack";
 
 export default function Home() {
