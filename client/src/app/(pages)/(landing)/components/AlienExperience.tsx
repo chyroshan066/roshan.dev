@@ -31,10 +31,14 @@ export const AlienExperience: React.FC = () => {
             dpr={[1, 2]}
         >
             <ambientLight intensity={0.5} />
-            <directionalLight position={[10, 10, 5]} intensity={1} />
+            <directionalLight
+                position={[10, 10, 5]}
+                intensity={1}
+            />
 
             <OrbitControls
                 enableZoom={false}
+                enablePan={false}
                 dampingFactor={0.05}
                 enableDamping
             />
