@@ -1,29 +1,9 @@
-import { bentoSocialLinkType, certificateType2, eduactionType, footerIconListType, iconsListType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
+import { certificateType2, eduactionType, footerIconListType, iconsListType, projectType, serviceType, testimonialType, workExperienceType } from "@/types";
 
 export * from "./nav-links";
+export * from "./social-links";
 
-export const bentoSocialLinks: bentoSocialLinkType[] = [
-  {
-    name: "Facebook",
-    href: "https://www.facebook.com/chyroshan066/",
-    icon: "/images/social-icons/fb.svg",
-  },
-  {
-    name: "Github",
-    href: "https://github.com/chyroshan066",
-    icon: "/images/tech-icons/github.svg",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: "/images/social-icons/linkedin.svg",
-  },
-  {
-    name: "WhatsApp",
-    href: "https://web.whatsapp.com/",
-    icon: "/images/social-icons/whatsapp.svg",
-  },
-];
+
 
 export const iconsList: iconsListType[] = [
   {
