@@ -14,12 +14,6 @@ export type iconsListType = {
     image: string;
 }
 
-// export type slideType = {
-//     id: number;
-//     title: string;
-//     img: string;
-// }
-
 export type projectType = {
     id: number;
     title: string;
