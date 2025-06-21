@@ -1,7 +1,13 @@
 import { LinkButton } from "@/components/buttons/LinkButton";
 import { TitleHeader } from "@/components/blocks/TitleHeader";
+import { memo } from "react";
 
-export const MoreInfo = () => {
+const MoreInfo = memo(() => {
+    const QUOTE_DATA = {
+        text: "First, solve the problem. Then, write the code.",
+        author: "John Johnson"
+    } as const;
+
     return (
         <div className="max-w-6xl mx-auto grid grid-cols-12 gap-8 items-center p-8">
             <div className="col-span-12 text-white space-y-6">
@@ -22,9 +28,9 @@ export const MoreInfo = () => {
 
                 <div className="bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-xl py-4 px-6 mt-8">
                     <blockquote className="text-pink-100 text-lg italic font-medium">
-                        "First, solve the problem. Then, write the code."
+                        {QUOTE_DATA.text}
                     </blockquote>
-                    <cite className="text-gray-400 text-sm block mt-2">— John Johnson</cite>
+                    <cite className="text-gray-400 text-sm block mt-2">— {QUOTE_DATA.author}</cite>
                 </div>
 
                 <div className="flex flex-wrap gap-4 mt-8">
@@ -44,4 +50,8 @@ export const MoreInfo = () => {
             </div>
         </div>
     );
-};
+});
+
+MoreInfo.displayName = "MoreInfo";
+
+export default MoreInfo;

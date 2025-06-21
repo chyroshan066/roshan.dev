@@ -1,5 +1,7 @@
+import { lazy } from "react";
 import { AboutExperience } from "./AboutExperience";
-import { MoreInfo } from "./MoreInfo";
+
+const MoreInfo = lazy(() => import('./MoreInfo'));
 
 export const AboutHero = () => {
     return <>
