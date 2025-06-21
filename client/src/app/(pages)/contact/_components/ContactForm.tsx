@@ -23,14 +23,21 @@ export const ContactForm = () => {
         message: z.string().nonempty("Message is required"),
     });
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting, isValid, isDirty }
+    } = useForm({
         defaultValues: initialValues,
         resolver: zodResolver(ContactFormSchema),
+        mode: "onChange", // Enable real-time validation for better UX
     });
 
     useEffect(() => {
 
     }, [errors]);
+
+    const isButtonDisabled = isSubmitting || !isValid || !isDirty;
 
     return <>
         <div className="flex-center">
@@ -51,6 +58,7 @@ export const ContactForm = () => {
                         id="name"
                         placeholder="John Doe"
                         className="input"
+                        disabled={isSubmitting}
                     />
                     {errors.name && (<span className="text-red-500">{errors.name.message}</span>)}
                 </div>
@@ -67,6 +75,7 @@ export const ContactForm = () => {
                         id="email"
                         placeholder="example@gmail.com"
                         className="input"
+                        disabled={isSubmitting}
                     />
                     {errors.email && (<span className="text-red-500">{errors.email.message}</span>)}
                 </div>
@@ -83,6 +92,7 @@ export const ContactForm = () => {
                         id="subject"
                         placeholder="Enter your subject"
                         className="input"
+                        disabled={isSubmitting}
                     />
                     {errors.subject && (<span className="text-red-500">{errors.subject.message}</span>)}
                 </div>
@@ -99,12 +109,14 @@ export const ContactForm = () => {
                         placeholder="Enter your message"
                         rows={5}
                         className="input resize-none"
+                        disabled={isSubmitting}
                     />
                     {errors.message && (<span className="text-red-500">{errors.message.message}</span>)}
                 </div>
 
                 <SubmitButton
-                    btnText={"Send Message"}
+                    btnText={isSubmitting ? "Sending..." : "Send Message"}
+                    disabled={isButtonDisabled}
                 />
 
             </form>
