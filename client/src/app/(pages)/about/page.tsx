@@ -1,10 +1,10 @@
 import { Education } from "./_components/Education";
 import { WorkExperience } from "./_components/WorkExperience";
 import { Certificate } from "./_components/Certificate";
-import { Testimonials } from "@/components/blocks/testimonial/Testimonials";
 import { CallToAction } from "@/components/blocks/CallToAction";
 import { AboutHero } from "./_components/AboutHero";
-import { TechStack } from "@/components/blocks/tech/TechStack";
+import TechStack from "@/components/blocks/tech/TechStack";
+import Testimonials from "@/components/blocks/testimonial/Testimonials";
 
 export default function About() {
     return <>

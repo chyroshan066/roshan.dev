@@ -6,10 +6,7 @@ import dynamic from 'next/dynamic';
 const About = dynamic(() => import('./components/About'));
 const Projects = dynamic(() => import('./components/Projects'));
 const Testimonials = dynamic(() => import('@/components/blocks/testimonial/Testimonials'));
-
-const TechStack = dynamic(() => import('@/components/blocks/tech/TechStack'), {
-  loading: () => <div className="h-32 animate-pulse bg-gray-200" />
-});
+const TechStack = dynamic(() => import('@/components/blocks/tech/TechStack'));
 
 export default function Home() {
   return (
