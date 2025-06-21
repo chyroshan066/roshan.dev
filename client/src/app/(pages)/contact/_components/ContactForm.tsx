@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
-import { SubmitButton } from "@/components/buttons/SubmitButton";
+import { SubmitButton } from "@/components/blocks/buttons/SubmitButton";
 
 export const ContactForm = () => {
     const initialValues: formType = {

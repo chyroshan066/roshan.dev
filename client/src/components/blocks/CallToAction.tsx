@@ -1,6 +1,6 @@
-import { LinkButton } from '@/components/buttons/LinkButton';
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { memo, useMemo } from 'react';
+import { LinkButton } from './buttons/LinkButton';
 
 export const CallToAction = memo(() => {
     const titleProps = useMemo(() => ({

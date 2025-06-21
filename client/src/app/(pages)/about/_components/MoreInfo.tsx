@@ -1,4 +1,4 @@
-import { LinkButton } from "@/components/buttons/LinkButton";
+import { LinkButton } from "@/components/blocks/buttons/LinkButton";
 import { TitleHeader } from "@/components/blocks/TitleHeader";
 import { memo } from "react";
 
