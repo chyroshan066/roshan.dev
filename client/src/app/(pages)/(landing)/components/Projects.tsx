@@ -5,7 +5,7 @@ import { memo } from 'react';
 
 const ProjectCarousel = lazy(() => import('./ProjectCarousel'));  // lazy-loading requires default export
 
-export const Projects = memo(() => {
+const Projects = memo(() => {
     return <>
         <section
             id="projects"
@@ -39,3 +39,5 @@ export const Projects = memo(() => {
 });
 
 Projects.displayName = "Projects";
+
+export default Projects;

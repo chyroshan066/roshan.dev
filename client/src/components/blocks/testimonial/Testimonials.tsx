@@ -5,7 +5,7 @@ import { lazy } from "react";
 
 const TestimonialCarousel = lazy(() => import("@/components/blocks/testimonial/TestimonialCarousel"));
 
-export const Testimonials = () => {
+const Testimonials = () => {
     return <>
         <section
             id="testimonials"
@@ -33,4 +33,6 @@ export const Testimonials = () => {
             </div>
         </section>
     </>;
-}
+};
+
+export default Testimonials;

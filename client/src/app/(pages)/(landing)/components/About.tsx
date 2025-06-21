@@ -79,7 +79,7 @@ const SocialLinkCard = memo(({ item }: { item: bentoSocialLinkType }) => (
     </div>
 ));
 
-export const About = () => {
+const About = () => {
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -207,3 +207,5 @@ export const About = () => {
 }
 
 About.displayName = 'About';
+
+export default About;

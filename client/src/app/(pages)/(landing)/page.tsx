@@ -1,10 +1,15 @@
 import { CallToAction } from "@/components/blocks/CallToAction";
 import { Loader } from "@/components/Loader";
-import { About } from "./components/About";
 import { Hero } from "./components/Hero";
-import { Projects } from "./components/Projects";
-import { Testimonials } from "@/components/blocks/testimonial/Testimonials";
-import { TechStack } from "@/components/blocks/tech/TechStack";
+import dynamic from 'next/dynamic';
+
+const About = dynamic(() => import('./components/About'));
+const Projects = dynamic(() => import('./components/Projects'));
+const Testimonials = dynamic(() => import('@/components/blocks/testimonial/Testimonials'));
+
+const TechStack = dynamic(() => import('@/components/blocks/tech/TechStack'), {
+  loading: () => <div className="h-32 animate-pulse bg-gray-200" />
+});
 
 export default function Home() {
   return (

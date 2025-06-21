@@ -3,7 +3,7 @@ import { TechIcon } from "./TechIcon";
 import { TitleHeader } from "../TitleHeader";
 import { memo, useMemo } from 'react';
 
-export const TechStack = memo(() => {
+const TechStack = memo(() => {
     const duplicatedIcons = useMemo(() => {
         return [...iconsList, ...iconsList];
     }, []);
@@ -57,3 +57,5 @@ export const TechStack = memo(() => {
 });
 
 TechStack.displayName = 'TechStack';
+
+export default TechStack;
