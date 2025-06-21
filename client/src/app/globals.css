@@ -1,29 +1,18 @@
 @import "tailwindcss";
 
-@layer base{
-  @font-face {
-    font-family: "aeonik";
-    src: url("./fonts/Aeonik-Light.ttf") format("truetype");
-    font-weight: 300;
-    font-style: normal;
+@layer base {
+  html, body{
+  width: 100dvw;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background-color: var(--color-black-100);
+  color: var(--color-primary);
   }
-  @font-face {
-    font-family: "aeonik";
-    src: url("./fonts/Aeonik-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "aeonik";
-    src: url("./fonts/Aeonik-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "aeonik";
-    src: url("./fonts/Aeonik-Black.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
+
+  section{
+    width: 100dvw;
+    min-height: 100dvh;
   }
 }
 
@@ -45,20 +34,6 @@
   --color-primary: #a7a7a7;
 }
 
-html, body{
-  width: 100dvw;
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  background-color: var(--color-black-100);
-  color: var(--color-primary);
-}
-
-section{
-  width: 100dvw;
-  min-height: 100dvh;
-}
-
 @layer components {
   .label {
     @apply block text-white md:text-2xl font-semibold mb-2;
@@ -74,11 +49,14 @@ section{
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    will-change: transform;
   }
   .gradient-border {
     border-radius: 20px;
     position: relative;
     overflow: hidden;
+    contain: layout style paint; /* CSS containment for better performance */
   }
   .gradient-border::before {
     content: "";
@@ -91,10 +69,10 @@ section{
       #fdfdfd 0%,
       rgba(253, 253, 253, 0) 100%
     ); /* Gradient colors */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,  /* "linear-gradient(#fff 0 0) content-box" - Creates a white mask that only covers the content-box area (excluding padding). */
+      linear-gradient(#fff 0 0);  /* "linear-gradient(#fff 0 0)" - Creates another white mask that covers the entire element (including padding) */
+    -webkit-mask-composite: destination-out;  /* Subtracts the first mask from the second mask */
+    mask-composite: exclude;  /* Same effect as destination-out */
   }
   .gradient-box {
     background: rgb(11, 6, 32);
@@ -111,6 +89,8 @@ section{
     height: 700px;
     border-radius: 50%;
     filter: blur(200px);
+    will-change: transform;
+    contain: layout style paint;
   }
   .sphere-1 {
     background: radial-gradient(circle, #ff28d5, #ff28d5);
@@ -124,13 +104,15 @@ section{
     right: 300px;
     animation: wander-right 12s ease-in-out infinite;
   }
-  /* tech stack */
+  /* About Section */
   .about-gradient-sphere {
     position: absolute;
     width: 400px;
     height: 400px;
     border-radius: 50%;
     filter: blur(200px);
+    will-change: transform;
+    contain: layout style paint;
   }
   .about-sphere-1 {
     background: radial-gradient(circle, #ff28d5, #ff28d5);
@@ -143,21 +125,27 @@ section{
     bottom: 100px;
     right: 50px;
   }
+  .gradient-box,
+  .tech-stack-gradient-left-box,
+  .tech-stack-gradient-right-box,
+  .carousel-gradient-left-box,
+  .carousel-gradient-right-box {
+    contain: layout style paint;
+  }
+  /* Tech Stack */
   .tech-stack-gradient-left-box {
-    background: rgb(11, 6, 32);
     background: linear-gradient(
       90deg,
       rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0.6601234243697479) 53%,
+      rgba(11, 6, 32, 0.66) 53%,
       rgba(16, 11, 51, 0) 100%
     );
   }
   .tech-stack-gradient-right-box {
-    background: rgb(11, 6, 32);
     background: linear-gradient(
       -90deg,
       rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0.6601234243697479) 53%,
+      rgba(11, 6, 32, 0.66) 53%,
       rgba(16, 11, 51, 0) 100%
     );
   }
@@ -166,6 +154,7 @@ section{
     width: 100dvw;
     overflow: hidden;
     position: relative;
+    contain: layout style paint;
   }
   .marquee-box {
     display: flex;
@@ -175,6 +164,7 @@ section{
     position: absolute;
     overflow: hidden;
     animation: marquee 60s linear infinite;
+    will-change: transform;
   }
   .marquee-item {
     float: left;
@@ -199,12 +189,15 @@ section{
     animation: shine 1s forwards;
   }
   /* projects */
-  .projects-gradient-sphere {
+  .projects-gradient-sphere,
+  .testimonial-gradient-sphere {
     position: absolute;
     width: 500px;
     height: 500px;
     border-radius: 50%;
     filter: blur(150px);
+    will-change: transform;
+    contain: layout style paint;
   }
   .projects-sphere-1 {
     background: radial-gradient(circle, #ff28d5, #ff28d5);
@@ -218,31 +211,20 @@ section{
   }
   /* carousel */
   .carousel-gradient-left-box {
-    background: rgb(11, 6, 32);
     background: linear-gradient(
       90deg,
       rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0) 100%,
       rgba(11, 6, 32, 0) 100%
     );
   }
   .carousel-gradient-right-box {
-    background: rgb(11, 6, 32);
     background: linear-gradient(
       -90deg,
       rgba(11, 6, 32, 1) 0%,
-      rgba(11, 6, 32, 0) 100%,
       rgba(11, 6, 32, 0) 100%
     );
   }
   /* testimonial */
-  .testimonial-gradient-sphere {
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    filter: blur(150px);
-  }
   .testimonial-sphere-1 {
     background: radial-gradient(circle, #ff28d5, #ff28d5);
     bottom: 300px;
@@ -259,10 +241,12 @@ section{
     border-bottom: 1px solid rgba(255, 255, 255, 0.01);
     background: rgba(23, 21, 31, 0.7);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   .tech-icon {
     filter: brightness(0) saturate(100%) invert(16%) sepia(100%) saturate(7471%) hue-rotate(232deg) brightness(106%) contrast(106%);
     transition: filter 0.3s ease;
+    will-change: filter;
   }
   .features-list {
     transition: all 1s ease-in-out;
@@ -271,25 +255,25 @@ section{
 
 @keyframes wander-left {
   0% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
   }
   50% {
     transform: translateX(-20vw) translateY(50vh);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
   }
 }
 
 @keyframes wander-right {
   0% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
   }
   50% {
     transform: translateX(30vw) translateY(-50vh);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
   }
 }
 @keyframes rotate {
@@ -301,18 +285,18 @@ section{
   }
 }
 
-@keyframes shine {
-  100% {
-    transform: rotateZ(60deg) translate(1em, -15em);
+@keyframes marquee {
+   0% { 
+    transform: translateX(0); 
+  }
+  100% { 
+    transform: translateX(-100%); 
   }
 }
 
-@keyframes marquee {
-  0% {
-    left: 0;
-  }
+@keyframes shine {
   100% {
-    left: -100%;
+    transform: rotateZ(60deg) translate(1em, -15em);
   }
 }
 
@@ -331,5 +315,16 @@ section{
 @media screen and (min-width: 1024px) {
   .testimonial-card:nth-of-type(even) {
     transform: translateY(70px);
+  }
+}
+
+/* Prefers-reduced-motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
