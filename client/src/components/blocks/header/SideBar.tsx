@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { usePathname } from "next/navigation";
 import { navLinks } from "@/constants";
 
-export const SideBar = () => {
+const SideBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
     const sideBarRef = useRef<HTMLDivElement>(null);
@@ -148,3 +148,5 @@ export const SideBar = () => {
         </div >
     );
 };
+
+export default SideBar;

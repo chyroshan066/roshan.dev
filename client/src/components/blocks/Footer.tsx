@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Logo } from "./Logo";
 import { memo } from "react";
 
-export const Footer = memo(() => {
+const Footer = memo(() => {
     return <>
         <div className="w-full flex-center flex-col md:gap-10 gap-7 bg-black-300 py-10">
 
@@ -41,3 +41,5 @@ export const Footer = memo(() => {
 });
 
 Footer.displayName = "Footer";
+
+export default Footer;
