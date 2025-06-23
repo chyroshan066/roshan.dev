@@ -311,6 +311,15 @@
   }
 }
 
+@keyframes shrink {
+  from { 
+    transform: scaleX(1); 
+  }
+  to { 
+    transform: scaleX(0); 
+  }
+}
+
 /* tablet */
 @media screen and (min-width: 1024px) {
   .testimonial-card:nth-of-type(even) {

@@ -12,7 +12,6 @@ const NavItem = memo(({
     link: { name: string; href: string },
     isActive: boolean
 }) => {
-    // Memoize CSS classes to prevent recalculation
     const containerClasses = useMemo(() =>
         `relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform after:ease-in-out after:duration-300 ${isActive
             ? 'after:bg-blue-400 after:scale-x-100 after:origin-bottom-left'
@@ -44,7 +43,6 @@ NavItem.displayName = 'NavItem';
 export const NavBar: React.FC = () => {
     const pathname = usePathname();
 
-    // Memoize active states calculation
     const navItemsWithActiveState = useMemo(() =>
         navLinks.map(link => ({
             ...link,

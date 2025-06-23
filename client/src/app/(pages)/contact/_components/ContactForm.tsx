@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useMemo } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { formType } from "@/types";
 import { onSubmit } from "@/utils/formData";
 import { useForm } from "react-hook-form";
@@ -8,6 +8,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { SubmitButton } from "@/components/blocks/buttons/SubmitButton";
+import { Alert } from "@/components/blocks/Alert";
 
 const ContactFormSchema = z.object({
     name: z.string().min(1, "Name is required"),
@@ -45,6 +46,13 @@ type FormFieldProps = {
     disabled?: boolean;
     isTextarea?: boolean;
 };
+
+type AlertState = {
+    isVisible: boolean;
+    type: "success" | "error" | "warning" | "info";
+    title?: string;
+    message: string;
+}
 
 const FormField = memo(({
     id,
@@ -84,6 +92,12 @@ const FormField = memo(({
 FormField.displayName = "FormField";
 
 export const ContactForm = memo(() => {
+    const [alertState, setAlertState] = useState<AlertState>({
+        isVisible: false,
+        type: "success",
+        message: "",
+    });
+
     const {
         register,
         handleSubmit,
@@ -95,14 +109,51 @@ export const ContactForm = memo(() => {
         mode: "onChange", // Enable real-time validation for better UX
     });
 
+    const showAlert = useCallback((
+        type: AlertState["type"],
+        message: string,
+        title?: string
+    ) => {
+        setAlertState({
+            isVisible: true,
+            type,
+            message,
+            title,
+        });
+    }, []);
+
+    const hideAlert = useCallback(() => {
+        setAlertState(prev => ({
+            ...prev,
+            isVisible: false,
+        }));
+    }, []);
+
     const handleFormSubmit = useCallback(async (data: formType) => {
         try {
             await onSubmit(data);
+
+            showAlert(
+                "success",
+                "Your message has been sent successfully! I'll get back to you soon.",
+                "Message Sent!"
+            );
+
             reset(initialValues);
         } catch (error) {
+            const errorMessage = error instanceof Error
+                ? error.message
+                : "Something went wrong while sending your message. Please try again.";
+
+            showAlert(
+                "error",
+                errorMessage,
+                "Sending Failed"
+            );
+
             console.error('Form submission error:', error);
         }
-    }, [reset]);
+    }, [reset, showAlert]);
 
     const onFormSubmit = useCallback(handleSubmit(handleFormSubmit), [handleSubmit]);
 
@@ -117,6 +168,17 @@ export const ContactForm = memo(() => {
     );
 
     return <>
+        <Alert
+            type={alertState.type}
+            title={alertState.title}
+            message={alertState.message}
+            isVisible={alertState.isVisible}
+            onDismiss={hideAlert}
+            autoDismiss={true}
+            autoDismissDelay={6000}
+            className="sm:max-w-md"
+        />
+
         <div className="flex-center">
             <form
                 onSubmit={onFormSubmit}

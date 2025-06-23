@@ -116,7 +116,7 @@ const SideBar = () => {
             {/* Sidebar */}
             <div
                 ref={sideBarRef}
-                className="side-bar-bg fixed top-0 right-0 h-full w-80 z-40 transform translate-x-full opacity-0"
+                className="side-bar-bg fixed top-0 right-0 h-full w-80 z-60 transform translate-x-full opacity-0"
                 role="navigation"
                 aria-label="Mobile navigation"
             >
