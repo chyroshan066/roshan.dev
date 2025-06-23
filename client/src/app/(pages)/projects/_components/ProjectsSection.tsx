@@ -8,7 +8,6 @@ import { projects } from '@/constants';
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { GradientSpheres } from '@/components/blocks/GradientSphere';
-import dynamic from 'next/dynamic';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -97,7 +96,7 @@ const ProjectCard = memo(({
 
 ProjectCard.displayName = "ProjectCard";
 
-export const ProjectsSection: React.FC = () => {
+const ProjectsSection: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'all' | 'personal' | 'client'>('all');
     const [isAnimating, setIsAnimating] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -258,3 +257,5 @@ export const ProjectsSection: React.FC = () => {
         </section>
     );
 };
+
+export default ProjectsSection;

@@ -48,7 +48,7 @@ const ErrorFallback = ({ error, componentName }: { error: Error; componentName: 
 );
 
 export const metadata: Metadata = {
-    title: "About Me | Roshan Chaudhary",
+    title: "About | Roshan Chaudhary",
     description: "Learn about my journey as a full-stack developer, including my work experience, education, certifications, and technical skills. Discover my passion for creating innovative web solutions.",
     keywords: [
         "full stack developer",
