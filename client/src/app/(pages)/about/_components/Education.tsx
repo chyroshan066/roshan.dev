@@ -85,7 +85,7 @@ const calculateTooltipPosition = (item: any, dotElement: HTMLElement) => {
     };
 };
 
-export const Education = memo(() => {
+const Education = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<null | number>(null);
     const [tooltipStyles, setTooltipStyles] = useState<{ [key: number]: React.CSSProperties }>({});
@@ -300,3 +300,5 @@ export const Education = memo(() => {
 });
 
 Education.displayName = "Education";
+
+export default Education;

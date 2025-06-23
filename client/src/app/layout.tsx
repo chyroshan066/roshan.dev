@@ -40,15 +40,21 @@ const SideBar = dynamic(() => import('@/components/blocks/header/SideBar'), {
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Roshan Chaudhary | FullStack Developer",
   description: "Roshan - Personal Portfolio Website",
-  keywords: "portfolio, developer, web developer, full-stack developer, frontend-developer, react, next.js, node.js, express.js, postgres, prisma, typescript, javascript",
+  keywords: [
+    "portfolio",
+    "developer",
+    "web developer",
+    "full-stack developer",
+    "frontend-developer"
+  ],
   authors: [{ name: "Roshan" }],
   creator: "Roshan",
   robots: "index, follow", // Search engine will ndex this page and follow its links
   //Open Graph controls how your webpage looks when shared on social media platforms
   openGraph: {
-    title: "Portfolio",
+    title: "Roshan Chaudhary | FullStack Developer",
     description: "Roshan - Personal Portfolio Website",
     type: "website",
     locale: "en_US",

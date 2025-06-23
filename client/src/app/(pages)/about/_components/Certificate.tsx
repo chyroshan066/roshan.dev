@@ -88,7 +88,7 @@ const CertificateCard = memo(({
 
 CertificateCard.displayName = 'CertificateCard';
 
-export const Certificate: React.FC = () => {
+const Certificate: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
     const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -256,3 +256,5 @@ export const Certificate: React.FC = () => {
         </section>
     );
 };
+
+export default Certificate;

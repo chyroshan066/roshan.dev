@@ -11,7 +11,7 @@ export function ContactAvatar(props) {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
-  const {animations } = useFBX("/models/Wave Hip Hop Dance.fbx");
+  const {animations } = useFBX("/models/Wave_Hip_Hop_Dance.fbx");
   animations[0].name = "Dance";
   const action = useAnimations(animations, group);
 

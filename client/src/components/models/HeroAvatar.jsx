@@ -21,7 +21,7 @@ export const HeroAvatar = memo(function HeroAvatar(props) {
   const mousePosition = useRef(new THREE.Vector2());
   const lastMouseUpdate = useRef(0);
 
-  const {animations } = useFBX("/models/Male Standing Pose.fbx");
+  const {animations } = useFBX("/models/Male_Standing_Pose.fbx");
   animations[0].name = "Dance";
   const { actions } = useAnimations(animations, group);
   

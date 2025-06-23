@@ -2,7 +2,7 @@ import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { memo, useMemo } from 'react';
 import { LinkButton } from './buttons/LinkButton';
 
-export const CallToAction = memo(() => {
+const CallToAction = memo(() => {
     const titleProps = useMemo(() => ({
         title: "Let's Build Something Extraordinary Together 🚀",
         text: "Every extraordinary project starts with a shared vision. I bring full-stack expertise and creative problem-solving to teams ready to push boundaries. Whether you're launching something new or reimagining what's possible—let's combine our talents and create magic.",
@@ -30,3 +30,5 @@ export const CallToAction = memo(() => {
 });
 
 CallToAction.displayName = "CallToAction";
+
+export default CallToAction;

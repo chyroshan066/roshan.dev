@@ -11,7 +11,7 @@ export function AboutAvatar(props) {
   const clone = React.useMemo(() => SkeletonUtils.clone(scene), [scene])
   const { nodes, materials } = useGraph(clone)
 
-  const {animations } = useFBX("/models/Male Sitting Pose.fbx");
+  const {animations } = useFBX("/models/Male_Sitting_Pose.fbx");
   animations[0].name = "Sit";
   const action = useAnimations(animations, group);
 

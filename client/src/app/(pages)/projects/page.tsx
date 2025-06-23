@@ -1,4 +1,4 @@
-import { CallToAction } from "@/components/blocks/CallToAction";
+import CallToAction from "@/components/blocks/CallToAction";
 import { ProjectsSection } from "./_components/ProjectsSection";
 
 export default function Projects() {

@@ -1,7 +1,7 @@
-import { CallToAction } from "@/components/blocks/CallToAction";
 import { Loader } from "@/components/Loader";
 import { Hero } from "./components/Hero";
 import dynamic from 'next/dynamic';
+import CallToAction from "@/components/blocks/CallToAction";
 
 const About = dynamic(() => import('./components/About'));
 const Projects = dynamic(() => import('./components/Projects'));
