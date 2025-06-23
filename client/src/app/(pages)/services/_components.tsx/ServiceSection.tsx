@@ -157,7 +157,7 @@ const ServiceCard = memo<{
 
 ServiceCard.displayName = 'ServiceCard';
 
-export const ServicesSection: React.FC = () => {
+const ServicesSection: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
     const titleRef = useRef<HTMLHeadingElement>(null);
     const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -320,3 +320,5 @@ export const ServicesSection: React.FC = () => {
         </section>
     );
 };
+
+export default ServicesSection;
