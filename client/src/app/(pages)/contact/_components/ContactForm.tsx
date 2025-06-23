@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useCallback, useMemo } from "react";
 import { formType } from "@/types";
 import { onSubmit } from "@/utils/formData";
 import { useForm } from "react-hook-form";
@@ -8,24 +9,85 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { SubmitButton } from "@/components/blocks/buttons/SubmitButton";
 
-export const ContactForm = () => {
-    const initialValues: formType = {
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    };
+const ContactFormSchema = z.object({
+    name: z.string().min(1, "Name is required"),
+    email: z.string().min(1, "Email is required").email("Invalid email"),
+    subject: z.string().min(1, "Subject is required"),
+    message: z.string().min(1, "Message is required"),
+});
 
-    const ContactFormSchema = z.object({
-        name: z.string().nonempty("Name is required"),
-        email: z.string().nonempty("Email is required").email("Invalid email"),
-        subject: z.string().nonempty("Subject is required"),
-        message: z.string().nonempty("Message is required"),
-    });
+const initialValues: formType = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+};
 
+const ErrorMessage = memo(({
+    message
+}: {
+    message?: string
+}) => {
+    if (!message) return null;
+    return <span className="text-red-500 text-sm mt-1 block">{message}</span>;
+});
+
+ErrorMessage.displayName = "ErrorMessage";
+
+type FormFieldProps = {
+    id: string;
+    label: string;
+    placeholder: string;
+    type?: string;
+    rows?: number;
+    register: any;
+    error?: string;
+    disabled?: boolean;
+    isTextarea?: boolean;
+};
+
+const FormField = memo(({
+    id,
+    label,
+    placeholder,
+    type = "text",
+    rows,
+    register,
+    error,
+    disabled,
+    isTextarea = false
+}: FormFieldProps) => {
+    const InputComponent = isTextarea ? "textarea" : "input";
+
+    return (
+        <div>
+            <label
+                htmlFor={id}
+                className="label"
+            >
+                {label}
+            </label>
+            <InputComponent
+                {...register(id)}
+                type={isTextarea ? undefined : type}
+                id={id}
+                placeholder={placeholder}
+                rows={isTextarea ? rows : undefined}
+                className={`input ${isTextarea ? 'resize-none' : ''}`}
+                disabled={disabled}
+            />
+            <ErrorMessage message={error} />
+        </div>
+    );
+});
+
+FormField.displayName = "FormField";
+
+export const ContactForm = memo(() => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors, isSubmitting, isValid, isDirty }
     } = useForm({
         defaultValues: initialValues,
@@ -33,93 +95,81 @@ export const ContactForm = () => {
         mode: "onChange", // Enable real-time validation for better UX
     });
 
-    useEffect(() => {
+    const handleFormSubmit = useCallback(async (data: formType) => {
+        try {
+            await onSubmit(data);
+            reset(initialValues);
+        } catch (error) {
+            console.error('Form submission error:', error);
+        }
+    }, [reset]);
 
-    }, [errors]);
+    const onFormSubmit = useCallback(handleSubmit(handleFormSubmit), [handleSubmit]);
 
-    const isButtonDisabled = isSubmitting || !isValid || !isDirty;
+    const isButtonDisabled = useMemo(
+        () => isSubmitting || !isValid || !isDirty,
+        [isSubmitting, isValid, isDirty]
+    );
+
+    const buttonText = useMemo(
+        () => isSubmitting ? "Sending..." : "Send Message",
+        [isSubmitting]
+    );
 
     return <>
         <div className="flex-center">
             <form
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={onFormSubmit}
                 className="w-full text-[#a7a7a7] flex flex-col gap-7"
+                noValidate // Disable browser validation since we're using Zod
             >
-                <div>
-                    <label
-                        htmlFor="name"
-                        className="label"
-                    >
-                        Name
-                    </label>
-                    <input
-                        {...register("name")}
-                        type="text"
-                        id="name"
-                        placeholder="John Doe"
-                        className="input"
-                        disabled={isSubmitting}
-                    />
-                    {errors.name && (<span className="text-red-500">{errors.name.message}</span>)}
-                </div>
-                <div>
-                    <label
-                        htmlFor="email"
-                        className="label"
-                    >
-                        Email address
-                    </label>
-                    <input
-                        {...register("email")}
-                        type="text"
-                        id="email"
-                        placeholder="example@gmail.com"
-                        className="input"
-                        disabled={isSubmitting}
-                    />
-                    {errors.email && (<span className="text-red-500">{errors.email.message}</span>)}
-                </div>
-                <div>
-                    <label
-                        htmlFor="subject"
-                        className="label"
-                    >
-                        Subject
-                    </label>
-                    <input
-                        {...register("subject")}
-                        type="text"
-                        id="subject"
-                        placeholder="Enter your subject"
-                        className="input"
-                        disabled={isSubmitting}
-                    />
-                    {errors.subject && (<span className="text-red-500">{errors.subject.message}</span>)}
-                </div>
-                <div>
-                    <label
-                        htmlFor="message"
-                        className="label"
-                    >
-                        Message
-                    </label>
-                    <textarea
-                        {...register("message")}
-                        id="message"
-                        placeholder="Enter your message"
-                        rows={5}
-                        className="input resize-none"
-                        disabled={isSubmitting}
-                    />
-                    {errors.message && (<span className="text-red-500">{errors.message.message}</span>)}
-                </div>
+                <FormField
+                    id="name"
+                    label="Name"
+                    placeholder="John Doe"
+                    register={register}
+                    error={errors.name?.message}
+                    disabled={isSubmitting}
+                />
+
+                <FormField
+                    id="email"
+                    label="Email address"
+                    type="email"
+                    placeholder="example@gmail.com"
+                    register={register}
+                    error={errors.email?.message}
+                    disabled={isSubmitting}
+                />
+
+                <FormField
+                    id="subject"
+                    label="Subject"
+                    placeholder="Enter your subject"
+                    register={register}
+                    error={errors.subject?.message}
+                    disabled={isSubmitting}
+                />
+
+                <FormField
+                    id="message"
+                    label="Message"
+                    placeholder="Enter your message"
+                    isTextarea={true}
+                    rows={5}
+                    register={register}
+                    error={errors.message?.message}
+                    disabled={isSubmitting}
+                />
 
                 <SubmitButton
-                    btnText={isSubmitting ? "Sending..." : "Send Message"}
+                    btnText={buttonText}
                     disabled={isButtonDisabled}
                 />
 
             </form>
         </div>
     </>;
-}
+});
+
+ContactForm.displayName = "ContactForm";
