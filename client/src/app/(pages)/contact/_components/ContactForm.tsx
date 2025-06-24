@@ -182,7 +182,7 @@ export const ContactForm = memo(() => {
         <div className="flex-center">
             <form
                 onSubmit={onFormSubmit}
-                className="w-full text-[#a7a7a7] flex flex-col gap-7"
+                className="w-full text-[#a7a7a7] flex flex-col gap-7 md:pr-0 pr-4"
                 noValidate // Disable browser validation since we're using Zod
             >
                 <FormField

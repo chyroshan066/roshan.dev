@@ -71,7 +71,7 @@ const Scene = () => {
     );
 };
 
-export const ContactExperience = () => {
+const ContactExperience = () => {
     return (
         <div className="w-full h-full">
 
@@ -84,3 +84,5 @@ export const ContactExperience = () => {
         </div>
     );
 };
+
+export default ContactExperience;
