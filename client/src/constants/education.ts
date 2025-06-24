@@ -1,10 +1,10 @@
-import { eduactionType } from "@/types";
+import { Education } from "@/types";
 
 const startedYear = 2007;
 const currentYear = new Date().getFullYear();
 const totalAcademicTime = currentYear - startedYear;
 
-export const education: eduactionType[] = [
+export const education: Education[] = [
   {
       id: 1,
       degree: "Bachelor in Engineering",

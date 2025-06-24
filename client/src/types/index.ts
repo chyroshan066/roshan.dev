@@ -1,104 +1,127 @@
-export type navLinkType = {
-    name: string;
-    href: string;
+export type Status = 'Active' | 'Inactive' | 'Pending' | 'Completed' | 'Ongoing';
+export type Category = 'personal' | 'client';
+
+interface BaseItem {
+  id: number;
+  title?: string;
+  description?: string;
 }
 
-export type bentoSocialLinkType = {
-    name: string;
-    href: string;
-    icon: string;
+interface BaseLink {
+  name: string;
+  href: string;
 }
 
-export type iconsListType = {
-    name: string;
-    image: string;
+interface BasePerson {
+  name: string;
 }
 
-export type projectType = {
-    id: number;
-    title: string;
-    description?: string;
-    img: string;
-    technologies?: string[];
-    category?: 'personal' | 'client';
-    liveURL?: string;
-    githubURL?: string;
+interface SocialLinks {
+  linkedinUrl?: string;
+  facebookUrl?: string;
+  instagramUrl?: string;
+  tiktokUrl?: string;
+  xUrl?: string;
 }
 
-export type testimonialType = {
-    name: string;
-    pos: string;
-    review: string;
-    imgPath: string;
-    linkedinUrl?: string;
-    facebookUrl?: string;
-    instagramUrl?: string;
-    tiktokUrl?: string;
-    xUrl?: string;
+export interface NavLink extends BaseLink {}
+
+export interface BentoSocialLink extends BaseLink {
+  icon: string;
 }
 
-export type footerIconListType = {
-    name: string;
-    href: string;
-    icon: string;
+export interface IconsList {
+  name: string;
+  image: string;
 }
 
-export type formType = {
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
+export interface FooterIconList extends BaseLink {
+  icon: string;
 }
 
-type certificateType = {
-    name: string;
-    color: string;
+export interface Technology {
+  name: string;
+  icon: string;
+  color?: string;
 }
 
-export type workExperienceType = {
-    id: number;
-    title: string
-    company: string
-    period: string
-    status: string
-    logo: "🏛️",
-    details: string[];
-    certificates: certificateType[];
+export interface Project extends BaseItem {
+  img: string;
+  technologies?: readonly string[]; // readonly for better performance
+  category?: Category;
+  liveURL?: string;
+  githubURL?: string;
 }
 
-export type eduactionType = {
-    id: number;
-    degree: string;
-    institution: string;
-    duration: string;
-    status: string;
-    description: string;
-    year: string;
-    position: number;
+export interface Certificate {
+  id?: number;
+  name?: string;
+  title?: string;
+  organization?: string;
+  date?: string;
+  image?: string;
+  color?: string;
+  description?: string;
+  credentialUrl?: string;
 }
 
-export type certificateType2 = {
-    id: number;
-    title: string;
-    organization: string;
-    date: string;
-    image: string;
-    description?: string;
-    credentialUrl?: string;
+export interface WorkExperience extends BaseItem {
+  company: string;
+  period: string;
+  status: string;
+  logo: "🏛️";
+  details: readonly string[];
+  certificates: readonly Certificate[];
 }
 
-type Technology = {
-    name: string;
-    icon: string;
-    color?: string;
+export interface Education extends BaseItem {
+  degree: string;
+  institution: string;
+  duration: string;
+  status: Status;
+  year: string;
+  position: number;
 }
 
-export type serviceType = {
-    id: number;
-    title: string;
-    description: string;
-    features: string[];
-    technologies: Technology[];
-    icon: string;
+export interface Service extends BaseItem {
+  features: readonly string[];
+  technologies: readonly Technology[];
+  icon: string;
 }
 
+export interface Testimonial extends BasePerson, SocialLinks {
+  pos: string;
+  review: string;
+  imgPath: string;
+}
+
+export interface ContactForm extends BasePerson {
+  email: string;
+  subject: string;
+  message: string;
+}
+
+// Type guards for runtime type checking (optional but useful)
+export const isProject = (obj: any): obj is Project => {
+  return typeof obj === 'object' && 
+         typeof obj.id === 'number' && 
+         typeof obj.title === 'string' &&
+         typeof obj.img === 'string';
+};
+
+export const isValidEmail = (email: string): boolean => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+// Utility types for better type inference
+export type ProjectKeys = keyof Project;
+export type RequiredProject = Required<Pick<Project, 'id' | 'title' | 'img'>>;
+export type OptionalProject = Partial<Pick<Project, 'description' | 'technologies' | 'category' | 'liveURL' | 'githubURL'>>;
+
+// Union types for better performance with literal types
+export type SocialPlatform = 'linkedin' | 'facebook' | 'instagram' | 'tiktok' | 'x';
+export type FileExtension = 'jpg' | 'jpeg' | 'png' | 'webp' | 'svg';
+
+// Const assertions for better tree shaking
+export const PROJECT_CATEGORIES = ['personal', 'client'] as const;
+export const STATUS_OPTIONS = ['active', 'inactive', 'pending', 'completed'] as const;

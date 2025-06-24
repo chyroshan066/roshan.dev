@@ -1,6 +1,6 @@
-import { footerIconListType } from "@/types";
+import { FooterIconList } from "@/types";
 
-export const footerIconsList: footerIconListType[] = [
+export const footerIconsList: FooterIconList[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",

@@ -1,6 +1,6 @@
-import { projectType } from "@/types";
+import { Project } from "@/types";
 
-export const projects: projectType[] = [
+export const projects: Project[] = [
   {
     id: 1,
     title: "Sofi",

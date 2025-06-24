@@ -1,6 +1,6 @@
-import { testimonialType } from "@/types";
+import { Testimonial } from "@/types";
 
-export const testimonials: testimonialType[] = [
+export const testimonials: Testimonial[] = [
   {
     name: "Emily Carter",
     pos: "UX Designer at PixelWorks Studio",

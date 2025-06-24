@@ -1,6 +1,6 @@
-import { certificateType2 } from "@/types";
+import { Certificate } from "@/types";
 
-export const certificates: certificateType2[] = [
+export const certificates: Certificate[] = [
   {
       id: 1,
       title: 'Complete Intro to SQL & postgreSQL',

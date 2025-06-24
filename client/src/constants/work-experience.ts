@@ -1,6 +1,6 @@
-import { workExperienceType } from "@/types";
+import { WorkExperience } from "@/types";
 
-export const workExperiences: workExperienceType[] = [
+export const workExperiences: WorkExperience[] = [
   {
     id: 1,
     title: "Technical Coordinator",

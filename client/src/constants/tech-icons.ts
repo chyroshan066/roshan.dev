@@ -1,6 +1,6 @@
-import { iconsListType } from "@/types";
+import { IconsList } from "@/types";
 
-export const iconsList: iconsListType[] = [
+export const iconsList: IconsList[] = [
   {
     name: "HTML",
     image: "/images/tech-icons/html.svg",

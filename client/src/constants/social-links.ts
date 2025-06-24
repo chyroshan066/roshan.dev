@@ -1,6 +1,6 @@
-import { bentoSocialLinkType } from "@/types";
+import { BentoSocialLink } from "@/types";
 
-export const bentoSocialLinks: bentoSocialLinkType[] = [
+export const bentoSocialLinks: BentoSocialLink[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",
