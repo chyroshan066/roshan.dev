@@ -1,10 +1,13 @@
+"use client";
+
 import { BentoSocialLink } from "@/types";
+import { FacebookLogoIcon, LinkedinLogoIcon, WhatsappLogoIcon } from '@phosphor-icons/react';
 
 export const bentoSocialLinks: BentoSocialLink[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",
-    icon: "/images/social-icons/fb.svg",
+    icon: <FacebookLogoIcon size={47} color="#a7a7a7" weight="bold" />,
   },
   {
     name: "Github",
@@ -14,11 +17,11 @@ export const bentoSocialLinks: BentoSocialLink[] = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: "/images/social-icons/linkedin.svg",
+    icon: <LinkedinLogoIcon size={47} color="#a7a7a7" weight="bold" />,
   },
   {
     name: "WhatsApp",
     href: "https://web.whatsapp.com/",
-    icon: "/images/social-icons/whatsapp.svg",
+    icon: <WhatsappLogoIcon size={47} color="#a7a7a7" weight="bold" />,
   },
 ];

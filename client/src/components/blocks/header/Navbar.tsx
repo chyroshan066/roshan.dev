@@ -31,6 +31,7 @@ const NavItem = memo(({
             <Link
                 className={linkClasses}
                 href={link.href}
+                prefetch={link.href === "/"}
             >
                 {link.name}
             </Link>

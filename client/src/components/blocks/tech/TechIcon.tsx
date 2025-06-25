@@ -1,6 +1,6 @@
 "use client";
 
-import { iconsListType } from "@/types";
+import { IconsList } from "@/types";
 import Image from "next/image";
 import { memo } from "react";
 import { useInView } from "react-intersection-observer";
@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 export const TechIcon = memo(({
     icon
 }: {
-    icon: iconsListType
+    icon: IconsList
 }) => {
     // "ref" is used as a reference that must be attached to the DOM element you want to observe
     // "inView" is a boolean that tells you whether the element is currently visible in the viewport
@@ -26,14 +26,18 @@ export const TechIcon = memo(({
                 <>
                     <div className="md:w-32 md:h-32 w-20 h-20 bg-black-300 flex-center gradient-border hover:translate-y-[-12px] transition-all duration-700 marquee-item flex-none">
                         <div className="relative md:size-16 size-10 aspect-square">
-                            <Image
-                                src={icon.image}
-                                alt={icon.name}
-                                fill
-                                sizes="(max-width: 768px) 40px, 64px"
-                                priority={false}
-                                quality={85}
-                            />
+                            {typeof icon.image === "string" ? (
+                                <Image
+                                    src={icon.image}
+                                    alt={icon.name}
+                                    fill
+                                    sizes="(max-width: 768px) 40px, 64px"
+                                    priority={false}
+                                    quality={85}
+                                />
+                            ) : (
+                                icon.image
+                            )}
                         </div>
                     </div>
 

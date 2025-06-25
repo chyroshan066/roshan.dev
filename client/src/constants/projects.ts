@@ -71,3 +71,9 @@ export const projects: Project[] = [
     githubURL: "",
   },
 ];
+
+export const projectsMetadata = {
+  total: projects.length,
+  categories: [...new Set(projects.map(p => p.category))],
+  technologies: [...new Set(projects.flatMap(p => p.technologies))],
+} as const;

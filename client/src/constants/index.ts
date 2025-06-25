@@ -3,7 +3,6 @@ export * from "./social-links";
 export * from "./tech-icons";
 export * from "./projects";
 export * from "./testimonials";
-export * from "./footer-icons";
 export * from "./work-experience";
 export * from "./education";
 export * from "./certificates";

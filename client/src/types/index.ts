@@ -1,5 +1,8 @@
-export type Status = 'Active' | 'Inactive' | 'Pending' | 'Completed' | 'Ongoing';
+import React from "react";
+
+export type Status = 'Active' | 'Inactive' | 'Pending';
 export type Category = 'personal' | 'client';
+export type EducationStatus = 'Completed' | 'Ongoing';
 
 interface BaseItem {
   id: number;
@@ -24,25 +27,27 @@ interface SocialLinks {
   xUrl?: string;
 }
 
-export interface NavLink extends BaseLink {}
+export interface NavLink extends BaseLink {
+  prefetch: boolean;
+  preload?: boolean;
+}
 
 export interface BentoSocialLink extends BaseLink {
-  icon: string;
+  icon: string | React.ReactElement;
 }
 
 export interface IconsList {
   name: string;
-  image: string;
+  image: string | React.ReactElement;
 }
 
 export interface FooterIconList extends BaseLink {
-  icon: string;
+  icon: React.ReactElement | string;
 }
 
 export interface Technology {
   name: string;
-  icon: string;
-  color?: string;
+  icon: string | React.ReactElement;
 }
 
 export interface Project extends BaseItem {
@@ -63,6 +68,8 @@ export interface Certificate {
   color?: string;
   description?: string;
   credentialUrl?: string;
+  skills: string[];
+  category: string;
 }
 
 export interface WorkExperience extends BaseItem {
@@ -77,10 +84,14 @@ export interface WorkExperience extends BaseItem {
 export interface Education extends BaseItem {
   degree: string;
   institution: string;
-  duration: string;
-  status: Status;
-  year: string;
+  status: EducationStatus;
+  startYear: number;
+  endYear: number;
   position: number;
+  level: string;
+  field: string;
+  achievements: string[];
+  isOngoing: boolean;
 }
 
 export interface Service extends BaseItem {
@@ -95,7 +106,7 @@ export interface Testimonial extends BasePerson, SocialLinks {
   imgPath: string;
 }
 
-export interface ContactForm extends BasePerson {
+export interface ContactType extends BasePerson {
   email: string;
   subject: string;
   message: string;

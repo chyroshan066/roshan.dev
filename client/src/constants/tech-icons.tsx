@@ -1,4 +1,7 @@
+"use client";
+
 import { IconsList } from "@/types";
+import { FigmaLogoIcon } from "@phosphor-icons/react";
 
 export const iconsList: IconsList[] = [
   {
@@ -31,16 +34,16 @@ export const iconsList: IconsList[] = [
   },
   {
     name: "Figma",
-    image: "/images/tech-icons/figma.svg",
+    image: <FigmaLogoIcon className="md:size-16 size-10" color="#a7a7a7" weight="bold" />,
   },
   {
     name: "React",
     image: "/images/tech-icons/react.svg",
   },
-  {
-    name: "next",
-    image: "https://www.svgrepo.com/show/368858/nextjs.svg",
-  },
+  // {
+  //   name: "next",
+  //   image: "",
+  // },
   {
     name: "Redux Toolkit",
     image: "/images/tech-icons/redux.svg",

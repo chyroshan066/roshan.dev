@@ -10,8 +10,8 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { memo, lazy, Suspense } from "react";
-import { bentoSocialLinkType } from "@/types";
 import { AlienExperience } from "./AlienExperience";
+import { BentoSocialLink } from "@/types";
 
 // Lazy load the Alien component since it's heavy 3D content
 const Alien = lazy(() => import("@/components/models/Alien"));
@@ -44,23 +44,26 @@ const ServiceCard = memo(({
     </div>
 ));
 
-const SocialLinkCard = memo(({ item }: { item: bentoSocialLinkType }) => (
+const SocialLinkCard = memo(({ item }: { item: BentoSocialLink }) => (
     <div className="md:col-span-4 col-span-12 row-span-2">
         <div className="bg-black-300 rounded-2xl p-7 w-full h-full group cursor-pointer">
             <a
                 href={item.href}
                 target="_blank"
-                rel="noopener noreferrer" // Added for security
+                rel="noopener noreferrer"
             >
                 <div className="flex justify-between items-center h-full">
                     <div className="flex items-center md:gap-5">
-                        <Image
-                            src={item.icon}
-                            alt={item.name}
-                            width={47}
-                            height={47}
-                            loading="lazy"
-                        />
+                        {typeof item.icon === "string" ? (
+                            <Image
+                                src={item.icon}
+                                alt={item.name}
+                                width={47}
+                                height={47}
+                                loading="lazy"
+                            />) : (
+                            item.icon
+                        )}
                         <h1 className="gradient-title md:text-3xl text-xl md:m-0 ms-5 font-medium">{item.name}</h1>
                     </div>
                     <div className="lg:block md:hidden group-hover:translate-x-2 group-hover:-translate-y-1 group-hover:[filter:brightness(0)_saturate(100%)_invert(27%)_sepia(96%)_saturate(6916%)_hue-rotate(221deg)_brightness(91%)_contrast(105%)] transition-all duration-300">

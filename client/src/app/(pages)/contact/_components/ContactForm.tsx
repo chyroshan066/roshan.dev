@@ -1,7 +1,6 @@
 "use client";
 
 import { memo, useCallback, useMemo, useState } from "react";
-import { formType } from "@/types";
 import { onSubmit } from "@/utils/formData";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -9,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 import { SubmitButton } from "@/components/blocks/buttons/SubmitButton";
 import { Alert } from "@/components/blocks/Alert";
+import { ContactType } from "@/types";
 
 const ContactFormSchema = z.object({
     name: z.string().min(1, "Name is required"),
@@ -17,7 +17,7 @@ const ContactFormSchema = z.object({
     message: z.string().min(1, "Message is required"),
 });
 
-const initialValues: formType = {
+const initialValues: ContactType = {
     name: "",
     email: "",
     subject: "",
@@ -129,7 +129,7 @@ export const ContactForm = memo(() => {
         }));
     }, []);
 
-    const handleFormSubmit = useCallback(async (data: formType) => {
+    const handleFormSubmit = useCallback(async (data: ContactType) => {
         try {
             await onSubmit(data);
 

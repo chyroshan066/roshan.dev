@@ -78,7 +78,10 @@ const ServiceCard = memo<{
                     <div className="mb-8">
                         <ul className="space-y-3 features-list">
                             {visibleFeatures.map((feature: string, featureIndex: number) => (
-                                <li key={featureIndex} className="flex items-center text-gray-300">
+                                <li
+                                    key={featureIndex}
+                                    className="flex items-center text-gray-300"
+                                >
                                     <div className="w-1.5 h-1.5 bg-blue-50 rounded-full mr-3 group-hover:bg-blue-300 transition-colors duration-300" />
                                     <span className="text-sm font-medium">{feature}</span>
                                 </li>
@@ -112,16 +115,20 @@ const ServiceCard = memo<{
                                 className="group/tech flex items-center gap-2 px-3 py-2 bg-black-300 text-gray-300 rounded-lg text-xs font-medium border border-gray-700 hover:border-blue-300/50 hover:text-blue-50 transition-all duration-300 cursor-default hover:bg-gray-700/50"
                             >
                                 <div className="relative w-4 h-4 flex-shrink-0 aspect-square">
-                                    <Image
-                                        src={tech.icon}
-                                        alt={tech.name}
-                                        fill
-                                        className="object-contain tech-icon"
-                                        onError={handleImageError}
-                                        priority={index < 3}
-                                        sizes="16px"
-                                        loading={index < 3 ? 'eager' : 'lazy'}
-                                    />
+                                    {typeof tech.icon === "string" ? (
+                                        <Image
+                                            src={tech.icon}
+                                            alt={tech.name}
+                                            fill
+                                            className="object-contain tech-icon"
+                                            onError={handleImageError}
+                                            priority={index < 3}
+                                            sizes="16px"
+                                            loading={index < 3 ? 'eager' : 'lazy'}
+                                        />
+                                    ) : (
+                                        tech.icon
+                                    )}
                                     <span className="hidden text-xs">
                                         {tech.name.charAt(0).toUpperCase()}
                                     </span>
@@ -208,30 +215,6 @@ const ServicesSection: React.FC = () => {
                     },
                     "-=0.9"
                 );
-
-            const cardContainer = sectionRef.current?.querySelector('.grid');
-            if (cardContainer) {
-                const handleMouseEvent = (e: Event) => {
-                    const card = (e.target as Element).closest('.group');
-                    if (card && cardsRef.current.includes(card as HTMLDivElement)) {
-                        const isEnter = e.type === 'mouseenter';
-                        gsap.to(card, {
-                            y: isEnter ? -10 : 0,
-                            scale: isEnter ? 1.02 : 1,
-                            duration: 0.4,
-                            ease: "power2.out"
-                        });
-                    }
-                };
-
-                cardContainer.addEventListener('mouseenter', handleMouseEvent, true);
-                cardContainer.addEventListener('mouseleave', handleMouseEvent, true);
-
-                return () => {
-                    cardContainer.removeEventListener('mouseenter', handleMouseEvent, true);
-                    cardContainer.removeEventListener('mouseleave', handleMouseEvent, true);
-                };
-            }
 
             // Batch card animations
             cardsRef.current.forEach((card, index) => {

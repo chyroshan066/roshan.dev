@@ -188,7 +188,7 @@ const Education = memo(() => {
                 >
                     <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 animate-ping opacity-20" />
                     <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-white font-bold text-sm md:text-base whitespace-nowrap">
-                        {item.year}
+                        {item.endYear}
                     </div>
                 </div>
             </div>
@@ -236,7 +236,7 @@ const Education = memo(() => {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center text-gray-400 text-sm">
                             <span className="mr-2">📅</span>
-                            <span>{item.duration}</span>
+                            <span>{item.startYear} - {item.endYear}</span>
                         </div>
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${item.status === 'Ongoing'
                             ? 'bg-green-500/20 text-green-400 border border-green-500/30'
