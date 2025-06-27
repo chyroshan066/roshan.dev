@@ -1,7 +1,10 @@
+"use client";
+
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
 import { memo } from "react";
+import { ArrowDownIcon, ArrowFatLinesDownIcon } from "@phosphor-icons/react";
 
 export const Hero: React.FC = memo(() => {
     return <>
@@ -28,15 +31,14 @@ export const Hero: React.FC = memo(() => {
                         <div className="flex justify-between items-end">
                             <div className="flex flex-col items-center md:gap-5 gap-1">
                                 <p className="md:text-base text-xs">Explore</p>
-                                <div className="relative size-7 aspect-square will-change-transform">
-                                    <Image
-                                        src="/images/arrowdown.svg"
-                                        alt="arrowdown"
-                                        fill
+                                <div className="will-change-transform">
+
+                                    <ArrowDownIcon
+                                        size={28}
                                         className="animate-bounce"
-                                        priority
-                                        sizes="28px"  // Added: explicit sizes for better optimization
+                                        weight="bold"
                                     />
+
                                 </div>
                             </div>
                             <div className="flex flex-col items-end">

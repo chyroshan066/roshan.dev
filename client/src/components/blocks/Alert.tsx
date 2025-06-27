@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useEffect, useState } from "react";
-import { X, CheckCircle, AlertCircle, Info, AlertTriangle } from "lucide-react";
+import { BugIcon, CheckCircleIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 
 type AlertType = "success" | "error" | "warning" | "info";
 
@@ -17,10 +17,10 @@ type AlertProps = {
 }
 
 const alertIcons = {
-    success: CheckCircle,
-    error: AlertCircle,
-    warning: AlertTriangle,
-    info: Info,
+    success: CheckCircleIcon,
+    error: BugIcon,
+    warning: WarningIcon,
+    info: InfoIcon,
 } as const;
 
 const alertStyles = {
@@ -146,7 +146,12 @@ export const Alert = memo(({
                     className={`${styles.closeButton} flex-shrink-0 p-1 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-transparent focus:ring-current cursor-pointer`}
                     aria-label="Dismiss alert"
                 >
-                    <X size={20} className="cursor-pointer" />
+
+                    <XIcon
+                        size={20}
+                        className="cursor-pointer"
+                    />
+
                 </button>
             </div>
 

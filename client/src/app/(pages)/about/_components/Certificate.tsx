@@ -7,6 +7,7 @@ import { GradientSpheres } from '@/components/blocks/GradientSphere';
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
+import { ArrowSquareUpRightIcon, CalendarIcon } from '@phosphor-icons/react';
 
 const CertificateCard = memo(({
     cert,
@@ -54,9 +55,13 @@ const CertificateCard = memo(({
                         {cert.organization}
                     </span>
                     <div className="flex items-center text-slate-400 text-sm">
-                        <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
-                        </svg>
+
+                        <CalendarIcon
+                            size={16}
+                            weight='bold'
+                            className='mr-1'
+                        />
+
                         <time dateTime={cert.date}>{cert.date}</time>
                     </div>
                 </div>
@@ -76,9 +81,13 @@ const CertificateCard = memo(({
                         aria-label={`View credential for ${cert.title}`}
                     >
                         View Credential
-                        <svg className="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
-                        </svg>
+
+                        <ArrowSquareUpRightIcon
+                            size={16}
+                            weight='bold'
+                            className='ml-2'
+                        />
+
                     </a>
                 )}
             </div>
@@ -239,6 +248,7 @@ const Certificate: React.FC = () => {
 
                 <div className="text-center mt-16">
                     <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-6 animate-pulse">
+
                         <svg
                             className="w-8 h-8 text-white"
                             fill="currentColor"
@@ -247,6 +257,7 @@ const Certificate: React.FC = () => {
                         >
                             <path d="M5 16L3 21l5.5-2L12 21l3.5-2L21 21l-2-5m-2-3.5A2.5 2.5 0 0 1 14.5 15A2.5 2.5 0 0 1 12 12.5A2.5 2.5 0 0 1 14.5 10A2.5 2.5 0 0 1 17 12.5M7 12.5A2.5 2.5 0 0 1 9.5 15A2.5 2.5 0 0 1 7 12.5A2.5 2.5 0 0 1 9.5 10A2.5 2.5 0 0 1 12 12.5M12 7a5 5 0 0 1 5 5v1a5 5 0 0 1-10 0v-1a5 5 0 0 1 5-5z" />
                         </svg>
+
                     </div>
                     <p className="text-slate-400 text-lg">
                         Continuously learning and growing in the world of web development

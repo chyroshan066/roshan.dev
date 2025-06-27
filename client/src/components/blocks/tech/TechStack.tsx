@@ -3,7 +3,6 @@
 import { TechIcon } from "./TechIcon";
 import { TitleHeader } from "../TitleHeader";
 import { memo, useMemo } from 'react';
-// import { iconsList } from "@/constants";
 import { FigmaLogoIcon } from "@phosphor-icons/react";
 import { IconsList } from "@/types";
 
@@ -105,28 +104,11 @@ const TechStack = memo(() => {
 
             {/* Tech Icons Display */}
             <div className="md:mt-20 mt-10 relative">
-                {/* <div className="marquee h-52 overflow-hidden">
-                    <div className="marquee-box md:gap-12 gap-5 flex"> */}
                 <div className="marquee-container overflow-hidden">
                     <div className="marquee-content flex md:gap-12 gap-5 animate-marquee">
-                        {/* {iconsList.map((icon, index) => (
 
-                            <TechIcon
-                                key={index}
-                                icon={icon}
-                            />
-
-                        ))}
-                        {iconsList.map((icon, index) => (
-
-                            <TechIcon
-                                key={index}
-                                icon={icon}
-                            />
-
-                        ))} */}
                         {iconComponents}
-                        {/* {iconComponents} */}
+
                     </div>
                 </div>
             </div>

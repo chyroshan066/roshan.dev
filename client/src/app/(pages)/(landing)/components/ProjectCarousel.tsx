@@ -2,6 +2,7 @@
 
 import { projects } from "@/constants";
 import { useGSAP } from "@gsap/react";
+import { ArrowUpRightIcon, CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 import gsap from "gsap";
 import Image from "next/image";
 import { memo, useEffect, useState } from "react";
@@ -71,7 +72,7 @@ const ProjectCarousel = memo(() => {
                                     <div className="relative w-full h-full aspect-square">
                                         <Image
                                             src={project.img}
-                                            alt={project.title}
+                                            alt={project.title ? project.title : `project-${index}`}
                                             fill
                                             className="object-cover object-center"
                                             priority={index === currentSlide}
@@ -117,13 +118,13 @@ const ProjectCarousel = memo(() => {
                                                     >
                                                         <span className="hidden sm:inline">Live</span>
                                                         <span className="sm:hidden">View</span>
-                                                        <div className="relative w-3 h-3 md:w-4 md:h-4 aspect-square group-hover:scale-110 transition-transform">
-                                                            <Image
-                                                                src="/images/arrowupright.svg"
-                                                                alt="external link"
-                                                                fill
-                                                                sizes="(max-width: 768px) 12px, 16px"
+                                                        <div className="group-hover:scale-110 transition-transform">
+
+                                                            <ArrowUpRightIcon
+                                                                className="w-3 h-3 md:w-4 md:h-4"
+                                                                color="#a7a7a7"
                                                             />
+
                                                         </div>
                                                     </a>
                                                 )}
@@ -137,24 +138,22 @@ const ProjectCarousel = memo(() => {
                 </div>
                 <div className="mt-10 text-white-50 flex justify-end gap-5 md:-translate-x-32 -translate-x-5">
                     <div className="rounded-full cursor-pointer bg-blue-50 hover:bg-pink-100 active:scale-90 transition-all w-12 h-12 flex-center opacity-50 pointer-events-none">
-                        <div className="relative w-5 h-5 aspect-square">
-                            <Image
-                                src="/images/CaretLeft.svg"
-                                alt="left"
-                                fill
-                                sizes="20px"
-                            />
-                        </div>
+
+                        <CaretLeftIcon
+                            size={20}
+                            color="#fff"
+                            weight="bold"
+                        />
+
                     </div>
                     <div className="rounded-full cursor-pointer bg-blue-50 hover:bg-pink-100 active:scale-90 transition-all w-12 h-12 flex-center opacity-50 pointer-events-none">
-                        <div className="relative w-5 h-5 aspect-square">
-                            <Image
-                                src="/images/CaretRight.svg"
-                                alt="right"
-                                fill
-                                sizes="20px"
-                            />
-                        </div>
+
+                        <CaretRightIcon
+                            size={20}
+                            color="#fff"
+                            weight="bold"
+                        />
+
                     </div>
                 </div>
             </div>
@@ -174,7 +173,7 @@ const ProjectCarousel = memo(() => {
                                 <div className="relative w-full h-full aspect-square">
                                     <Image
                                         src={project.img}
-                                        alt={project.title}
+                                        alt={project.title ? project.title : `project-${index}`}
                                         fill
                                         className="object-cover object-center"
                                         priority={index === currentSlide} // Priority for current slide
@@ -227,13 +226,13 @@ const ProjectCarousel = memo(() => {
                                                 >
                                                     <span className="hidden sm:inline">Live</span>
                                                     <span className="sm:hidden">View</span>
-                                                    <div className="relative w-3 h-3 md:w-4 md:h-4 aspect-square group-hover:scale-110 transition-transform">
-                                                        <Image
-                                                            src="/images/arrowupright.svg"
-                                                            alt="external link"
-                                                            fill
-                                                            sizes="(max-width: 768px) 12px, 16px"
+                                                    <div className="group-hover:scale-110 transition-transform">
+
+                                                        <ArrowUpRightIcon
+                                                            className="w-3 h-3 md:w-4 md:h-4"
+                                                            color="#a7a7a7"
                                                         />
+
                                                     </div>
                                                 </a>
                                             )}
@@ -252,27 +251,25 @@ const ProjectCarousel = memo(() => {
                     onClick={prevSlide}
                     className="rounded-full cursor-pointer bg-blue-50 hover:bg-pink-100 active:scale-90 transition-all w-12 h-12 flex-center"
                 >
-                    <div className="relative w-5 h-5 aspect-square">
-                        <Image
-                            src="/images/CaretLeft.svg"
-                            alt="left"
-                            fill
-                            sizes="20px"
-                        />
-                    </div>
+
+                    <CaretLeftIcon
+                        size={20}
+                        color="#fff"
+                        weight="bold"
+                    />
+
                 </div>
                 <div
                     onClick={nextSlide}
                     className="rounded-full cursor-pointer bg-blue-50 hover:bg-pink-100 active:scale-90 transition-all w-12 h-12 flex-center"
                 >
-                    <div className="relative w-5 h-5 aspect-square">
-                        <Image
-                            src="/images/CaretRight.svg"
-                            alt="right"
-                            fill
-                            sizes="20px"
-                        />
-                    </div>
+
+                    <CaretRightIcon
+                        size={20}
+                        color="#fff"
+                        weight="bold"
+                    />
+
                 </div>
             </div>
         </div>

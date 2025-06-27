@@ -8,6 +8,7 @@ import { GradientSpheres } from '@/components/blocks/GradientSphere';
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
+import { CaretDownIcon } from '@phosphor-icons/react';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -95,15 +96,13 @@ const ServiceCard = memo<{
                                 aria-label={isExpanded ? 'Show fewer features' : 'Show more features'}
                             >
                                 <span>{isExpanded ? 'See less' : 'See more'}</span>
-                                <svg
-                                    className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
+
+                                <CaretDownIcon
+                                    size={16}
+                                    weight='bold'
+                                    className={`transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                                />
+
                             </button>
                         )}
                     </div>
@@ -144,15 +143,13 @@ const ServiceCard = memo<{
                                 aria-label={isTechIconsExpanded ? 'Show fewer technologies' : 'Show more technologies'}
                             >
                                 <span className="text-xs font-medium">{isTechIconsExpanded ? 'See less' : 'See more'}</span>
-                                <svg
-                                    className={`w-4 h-4 transition-transform duration-300 ${isTechIconsExpanded ? 'rotate-180' : ''}`}
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
+
+                                <CaretDownIcon
+                                    size={16}
+                                    weight='bold'
+                                    className={`transition-transform duration-300 ${isTechIconsExpanded ? 'rotate-180' : ''}`}
+                                />
+
                             </button>
                         )}
                     </div>

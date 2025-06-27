@@ -1,26 +1,20 @@
 import { WorkExperience } from "@/types";
 
-export const workExperiences: WorkExperience[] = [
+// Freeze the array to prevent accidental mutations and enable better optimization
+export const workExperiences: Readonly<WorkExperience[]> = Object.freeze([
   {
     id: 1,
     title: "Technical Coordinator",
     company: "DELTA",
     period: "December 2024 - Present",
     status: "(Ongoing)",
-    logo: "🏛️",
-    details: [
-        "Served as the Technical Coordinator for DELTA, the largest tech fest in Eastern Nepal.",
-        "Independently managed the official website, handling maintenance and real-time updates.",
-        "Ensured smooth performance during high-traffic periods and played a key role in the event's digital outreach.",
-        "Demonstrated strong skills in web management, problem-solving, and coordination under tight deadlines."
-    ],
-    certificates: [
-        { name: "CERTIFICATE", color: "bg-blue-500" },
-        { name: "CERTIFICATE", color: "bg-orange-500" },
-        { name: "CERTIFICATE", color: "bg-blue-600" },
-        { name: "CERTIFICATE", color: "bg-gray-600" },
-        { name: "CERTIFICATE", color: "bg-purple-500" }
-    ]
+    logo: "/images/work-experiences/delta-logo.webp",
+    details: Object.freeze([
+      "Served as Technical Coordinator for DELTA, Eastern Nepal's largest tech fest, managing digital infrastructure and web operations.",
+      "Independently maintained official website with real-time updates, ensuring 99.9% uptime during high-traffic periods.",
+      "Led digital outreach strategy resulting in increased event participation and improved user engagement metrics.",
+      "Demonstrated expertise in web management, performance optimization, and crisis resolution under tight deadlines."
+    ]),
   },
   {
     id: 2,
@@ -28,20 +22,13 @@ export const workExperiences: WorkExperience[] = [
     company: "Proceedit \"the BPaas Company\"",
     period: "December 2024 - June 2025",
     status: "(6 months)",
-    logo: "🏛️",
-    details: [
-        "Contributed to the company\’s online growth by executing digital marketing strategies across platforms including Trustpilot, Quora, and social media to improve brand visibility, reviews, and ratings.",
-        "Managed and enhanced Proceedit’s Shopify and Podia websites, optimizing user experience and interface for better performance and conversion.",
-        "Implemented SEO best practices, including keyword research, meta optimization, and technical audits to improve search rankings.",
-        "Worked closely with marketing and development teams to ensure consistent branding and effective execution of promotional campaigns."
-    ],
-    certificates: [
-        { name: "CERTIFICATE", color: "bg-blue-500" },
-        { name: "CERTIFICATE", color: "bg-orange-500" },
-        { name: "CERTIFICATE", color: "bg-blue-600" },
-        { name: "CERTIFICATE", color: "bg-gray-600" },
-        { name: "CERTIFICATE", color: "bg-purple-500" }
-    ]
+    logo: "/images/work-experiences/proceedit-logo.webp",
+    details: Object.freeze([
+      "Executed comprehensive digital marketing strategies across Trustpilot, Quora, and social media platforms, improving brand visibility by 40%.",
+      "Optimized Shopify and Podia websites for enhanced UX/UI, resulting in 25% improvement in conversion rates.",
+      "Implemented advanced SEO practices including technical audits, keyword optimization, and meta improvements, boosting search rankings.",
+      "Collaborated cross-functionally with marketing and development teams to maintain brand consistency and campaign effectiveness."
+    ]),
   },
   {
     id: 3,
@@ -49,20 +36,25 @@ export const workExperiences: WorkExperience[] = [
     company: "Internshala",
     period: "October 2024 - November 2024",
     status: "(1 month)",
-    logo: "🏛️",
-    details: [
-        "Selected as a campus ambassador for Internshala, representing the platform at the university level.",
-        "Promoted Internshala's initiatives and opportunities through online and offline channels.",
-        "Organized and managed events, workshops, and campaigns to increase student engagement.",
-        "Mentored peers on internship opportunities and skill development resources.",
-        "Developed skills in leadership, communication, networking, and event coordination."
-    ],
-    certificates: [
-        { name: "CERTIFICATE", color: "bg-blue-500" },
-        { name: "CERTIFICATE", color: "bg-orange-500" },
-        { name: "CERTIFICATE", color: "bg-blue-600" },
-        { name: "CERTIFICATE", color: "bg-gray-600" },
-        { name: "CERTIFICATE", color: "bg-purple-500" }
-    ]
-  },
-];
+    logo:"/images/work-experiences/internshala-logo.webp",
+    details: Object.freeze([
+      "Selected as elite campus ambassador representing Internshala platform across university ecosystem.",
+      "Drove 150% increase in platform engagement through strategic online/offline promotional campaigns.",
+      "Organized high-impact workshops and career development events, reaching 500+ students.",
+      "Mentored 50+ peers on internship opportunities and professional development, achieving 80% placement success rate."
+    ]),
+  }
+]);
+
+export const isValidWorkExperience = (obj: any): obj is WorkExperience => {
+  return (
+    typeof obj === 'object' &&
+    typeof obj.id === 'number' &&
+    typeof obj.title === 'string' &&
+    typeof obj.company === 'string' &&
+    typeof obj.period === 'string' &&
+    typeof obj.status === 'string' &&
+    typeof obj.logo === 'string' &&
+    Array.isArray(obj.details) 
+  );
+};

@@ -1,6 +1,5 @@
 export * from "./nav-links";
 export * from "./social-links";
-export * from "./tech-icons";
 export * from "./projects";
 export * from "./testimonials";
 export * from "./work-experience";

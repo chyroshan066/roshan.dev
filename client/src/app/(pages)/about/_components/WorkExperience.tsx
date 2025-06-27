@@ -2,6 +2,7 @@
 
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { workExperiences } from '@/constants';
+import Image from 'next/image';
 import { useState, useCallback, useMemo, memo } from 'react';
 
 const WorkExperienceItem = memo(({
@@ -49,8 +50,12 @@ const WorkExperienceItem = memo(({
         >
             <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-blue-300 rounded-lg flex items-center justify-center text-xl">
-                        {experience.logo}
+                    <div className="relative w-10 h-10 aspect-square bg-white rounded-lg flex items-center justify-center text-xl">
+                        <Image
+                            src={experience.logo}
+                            alt={`${experience.company}-logo`}
+                            fill
+                        />
                     </div>
                     <div>
                         <h3 className="gradient-title text-xl font-bold">{experience.title}</h3>
@@ -64,7 +69,7 @@ const WorkExperienceItem = memo(({
             </div>
 
             <div className={detailsClassName}>
-                <div className="space-y-3 mb-6">
+                <div className="space-y-3">
                     {experience.details.map((detail: string, index: number) => (
                         <div key={index} className="flex items-start gap-2">
                             <span className="text-blue-400 text-sm mt-2">•</span>
@@ -73,18 +78,6 @@ const WorkExperienceItem = memo(({
                     ))}
                 </div>
 
-                {experience.certificates && (
-                    <div className="flex flex-wrap gap-2">
-                        {experience.certificates.map((cert: any, index: number) => (
-                            <div
-                                key={index}
-                                className={`${cert.color} px-3 py-1 rounded text-xs text-white font-medium`}
-                            >
-                                {cert.name}
-                            </div>
-                        ))}
-                    </div>
-                )}
             </div>
         </div>
     );

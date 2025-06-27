@@ -68,17 +68,16 @@ export interface Certificate {
   color?: string;
   description?: string;
   credentialUrl?: string;
-  skills: string[];
-  category: string;
+  skills?: string[];
+  category?: string;
 }
 
 export interface WorkExperience extends BaseItem {
   company: string;
   period: string;
   status: string;
-  logo: "🏛️";
+  logo: string;
   details: readonly string[];
-  certificates: readonly Certificate[];
 }
 
 export interface Education extends BaseItem {
@@ -101,6 +100,7 @@ export interface Service extends BaseItem {
 }
 
 export interface Testimonial extends BasePerson, SocialLinks {
+  id: string;
   pos: string;
   review: string;
   imgPath: string;

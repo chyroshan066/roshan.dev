@@ -157,21 +157,17 @@
     );
   }
   /* marquee */
-  .marquee {
-    width: 100dvw;
-    overflow: hidden;
-    position: relative;
-    contain: layout style paint;
+  .marquee-container {
+    height: 208px; 
+    padding-top: 20px;
   }
-  .marquee-box {
-    display: flex;
-    align-items: center;
-    width: 200%;
+  .marquee-content {
+    width: fit-content;
+    animation: marquee 30s linear infinite;
     height: 100%;
-    position: absolute;
-    overflow: hidden;
-    animation: marquee 60s linear infinite;
-    will-change: transform;
+  }
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
   }
   .marquee-item {
     float: left;
@@ -292,14 +288,14 @@
   }
 }
 
-/* @keyframes marquee {
-   0% { 
-    transform: translateX(0); 
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
   }
-  100% { 
-    transform: translateX(-100%); 
+  100% {
+    transform: translateX(-33.333333%);
   }
-} */
+}
 
 @keyframes shine {
   100% {
@@ -348,25 +344,3 @@
 
 
 
-.marquee-container {
-  height: 208px; 
-}
-
-.marquee-content {
-  width: fit-content;
-  animation: marquee 30s linear infinite;
-  height: 100%;
-}
-
-/* The key fix: animate by exactly one-third of the total width since we have 3 sets */
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333333%);
-  }
-}
-.marquee-container:hover .marquee-content {
-  animation-play-state: paused;
-}

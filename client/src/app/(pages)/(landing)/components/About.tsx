@@ -2,9 +2,7 @@
 
 import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { TitleHeader } from "@/components/blocks/TitleHeader";
-import { Canvas } from "@react-three/fiber";
 import Image from "next/image";
-import { OrbitControls } from "@react-three/drei";
 import { bentoSocialLinks } from "@/constants";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -12,9 +10,16 @@ import { ScrollTrigger } from "gsap/all";
 import { memo, lazy, Suspense } from "react";
 import { AlienExperience } from "./AlienExperience";
 import { BentoSocialLink } from "@/types";
+import { FlowerLotusIcon } from "@phosphor-icons/react";
 
 // Lazy load the Alien component since it's heavy 3D content
 const Alien = lazy(() => import("@/components/models/Alien"));
+
+const LazyArrowUpRightIcon = lazy(() =>
+    import('@phosphor-icons/react').then(module => ({
+        default: module.ArrowUpRightIcon
+    }))
+);
 
 const AlienLoadingFallback = memo(() => (
     <div className="w-full h-full flex items-center justify-center bg-[#c8d751] rounded-2xl">
@@ -67,14 +72,17 @@ const SocialLinkCard = memo(({ item }: { item: BentoSocialLink }) => (
                         <h1 className="gradient-title md:text-3xl text-xl md:m-0 ms-5 font-medium">{item.name}</h1>
                     </div>
                     <div className="lg:block md:hidden group-hover:translate-x-2 group-hover:-translate-y-1 group-hover:[filter:brightness(0)_saturate(100%)_invert(27%)_sepia(96%)_saturate(6916%)_hue-rotate(221deg)_brightness(91%)_contrast(105%)] transition-all duration-300">
-                        <Image
-                            src="/images/arrowupright.svg"
-                            alt="External link arrow"
-                            width={41}
-                            height={41}
-                            className="lg:scale-100 scale-50"
-                            loading="lazy"
-                        />
+
+                        <Suspense fallback={
+                            <div className="w-[41px] h-[41px] bg-gray-200 animate-pulse rounded lg:scale-100 scale-50" />
+                        }>
+                            <LazyArrowUpRightIcon
+                                size={41}
+                                weight="bold"
+                                className="lg:scale-100 scale-50"
+                            />
+                        </Suspense>
+
                     </div>
                 </div>
             </a>
@@ -132,17 +140,12 @@ const About = () => {
                         {/* Main profile card */}
                         <div className="md:col-span-7 col-span-12 row-span-5">
                             <div className="bg-black-300 rounded-2xl p-7 w-full h-full">
-                                <div>
-                                    <div className="relative md:w-32 w-16 h-auto aspect-square">
-                                        <Image
-                                            src="/images/flower.svg"
-                                            alt="flower"
-                                            fill
-                                            className="object-contain flower"
-                                            priority
-                                        />
-                                    </div>
-                                </div>
+
+                                <FlowerLotusIcon
+                                    className="md:w-32 w-16 h-auto"
+                                    weight="regular"
+                                />
+
                                 <div className="mt-5">
                                     <h1 className="text-blue-50 md:text-5xl text-3xl">Roshan Chaudhary</h1>
                                     <p className="md:text-2xl mt-2">

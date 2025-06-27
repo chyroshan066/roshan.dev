@@ -1,3 +1,6 @@
+"use client";
+
+import Link from 'next/link';
 import { memo } from 'react';
 
 type SizeKey = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl";
@@ -62,18 +65,20 @@ export const Logo = memo(({
 
     // Default variant
     return (
-        <div className={`flex items-center space-x-2 group cursor-pointer ${className}`}>
-            {/* "will-change-transform" class hint the browser about upcoming transforms, improving animation performance. */}
-            <div className="relative will-change-transform transition-transform duration-300 group-hover:scale-110">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
-                    <span className="text-white font-bold text-lg">R</span>
+        <Link href="/">
+            <div className={`flex items-center space-x-2 group cursor-pointer ${className}`}>
+                {/* "will-change-transform" class hint the browser about upcoming transforms, improving animation performance. */}
+                <div className="relative will-change-transform transition-transform duration-300 group-hover:scale-110">
+                    <div className="w-10 h-10 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg transform rotate-12 group-hover:rotate-0 transition-transform duration-300">
+                        <span className="text-white font-bold text-lg">R</span>
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-blue-500 rounded-xl opacity-20 blur-sm"></div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-blue-500 rounded-xl opacity-20 blur-sm"></div>
+                <h1 className={`text-white font-bold ${sizeClass} transition-colors duration-300 group-hover:text-blue-200`}>
+                    <span className="text-blue-300 group-hover:text-blue-400 transition-colors duration-300">RO</span>SHAN
+                </h1>
             </div>
-            <h1 className={`text-white font-bold ${sizeClass} transition-colors duration-300 group-hover:text-blue-200`}>
-                <span className="text-blue-300 group-hover:text-blue-400 transition-colors duration-300">RO</span>SHAN
-            </h1>
-        </div>
+        </Link>
     );
 });
 

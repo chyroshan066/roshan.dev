@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useCallback, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { TestimonialCard } from "./TestimonialCard";
+import { CaretLeftIcon, CaretRightIcon } from "@phosphor-icons/react";
 
 const TestimonialCarousel = () => {
     const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -77,16 +78,13 @@ const TestimonialCarousel = () => {
                     aria-label="Previous testimonial"
                     type="button"
                 >
-                    <div className="relative w-5 h-5 aspect-square">
-                        <Image
-                            src="/images/CaretLeft.svg"
-                            alt="left"
-                            fill
-                            sizes="20px"
-                            priority={true}
-                            quality={90}
-                        />
-                    </div>
+
+                    <CaretLeftIcon
+                        size={20}
+                        color="#fff"
+                        weight="bold"
+                    />
+
                 </button>
                 <button
                     onClick={nextTestimonial}
@@ -94,16 +92,13 @@ const TestimonialCarousel = () => {
                     aria-label="Next testimonial"
                     type="button"
                 >
-                    <div className="relative w-5 h-5 aspect-square">
-                        <Image
-                            src="/images/CaretRight.svg"
-                            alt="right"
-                            fill
-                            sizes="20px"
-                            priority={true}
-                            quality={90}
-                        />
-                    </div>
+
+                    <CaretRightIcon
+                        size={20}
+                        color="#fff"
+                        weight="bold"
+                    />
+
                 </button>
             </nav>
 

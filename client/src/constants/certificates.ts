@@ -49,7 +49,7 @@ export const certificates: readonly Certificate[] = [
     title: 'Build 20 JavaScript Projects in 20 Day with HTML, CSS & JS',
     organization: 'Udemy',
     date: 'Dec, 2024',
-    image: '/images/certificates/c5.png',
+    image: '/images/certificates/c5.webp',
     description: 'Practical JavaScript development course with hands-on projects covering DOM manipulation, and modern ES6+ features.',
     skills: ['JavaScript', 'HTML', 'CSS'],
     category: 'Programming'
