@@ -3,7 +3,8 @@ import "./globals.css";
 import { NavBar } from "@/components/blocks/header/NavBar";
 import dynamic from "next/dynamic";
 import localFont from "next/font/local";
-import { NavigationProgressBarWithEvents } from "@/components/blocks/NavigationProgressBar";
+import { NavigationProgressBarWithEvents } from "@/components/blocks/header/NavigationProgressBar";
+import Intro from "@/components/blocks/Intro";
 
 const aeonik = localFont({
   src: [
@@ -89,6 +90,7 @@ export default function RootLayout({
         className={`${aeonik.variable} font-sans`}
         suppressHydrationWarning={true}
       >
+        {/* <Intro /> */}
         <NavigationProgressBarWithEvents />
         <NavBar />
         <SideBar />
