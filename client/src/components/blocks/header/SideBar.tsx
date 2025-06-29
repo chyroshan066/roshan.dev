@@ -29,7 +29,7 @@ const SideBar = () => {
 
     const toggleSideBar = useCallback(() => {
         setIsOpen(prev => !prev);  // If "prev" is true, then "!prev" becomes false and vice-versa
-        setIsOpen(!isOpen);
+        // setIsOpen(!isOpen);
     }, []);
 
     const handleNavClick = useCallback((itemName: string) => {
