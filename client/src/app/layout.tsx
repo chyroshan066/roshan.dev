@@ -4,7 +4,6 @@ import dynamic from "next/dynamic";
 import localFont from "next/font/local";
 import { NavigationProgressBarWithEvents } from "@/components/blocks/header/NavigationProgressBar";
 import { NavBar } from "@/components/blocks/header/NavBar";
-import SideBar from "@/components/blocks/header/SideBar";
 
 const aeonik = localFont({
   src: [
@@ -37,9 +36,9 @@ const Footer = dynamic(() => import('@/components/blocks/Footer'), {
   loading: () => <div>Loading...</div>,
 });
 
-// const SideBar = dynamic(() => import('@/components/blocks/header/SideBar'), {
-//   ssr: true,
-// });
+const SideBar = dynamic(() => import('@/components/blocks/header/SideBar'), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   title: "Roshan Chaudhary | FullStack Developer",
