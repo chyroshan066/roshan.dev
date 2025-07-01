@@ -41,7 +41,7 @@ const NavItem = memo(({
 
 NavItem.displayName = 'NavItem';
 
-export const NavBar: React.FC = () => {
+export const NavHeader: React.FC = () => {
     const pathname = usePathname();
 
     const navItemsWithActiveState = useMemo(() =>
@@ -75,4 +75,4 @@ export const NavBar: React.FC = () => {
     );
 };
 
-NavBar.displayName = 'NavBar';
+NavHeader.displayName = 'NavHeader';
