@@ -1,5 +1,5 @@
-import { formType } from "@/types";
+import { ContactType } from "@/types";
 
-export const onSubmit = async (data: formType) => {
+export const onSubmit = async (data: ContactType) => {
     console.log(data);
 };
