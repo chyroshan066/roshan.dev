@@ -71,7 +71,7 @@ export const AlienExperience: React.FC = () => {
     return (
         <div className="w-full h-full relative">
             <Canvas {...canvasConfig}>
-                <Suspense fallback={null}>
+                <Suspense fallback={<LoadingFallback />}>
                     {lightingSetup}
 
                     <OrbitControls {...orbitControlsConfig} />

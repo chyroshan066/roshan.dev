@@ -38,14 +38,3 @@ export const getTestimonialsMetadata = () => ({
   ),
   companies: [...new Set(testimonials.map(t => t.pos.split(' at ')[1]))],
 });
-
-export const isValidTestimonial = (testimonial: any): testimonial is Testimonial => {
-  return (
-    typeof testimonial === 'object' &&
-    testimonial !== null &&
-    typeof testimonial.name === 'string' &&
-    typeof testimonial.pos === 'string' &&
-    (typeof testimonial.review === 'string' || Array.isArray(testimonial.review)) &&
-    typeof testimonial.imgPath === 'string'
-  );
-};

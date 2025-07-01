@@ -45,16 +45,3 @@ export const workExperiences: Readonly<WorkExperience[]> = Object.freeze([
     ]),
   }
 ]);
-
-export const isValidWorkExperience = (obj: any): obj is WorkExperience => {
-  return (
-    typeof obj === 'object' &&
-    typeof obj.id === 'number' &&
-    typeof obj.title === 'string' &&
-    typeof obj.company === 'string' &&
-    typeof obj.period === 'string' &&
-    typeof obj.status === 'string' &&
-    typeof obj.logo === 'string' &&
-    Array.isArray(obj.details) 
-  );
-};

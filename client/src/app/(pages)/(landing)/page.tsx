@@ -12,27 +12,27 @@ const Testimonials = dynamic(() => import('@/components/blocks/testimonial/Testi
 const TechStack = dynamic(() => import('@/components/blocks/tech/TechStack'));
 
 export default function Home() {
-  const [showIntro, setShowIntro] = useState(true);
-  const [showHome, setShowHome] = useState(false);
+  // const [showIntro, setShowIntro] = useState(true);
+  // const [showHome, setShowHome] = useState(false);
 
-  useEffect(() => {
-    const handleIntroComplete = () => {
-      // Add a small delay for smooth transition
-      setTimeout(() => {
-        setShowIntro(false);
-        setTimeout(() => {
-          setShowHome(true);
-        }, 300); // Delay to allow intro to fade out
-      }, 500); // Show final greeting for a bit longer
-    };
+  // useEffect(() => {
+  //   const handleIntroComplete = () => {
+  //     // Add a small delay for smooth transition
+  //     setTimeout(() => {
+  //       setShowIntro(false);
+  //       setTimeout(() => {
+  //         setShowHome(true);
+  //       }, 300); // Delay to allow intro to fade out
+  //     }, 500); // Show final greeting for a bit longer
+  //   };
 
-    // You'll need to emit this event from your Intro component
-    window.addEventListener('introComplete', handleIntroComplete);
+  // You'll need to emit this event from your Intro component
+  //   window.addEventListener('introComplete', handleIntroComplete);
 
-    return () => {
-      window.removeEventListener('introComplete', handleIntroComplete);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('introComplete', handleIntroComplete);
+  //   };
+  // }, []);
 
   return (
     <>

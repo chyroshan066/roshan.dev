@@ -13,7 +13,7 @@ import { BentoSocialLink } from "@/types";
 import { FlowerLotusIcon } from "@phosphor-icons/react";
 
 // Lazy load the Alien component since it's heavy 3D content
-const Alien = lazy(() => import("@/components/models/Alien"));
+// const Alien = lazy(() => import("@/components/models/Alien"));
 
 const LazyArrowUpRightIcon = lazy(() =>
     import('@phosphor-icons/react').then(module => ({
@@ -26,6 +26,8 @@ const AlienLoadingFallback = memo(() => (
         <div className="animate-pulse text-black text-lg">Loading 3D Model...</div>
     </div>
 ));
+
+AlienLoadingFallback.displayName = "AlienLoadingFallback";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +50,8 @@ const ServiceCard = memo(({
         </div>
     </div>
 ));
+
+ServiceCard.displayName = "ServiceCard";
 
 const SocialLinkCard = memo(({ item }: { item: BentoSocialLink }) => (
     <div className="md:col-span-4 col-span-12 row-span-2">
@@ -89,6 +93,8 @@ const SocialLinkCard = memo(({ item }: { item: BentoSocialLink }) => (
         </div>
     </div>
 ));
+
+SocialLinkCard.displayName = "SocialLinkCard";
 
 const About = () => {
     useGSAP(() => {

@@ -9,13 +9,14 @@ import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { CaretDownIcon } from '@phosphor-icons/react';
+import { Service, Technology } from '@/types';
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
 }
 
 const ServiceCard = memo<{
-    service: any;
+    service: Service;
     index: number;
     isExpanded: boolean;
     isTechIconsExpanded: boolean;
@@ -31,7 +32,7 @@ const ServiceCard = memo<{
             return isExpanded ? features : features.slice(0, 4);
         };
 
-        const getVisibleTechIcons = (technologies: any[], isExpanded: boolean) => {
+        const getVisibleTechIcons = (technologies: Technology[], isExpanded: boolean) => {
             if (technologies.length <= 5) return technologies;
             return isExpanded ? technologies : technologies.slice(0, 5);
         };
@@ -108,7 +109,7 @@ const ServiceCard = memo<{
                     </div>
 
                     <div className="flex flex-wrap gap-3">
-                        {visibleTechIcons.map((tech: any, techIndex: number) => (
+                        {visibleTechIcons.map((tech: Technology, techIndex: number) => (
                             <div
                                 key={techIndex}
                                 className="group/tech flex items-center gap-2 px-3 py-2 bg-black-300 text-gray-300 rounded-lg text-xs font-medium border border-gray-700 hover:border-blue-300/50 hover:text-blue-50 transition-all duration-300 cursor-default hover:bg-gray-700/50"

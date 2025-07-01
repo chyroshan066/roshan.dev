@@ -3,6 +3,7 @@
 import { GradientSpheres } from '@/components/blocks/GradientSphere';
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { education } from '@/constants';
+import { Education } from '@/types';
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from 'react';
 
 const getArrowClasses = (arrow: { position: string; direction: string } | undefined) => {
@@ -22,7 +23,7 @@ const getArrowClasses = (arrow: { position: string; direction: string } | undefi
     return baseClasses + directionClasses + positionClasses;
 };
 
-const calculateTooltipPosition = (item: any, dotElement: HTMLElement) => {
+const calculateTooltipPosition = (item: Education, dotElement: HTMLElement) => {
     const dotRect = dotElement.getBoundingClientRect();
     const tooltipWidth = 384;
     const tooltipHeight = 300;
@@ -85,7 +86,7 @@ const calculateTooltipPosition = (item: any, dotElement: HTMLElement) => {
     };
 };
 
-const Education = memo(() => {
+const EducationTimeline = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
     const [hoveredItem, setHoveredItem] = useState<null | number>(null);
     const [tooltipStyles, setTooltipStyles] = useState<{ [key: number]: React.CSSProperties }>({});
@@ -122,7 +123,7 @@ const Education = memo(() => {
         };
     }, []);
 
-    const handleMouseEnter = useCallback((item: any, event: React.MouseEvent) => {
+    const handleMouseEnter = useCallback((item: Education, event: React.MouseEvent) => {
         setHoveredItem(item.id);
 
         const dotElement = event.currentTarget as HTMLElement;
@@ -193,7 +194,7 @@ const Education = memo(() => {
                 </div>
             </div>
         )),
-        [education, isMobile, isVisible, hoveredItem, animationDelays, handleMouseEnter, handleMouseLeave]
+        [isMobile, isVisible, hoveredItem, animationDelays, handleMouseEnter, handleMouseLeave]
     );
 
     const tooltipContent = useMemo(() => {
@@ -250,7 +251,7 @@ const Education = memo(() => {
                 </div>
             </div>
         );
-    }, [hoveredItem, tooltipStyles, arrowStyles, education]);
+    }, [hoveredItem, tooltipStyles, arrowStyles]);
 
     return (
         <div className="flex-center relative md:p-0 px-5 w-full">
@@ -299,6 +300,6 @@ const Education = memo(() => {
     );
 });
 
-Education.displayName = "Education";
+EducationTimeline.displayName = "Education";
 
-export default Education;
+export default EducationTimeline;

@@ -2,7 +2,6 @@
 
 import { testimonials } from "@/constants";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 import { useState, useCallback, useMemo, useRef } from "react";
 import gsap from "gsap";
 import { TestimonialCard } from "./TestimonialCard";

@@ -32,7 +32,7 @@ const SideBar = () => {
         // setIsOpen(!isOpen);
     }, []);
 
-    const handleNavClick = useCallback((itemName: string) => {
+    const handleNavClick = useCallback(() => {
         setTimeout(toggleSideBar, 300);
     }, [toggleSideBar]);
 
@@ -136,7 +136,7 @@ const SideBar = () => {
                                             ? activeLinkClass : inactiveLinkClass
                                         }`}
                                     href={link.href}
-                                    onClick={() => handleNavClick(link.name)}
+                                    onClick={() => handleNavClick()}
                                     aria-current={activeStates[index] ? "page" : undefined}
                                 >
                                     {link.name}

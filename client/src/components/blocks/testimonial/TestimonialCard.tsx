@@ -5,6 +5,7 @@ import { FacebookLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, TiktokLogoIcon, 
 import Image from "next/image";
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
 import { createPortal } from "react-dom";
+import type { Icon } from "@phosphor-icons/react";
 
 const SOCIAL_PLATFORMS = [
     {
@@ -47,7 +48,7 @@ const SocialLink = memo(({
     isModal = false
 }: {
     url: string;
-    icon: React.ComponentType<any>;
+    icon: Icon;
     alt: string;
     className: string;
     isModal?: boolean;

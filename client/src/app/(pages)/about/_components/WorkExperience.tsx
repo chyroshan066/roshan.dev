@@ -2,6 +2,7 @@
 
 import { TitleHeader } from '@/components/blocks/TitleHeader';
 import { workExperiences } from '@/constants';
+import { WorkExperience } from '@/types';
 import Image from 'next/image';
 import { useState, useCallback, useMemo, memo } from 'react';
 
@@ -11,13 +12,13 @@ const WorkExperienceItem = memo(({
     onMouseEnter,
     onMouseLeave
 }: {
-    experience: any;
+    experience: WorkExperience;
     hoveredItem: number | null;
     onMouseEnter: (id: number) => void;
     onMouseLeave: () => void;
 }) => {
     const isHovered = hoveredItem === experience.id;
-    const isOtherHovered = hoveredItem !== null && hoveredItem !== experience.id;
+    // const isOtherHovered = hoveredItem !== null && hoveredItem !== experience.id;
 
     const cardClassName = useMemo(() => {
         const baseClasses = "bg-[#17151f] border-gray-700 border-r border-b rounded-2xl p-7 cursor-pointer transition-all duration-500 ease-in-out";
@@ -85,7 +86,7 @@ const WorkExperienceItem = memo(({
 
 WorkExperienceItem.displayName = 'WorkExperienceItem';
 
-export const WorkExperience = memo(() => {
+export const WorkExperienceDisplay = memo(() => {
     const [hoveredItem, setHoveredItem] = useState<null | number>(null);
 
     const handleMouseEnter = useCallback((id: number) => {
@@ -128,4 +129,4 @@ export const WorkExperience = memo(() => {
     );
 });
 
-WorkExperience.displayName = "WorkExperience";
+WorkExperienceDisplay.displayName = "WorkExperienceDisplay";

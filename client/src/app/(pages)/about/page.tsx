@@ -1,4 +1,4 @@
-import { WorkExperience } from "./_components/WorkExperience";
+import { WorkExperienceDisplay } from "./_components/WorkExperience";
 import { AboutHero } from "./_components/AboutHero";
 import { Suspense, lazy } from "react";
 import { Metadata } from "next";
@@ -28,24 +28,24 @@ const SectionSkeleton = () => (
     </div>
 );
 
-const ErrorFallback = ({ error, componentName }: { error: Error; componentName: string }) => (
-    <div className="flex-center relative md:p-0 px-5 w-full min-h-[200px]">
-        <div className="text-center p-8 bg-red-900/10 border border-red-500/20 rounded-lg">
-            <h3 className="text-red-400 text-lg font-semibold mb-2">
-                Failed to load {componentName}
-            </h3>
-            <p className="text-gray-400 text-sm mb-4">
-                Something went wrong while loading this section.
-            </p>
-            <button
-                onClick={() => window.location.reload()}
-                className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm transition-colors"
-            >
-                Retry
-            </button>
-        </div>
-    </div>
-);
+// const ErrorFallback = ({ componentName }: { componentName: string }) => (
+//     <div className="flex-center relative md:p-0 px-5 w-full min-h-[200px]">
+//         <div className="text-center p-8 bg-red-900/10 border border-red-500/20 rounded-lg">
+//             <h3 className="text-red-400 text-lg font-semibold mb-2">
+//                 Failed to load {componentName}
+//             </h3>
+//             <p className="text-gray-400 text-sm mb-4">
+//                 Something went wrong while loading this section.
+//             </p>
+//             <button
+//                 onClick={() => window.location.reload()}
+//                 className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm transition-colors"
+//             >
+//                 Retry
+//             </button>
+//         </div>
+//     </div>
+// );
 
 export const metadata: Metadata = {
     title: "About | Roshan Chaudhary",
@@ -86,7 +86,7 @@ export default function About() {
         </Head>
         <div className="flex-center relative md:p-0 px-5 flex-col md:mb-40 mb-20">
             <AboutHero />
-            <WorkExperience />
+            <WorkExperienceDisplay />
 
             <Suspense fallback={<SectionSkeleton />}>
                 <Education />

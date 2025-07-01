@@ -4,7 +4,7 @@ import { GradientSpheres } from "@/components/blocks/GradientSphere";
 import { HeroExperience } from "./HeroExperience";
 import Image from "next/image";
 import { memo } from "react";
-import { ArrowDownIcon, ArrowFatLinesDownIcon } from "@phosphor-icons/react";
+import { ArrowDownIcon } from "@phosphor-icons/react";
 
 export const Hero: React.FC = memo(() => {
     return <>

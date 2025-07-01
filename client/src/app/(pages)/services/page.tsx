@@ -8,7 +8,7 @@ const CallToAction = dynamic(() => import("@/components/blocks/CallToAction"), {
 });
 
 const ServicesSection = dynamic(() =>
-    import("./_components.tsx/ServiceSection"), {
+    import("./_components/ServiceSection"), {
     loading: () => <div className="animate-pulse bg-gray-200 h-96 rounded-lg" />,
     ssr: true
 });
@@ -39,7 +39,7 @@ const ServicesPageSkeleton = () => {
     );
 };
 
-export function ServicesErrorBoundary({ error }: { error: Error }) {
+export function ServicesErrorBoundary() {
     return (
         <div className="flex-center relative md:p-0 px-5 flex-col md:mb-40 mb-20">
             <div className="text-center p-8">

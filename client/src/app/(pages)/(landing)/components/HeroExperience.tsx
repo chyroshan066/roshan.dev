@@ -68,6 +68,8 @@ export const HeroExperience = memo(() => {
         </>
     ));
 
+    PriorityContent.displayName = "PriorityContent";
+
     return <>
         <Canvas {...canvasConfig}>
             <PriorityContent />

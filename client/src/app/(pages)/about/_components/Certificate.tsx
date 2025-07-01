@@ -8,6 +8,7 @@ import { TitleHeader } from '@/components/blocks/TitleHeader';
 import Image from 'next/image';
 import { useGSAP } from '@gsap/react';
 import { ArrowSquareUpRightIcon, CalendarIcon } from '@phosphor-icons/react';
+import { Certificate } from '@/types';
 
 const CertificateCard = memo(({
     cert,
@@ -15,7 +16,7 @@ const CertificateCard = memo(({
     onCardRef,
     onImageRef
 }: {
-    cert: any;
+    cert: Certificate;
     index: number;
     onCardRef: (el: HTMLDivElement | null, index: number) => void;
     onImageRef: (el: HTMLDivElement | null, index: number) => void;
@@ -97,7 +98,7 @@ const CertificateCard = memo(({
 
 CertificateCard.displayName = 'CertificateCard';
 
-const Certificate: React.FC = () => {
+const CertificateDisplay: React.FC = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
     const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -268,4 +269,4 @@ const Certificate: React.FC = () => {
     );
 };
 
-export default Certificate;
+export default CertificateDisplay;

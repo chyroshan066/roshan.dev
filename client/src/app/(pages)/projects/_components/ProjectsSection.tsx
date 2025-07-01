@@ -109,7 +109,7 @@ const ProjectsSection: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'all' | 'personal' | 'client'>('all');
     const [isAnimating, setIsAnimating] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
-    const titleRef = useRef<HTMLHeadingElement>(null);
+    // const titleRef = useRef<HTMLHeadingElement>(null);
     const tabsRef = useRef<HTMLDivElement>(null);
     const projectsGridRef = useRef<HTMLDivElement>(null);
 

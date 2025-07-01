@@ -70,6 +70,13 @@ export const Alert = memo(({
     const IconComponent = alertIcons[type];
     const styles = alertStyles[type];
 
+    const handleDismiss = () => {
+        setIsAnimating(false);
+        setTimeout(() => {
+            onDismiss();
+        }, 300);
+    };
+
     useEffect(() => {
         let timeoutId: NodeJS.Timeout;
 
@@ -84,7 +91,7 @@ export const Alert = memo(({
                 clearTimeout(timeoutId);
             }
         };
-    }, [isVisible, autoDismiss, autoDismissDelay]);
+    }, [isVisible, autoDismiss, autoDismissDelay, handleDismiss]);
 
     useEffect(() => {
         if (isVisible) {
@@ -99,13 +106,6 @@ export const Alert = memo(({
             return () => clearTimeout(timer);
         }
     }, [isVisible]);
-
-    const handleDismiss = () => {
-        setIsAnimating(false);
-        setTimeout(() => {
-            onDismiss();
-        }, 300);
-    };
 
     if (!shouldRender) return null;
 

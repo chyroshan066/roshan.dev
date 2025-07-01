@@ -2,10 +2,9 @@
 
 import { memo, useCallback, useMemo, useState } from "react";
 import { onSubmit } from "@/utils/formData";
-import { useForm } from "react-hook-form";
+import { useForm, UseFormRegister } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect } from "react";
 import { SubmitButton } from "@/components/blocks/buttons/SubmitButton";
 import { Alert } from "@/components/blocks/Alert";
 import { ContactType } from "@/types";
@@ -17,7 +16,9 @@ const ContactFormSchema = z.object({
     message: z.string().min(1, "Message is required"),
 });
 
-const initialValues: ContactType = {
+type ContactFormData = z.infer<typeof ContactFormSchema>;
+
+const initialValues: ContactFormData = {
     name: "",
     email: "",
     subject: "",
@@ -36,12 +37,12 @@ const ErrorMessage = memo(({
 ErrorMessage.displayName = "ErrorMessage";
 
 type FormFieldProps = {
-    id: string;
+    id: keyof ContactFormData;
     label: string;
     placeholder: string;
     type?: string;
     rows?: number;
-    register: any;
+    register: UseFormRegister<ContactFormData>;
     error?: string;
     disabled?: boolean;
     isTextarea?: boolean;
@@ -103,7 +104,7 @@ export const ContactForm = memo(() => {
         handleSubmit,
         reset,
         formState: { errors, isSubmitting, isValid, isDirty }
-    } = useForm({
+    } = useForm<ContactFormData>({
         defaultValues: initialValues,
         resolver: zodResolver(ContactFormSchema),
         mode: "onChange", // Enable real-time validation for better UX

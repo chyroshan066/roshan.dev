@@ -59,17 +59,17 @@ export interface Project extends BaseItem {
 }
 
 export interface Certificate {
-  id?: number;
+  id: number;
   name?: string;
-  title?: string;
-  organization?: string;
-  date?: string;
-  image?: string;
+  title: string;
+  organization: string;
+  date: string;
+  image: string;
   color?: string;
-  description?: string;
+  description: string;
   credentialUrl?: string;
-  skills?: string[];
-  category?: string;
+  skills: string[];
+  category: string;
 }
 
 export interface WorkExperience extends BaseItem {
@@ -94,8 +94,8 @@ export interface Education extends BaseItem {
 }
 
 export interface Service extends BaseItem {
-  features: readonly string[];
-  technologies: readonly Technology[];
+  features: string[];
+  technologies: Technology[];
   icon: string;
 }
 
@@ -111,14 +111,6 @@ export interface ContactType extends BasePerson {
   subject: string;
   message: string;
 }
-
-// Type guards for runtime type checking (optional but useful)
-export const isProject = (obj: any): obj is Project => {
-  return typeof obj === 'object' && 
-         typeof obj.id === 'number' && 
-         typeof obj.title === 'string' &&
-         typeof obj.img === 'string';
-};
 
 export const isValidEmail = (email: string): boolean => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

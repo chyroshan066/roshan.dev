@@ -61,7 +61,7 @@ const Intro: React.FC = () => {
                 clearTimeout(timeoutRef.current);
             }
         };
-    }, []);
+    }, [showNextGreeting]);
 
     return (
         <>
