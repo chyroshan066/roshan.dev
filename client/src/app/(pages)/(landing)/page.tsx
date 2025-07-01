@@ -3,7 +3,7 @@
 import { Hero } from "./components/Hero";
 import dynamic from 'next/dynamic';
 import CallToAction from "@/components/blocks/CallToAction";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 // import Intro from "@/components/blocks/Intro";
 
 const About = dynamic(() => import('./components/About'));
