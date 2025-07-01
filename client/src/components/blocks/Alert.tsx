@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { memo, useCallback, useEffect, useState } from "react";
 import { BugIcon, CheckCircleIcon, InfoIcon, WarningIcon, XIcon } from "@phosphor-icons/react";
 
 type AlertType = "success" | "error" | "warning" | "info";
@@ -70,12 +70,12 @@ export const Alert = memo(({
     const IconComponent = alertIcons[type];
     const styles = alertStyles[type];
 
-    const handleDismiss = () => {
+    const handleDismiss = useCallback(() => {
         setIsAnimating(false);
         setTimeout(() => {
             onDismiss();
         }, 300);
-    };
+    }, [onDismiss]);
 
     useEffect(() => {
         let timeoutId: NodeJS.Timeout;

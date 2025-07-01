@@ -1,25 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
+
+const greetings: string[] = [
+    'Hello',
+    'नमस्ते',
+    'Bonjour',
+    'स्वागत है',
+    'Hola',
+    'Hallo',
+    'Ciao',
+    'こんにちは'
+];
 
 const Intro: React.FC = () => {
-    const greetings: string[] = [
-        'Hello',
-        'नमस्ते',
-        'Bonjour',
-        'स्वागत है',
-        'Hola',
-        'Hallo',
-        'Ciao',
-        'こんにちは'
-    ];
-
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const [animationClass, setAnimationClass] = useState<string>('');
     const [currentGreeting, setCurrentGreeting] = useState<string>(greetings[0]);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-    const showNextGreeting = (index: number = currentIndex): void => {
+    const showNextGreeting = useCallback((index: number = currentIndex): void => {
         // Exit current greeting
         setAnimationClass('exit');
 
@@ -42,7 +42,7 @@ const Intro: React.FC = () => {
                 window.dispatchEvent(event);
             }
         }, 120);
-    };
+    }, [currentIndex]);
 
     useEffect(() => {
         // Start the animation sequence

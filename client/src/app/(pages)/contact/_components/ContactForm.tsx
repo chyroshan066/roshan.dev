@@ -156,7 +156,7 @@ export const ContactForm = memo(() => {
         }
     }, [reset, showAlert]);
 
-    const onFormSubmit = useCallback(handleSubmit(handleFormSubmit), [handleSubmit]);
+    const onFormSubmit = handleSubmit(handleFormSubmit);
 
     const isButtonDisabled = useMemo(
         () => isSubmitting || !isValid || !isDirty,
