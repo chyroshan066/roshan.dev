@@ -17,20 +17,17 @@ export const metadata = {
     title: "Contact - Roshan Chaudhary",
     description: "Get in touch to discuss tailored, sustainable solutions for your project needs.",
     keywords: [
-        "contact",
-        "collaboration",
-        "sustainable solutions",
-        "consultation",
-        "web development"
+        "hire developer",
+        "freelance developer",
+        "web development services",
+        "contact developer",
+        "development consultation",
+        "project collaboration"
     ],
     openGraph: {
         title: "Contact - Roshan Chaudhary",
         description: "Get in touch to discuss tailored, sustainable solutions for your project needs..",
-        type: "profile",
-        url: "/contact",
-    },
-    alternates: {
-        canonical: "/contact",
+        url: "https://roshan-dev-gilt.vercel.app/contact",
     },
 };
 

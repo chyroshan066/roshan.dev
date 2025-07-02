@@ -17,16 +17,20 @@ export const metadata: Metadata = {
     title: 'Services | Roshan Chaudhary',
     description: 'Discover my comprehensive range of web services designed to help your business grow.',
     keywords: [
-        'services',
-        "portfolio",
-        "website development",
-        "frontend development",
-        "backend development"
+        'full-stack developer',
+        'web development services',
+        'custom web applications',
+        'RESTful API development',
+        'frontend development services',
+        'backend development services',
+        'professional full-stack web developer',
+        'custom web application development',
+        'modern web development solutions'
     ],
     openGraph: {
         title: 'Services | Roshan Chaudhary',
         description: 'Comprehensive web development services for your success',
-        type: 'website',
+        url: "https://roshan-dev-gilt.vercel.app/services",
     },
 };
 

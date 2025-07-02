@@ -44,26 +44,60 @@ export const metadata: Metadata = {
   title: "Roshan Chaudhary | FullStack Developer",
   description: "Roshan - Personal Portfolio Website",
   keywords: [
-    "portfolio",
+    "Roshan Chaudhary",
+    "Chaudhary Roshan",
+    "Roshan",
     "developer",
     "web developer",
     "full-stack developer",
-    "frontend-developer"
+    "frontend-developer",
+    "backend-developer"
   ],
   authors: [{ name: "Roshan" }],
   creator: "Roshan",
   robots: "index, follow", // Search engine will ndex this page and follow its links
+  icons: {
+    icon: [
+      {
+        url: '/favicon_io/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png'
+      },
+      {
+        url: '/favicon_io/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png'
+      },
+      {
+        url: '/favicon_io/android-chrome-192x192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      },
+      {
+        url: '/favicon_io/android-chrome-512x512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      },
+      {
+        url: '/favicon_io/favicon.ico',
+        sizes: '32x32'
+      },
+    ],
+    shortcut: '/favicon_io/favicon.ico',
+    apple: '/favicon_io/apple-touch-icon.png',
+  },
+  manifest: '/favicon_io/site.webmanifest',  // "site.webmanifest" that tells browsers how the website should behave when it's installed as a Progressive Web App (PWA) on a user's device.
   //Open Graph controls how your webpage looks when shared on social media platforms
   openGraph: {
     title: "Roshan Chaudhary | FullStack Developer",
     description: "Roshan - Personal Portfolio Website",
     type: "website",
     locale: "en_US",
-    url: "https://yoursite.com",
+    url: "https://roshan-dev-gilt.vercel.app/",
     siteName: "Roshan's Portfolio",
     images: [
       {
-        url: "/portfolio-preview.jpg",
+        url: "/images/previews/portfolio-preview.jpg",
         width: 1200,
         height: 630,
         alt: "Roshan's Portfolio Preview",

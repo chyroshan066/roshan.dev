@@ -24,15 +24,19 @@ export const metadata: Metadata = {
     title: 'Projects | Roshan Chaudhary',
     description: 'Explore my portfolio of projects and work samples',
     keywords: [
-        'projects',
-        'portfolio',
-        'work',
-        'development'
+        "portfolio projects",
+        "web applications",
+        "react projects",
+        "node.js applications",
+        "javascript projects",
+        "full-stack applications",
+        "coding examples",
+        "development showcase"
     ],
     openGraph: {
         title: 'Projects Portfolio',
         description: 'Explore my portfolio of projects and work samples',
-        type: 'website',
+        url: "https://roshan-dev-gilt.vercel.app/projects",
     },
 };
 
