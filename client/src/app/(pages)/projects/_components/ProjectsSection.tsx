@@ -106,7 +106,7 @@ const ProjectCard = memo(({
 ProjectCard.displayName = "ProjectCard";
 
 const ProjectsSection: React.FC = () => {
-    const [activeTab, setActiveTab] = useState<'all' | 'personal' | 'client'>('all');
+    const [activeTab, setActiveTab] = useState<'all' | 'personal' | 'client' | 'group'>('all');
     const [isAnimating, setIsAnimating] = useState(false);
     const sectionRef = useRef<HTMLDivElement>(null);
     // const titleRef = useRef<HTMLHeadingElement>(null);
@@ -119,7 +119,7 @@ const ProjectsSection: React.FC = () => {
             : projects.filter(project => project.category === activeTab);
     }, [activeTab]);
 
-    const handleTabChange = useCallback((tab: 'all' | 'personal' | 'client') => {
+    const handleTabChange = useCallback((tab: 'all' | 'personal' | 'group' | 'client') => {
         if (tab !== activeTab && !isAnimating) {
             setIsAnimating(true);
 
@@ -189,6 +189,10 @@ const ProjectsSection: React.FC = () => {
             label: 'Personal'
         },
         {
+            key: 'group',
+            label: 'Group'
+        },
+        {
             key: 'client',
             label: 'Client'
         }
@@ -214,12 +218,13 @@ const ProjectsSection: React.FC = () => {
                 <div className="md:mt-20 mt-10">
                     <div
                         ref={tabsRef}
-                        className="flex justify-center mb-12 space-x-2"
+                        className="grid grid-cols-2 md:grid-cols-4 mb-12 space-x-2 space-y-2"
+                    // className="flex justify-center mb-12 space-x-2"
                     >
                         {tabItems.map((tab) => (
                             <button
                                 key={tab.key}
-                                onClick={() => handleTabChange(tab.key as 'all' | 'personal' | 'client')}
+                                onClick={() => handleTabChange(tab.key as 'all' | 'personal' | 'group' | 'client')}
                                 disabled={isAnimating}
                                 className={`px-8 py-3 rounded-full font-semibold text-lg transition-all duration-200 backdrop-blur-sm border-2 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${activeTab === tab.key
                                     ? 'bg-blue-300 text-white border-transparent shadow-lg shadow-blue-500/25'

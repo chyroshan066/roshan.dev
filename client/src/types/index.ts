@@ -1,7 +1,7 @@
 import React from "react";
 
 export type Status = 'Active' | 'Inactive' | 'Pending';
-export type Category = 'personal' | 'client';
+export type Category = 'personal' | 'client' | 'group';
 export type EducationStatus = 'Completed' | 'Ongoing';
 
 interface BaseItem {
@@ -100,7 +100,7 @@ export interface Service extends BaseItem {
 }
 
 export interface Testimonial extends BasePerson, SocialLinks {
-  id: string;
+  id: number;
   pos: string;
   review: string;
   imgPath: string;

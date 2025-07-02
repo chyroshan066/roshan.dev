@@ -3,13 +3,12 @@ import { Project } from "@/types";
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Sofi",
-    description: "Project build using react.js and next.js",
-    img: "/images/p1.png",
-    technologies: ["Next", "Node", "Express"],
-    category: "personal",
-    liveURL: "http://localhost:3000",
-    githubURL: "http://localhost:3000",
+    title: "Brick Breaker Game",
+    description: "Collaborative arcade game project featuring dynamic ball physics, collision detection, and progressive levels. Built with C++ and SFML graphics library using OOP principles. Implemented game state management, particle effects, and score tracking.",
+    img: "/images/projects/p1.webp",
+    technologies: ["C++", "SFML"],
+    category: "group",
+    githubURL: "https://github.com/chyroshan066/brick-breaker",
   },
   {
     id: 2,
@@ -62,13 +61,12 @@ export const projects: Project[] = [
   },
   {
     id: 7,
-    title: "Sofi",
-    description: "",
-    img: "/images/p1.png",
-    technologies: [],
-    category: "personal",
-    liveURL: "",
-    githubURL: "",
+    title: "Brick Breaker Game",
+    description: "Collaborative arcade game project featuring dynamic ball physics, collision detection, and progressive levels. Built with C++ and SFML graphics library using OOP principles. Implemented game state management, particle effects, and score tracking.",
+    img: "/images/projects/p1.webp",
+    technologies: ["C++", "SFML"],
+    category: "group",
+    githubURL: "https://github.com/chyroshan066/brick-breaker",
   },
 ];
 
