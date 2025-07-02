@@ -25,14 +25,14 @@ const alertIcons = {
 
 const alertStyles = {
     success: {
-        container: "bg-emerald-900/20 border-emerald-500/30 backdrop-blur-sm",
+        container: "bg-emerald-900/50 border-emerald-500/30 backdrop-blur-sm",
         icon: "text-emerald-400",
         title: "text-emerald-300",
         message: "text-emerald-200",
         closeButton: "text-emerald-300 hover:text-emerald-100 hover:bg-emerald-800/30",
     },
     error: {
-        container: "bg-red-900/20 border-red-500/30 backdrop-blur-sm",
+        container: "bg-red-900/50 border-red-500/30 backdrop-blur-sm",
         icon: "text-red-400",
         title: "text-red-300",
         message: "text-red-200",

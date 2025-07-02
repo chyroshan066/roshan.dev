@@ -218,7 +218,7 @@ const CertificateDisplay: React.FC = () => {
     return (
         <section
             ref={containerRef}
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative"
         >
 
             <GradientSpheres
@@ -229,7 +229,7 @@ const CertificateDisplay: React.FC = () => {
             <div className="container w-full h-full md:my-40 my-20 relative z-10 md:px-0 px-6">
 
                 <TitleHeader
-                    title={"CERTIFICATIONS 🏆"}
+                    title={"CERTIFICATIONS"}
                     text={"Validated skills through industry-recognized certifications and training."}
                 />
 

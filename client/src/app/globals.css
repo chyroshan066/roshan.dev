@@ -4,10 +4,20 @@
   html, body{
   width: 100dvw;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   background-color: var(--color-black-100);
   color: var(--color-primary);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Microsoft Edge */
+  }
+
+  /* Hide scrollbar for WebKit browsers (Chrome, Safari, newer Edge) */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
   }
 
   section{
@@ -165,9 +175,6 @@
     width: fit-content;
     animation: marquee 30s linear infinite;
     height: 100%;
-  }
-  .marquee-container:hover .marquee-content {
-    animation-play-state: paused;
   }
   .marquee-item {
     float: left;

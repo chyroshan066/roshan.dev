@@ -9,7 +9,7 @@ const MoreInfo = memo(() => {
     } as const;
 
     return (
-        <div className="max-w-6xl mx-auto grid grid-cols-12 gap-8 items-center p-8">
+        <div className="max-w-6xl mx-auto grid grid-cols-12 gap-8 items-center p-5">
             <div className="col-span-12 text-white space-y-6">
 
                 <TitleHeader

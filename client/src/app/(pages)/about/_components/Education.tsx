@@ -264,7 +264,7 @@ const EducationTimeline = memo(() => {
             <div className="container w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
 
                 <TitleHeader
-                    title={"EDUCATION 🎓"}
+                    title={"EDUCATION"}
                     className={"mb-15"}
                 />
 

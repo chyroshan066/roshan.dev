@@ -270,7 +270,7 @@ const ServicesSection: React.FC = () => {
     return (
         <section
             ref={sectionRef}
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative"
         >
             <GradientSpheres
                 sphere1Class={"about-gradient-sphere about-sphere-1"}

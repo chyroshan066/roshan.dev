@@ -42,7 +42,7 @@ export const TechIcon = memo(({
                     </div>
 
                     {/* Hovered info */}
-                    <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
+                    <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                         <div className="bg-gray-900 text-white px-3 py-1.5 rounded-md text-sm font-medium whitespace-nowrap shadow-lg border border-gray-700">
                             {icon.name}
                             <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-gray-900 border-l border-t border-gray-700 rotate-45"></div>

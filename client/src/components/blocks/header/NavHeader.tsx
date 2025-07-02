@@ -4,7 +4,7 @@ import { navLinks } from "@/constants";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/blocks/Logo";
-import { memo, useMemo } from "react";
+import { memo, useEffect, useMemo, useState } from "react";
 
 const NavItem = memo(({
     link, isActive
@@ -43,6 +43,8 @@ NavItem.displayName = 'NavItem';
 
 export const NavHeader: React.FC = () => {
     const pathname = usePathname();
+    const [isScrolled, setIsScrolled] = useState(false);
+    const SCROLL_THRESHOLD_VH = 10;
 
     const navItemsWithActiveState = useMemo(() =>
         navLinks.map(link => ({
@@ -51,9 +53,32 @@ export const NavHeader: React.FC = () => {
         })), [pathname]
     );
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const scrollThreshold = (viewportHeight * SCROLL_THRESHOLD_VH) / 100;
+            setIsScrolled(scrollY > scrollThreshold);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Check initial scroll position
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [SCROLL_THRESHOLD_VH]);
+
+    const navbarClasses = useMemo(() =>
+        `container my-5 flex items-center justify-between transition-all duration-300 ${isScrolled
+            ? 'backdrop-blur-md bg-gradient-to-br from-[#ff28d5]/15 to-[#1c34ff]/15 py-3 px-5 md:my-2 rounded-[40px]'
+            : 'md:my-10'
+        }`, [isScrolled]
+    );
+
     return (
         <div className="w-full flex-center fixed z-50 top-0 left-0 md:p-0 px-5">
-            <div className="container md:my-10 my-5 flex items-center justify-between">
+            <div className={navbarClasses}>
 
                 <Logo size={"3xl"} />
 

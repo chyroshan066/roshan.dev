@@ -107,7 +107,7 @@ export const WorkExperienceDisplay = memo(() => {
             <div className="container w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
 
                 <TitleHeader
-                    title={"WORK EXPERIENCE ✨"}
+                    title={"WORK EXPERIENCE"}
                     className={"mb-15"}
                 />
 

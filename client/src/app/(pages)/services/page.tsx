@@ -43,7 +43,7 @@ export default function Services() {
     return <>
         <Suspense fallback={<ServicesPageSkeleton />}>
 
-            <div className="flex-center relative md:p-0 px-5 flex-col md:mb-40 mb-20">
+            <div className="flex-center relative flex-col md:mb-40 mb-20">
                 <ServicesSection />
                 <CallToAction />
             </div>

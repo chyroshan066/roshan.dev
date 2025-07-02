@@ -89,7 +89,7 @@ export default function RootLayout({
         className={`${aeonik.variable} font-sans`}
         suppressHydrationWarning={true}
       >
-        <NavigationProgressBarWithEvents />
+        <NavigationProgressBarWithEvents showSpinner={false} />
         <NavHeader />
         <SideBar />
         <main>
