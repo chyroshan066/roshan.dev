@@ -97,7 +97,7 @@ export const metadata: Metadata = {
     siteName: "Roshan's Portfolio",
     images: [
       {
-        url: "/images/previews/portfolio-preview.jpg",
+        url: "/images/previews/portfolio-preview.png",
         width: 1200,
         height: 630,
         alt: "Roshan's Portfolio Preview",
