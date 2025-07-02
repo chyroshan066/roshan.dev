@@ -1,6 +1,5 @@
 // "use client";
 
-import type { Metadata } from "next";
 import { Hero } from "./components/Hero";
 import dynamic from 'next/dynamic';
 import CallToAction from "@/components/blocks/CallToAction";
