@@ -14,6 +14,8 @@ const SideBar = () => {
     const itemsRef = useRef<HTMLDivElement[]>([]);
     const timelineRef = useRef<gsap.core.Timeline | null>(null);
     const [activeStates, setActiveStates] = useState(navLinks.map(() => false));  // Initialize activeStates with false values to ensure consistent SSR
+    const [isScrolled, setIsScrolled] = useState(false);
+    const SCROLL_THRESHOLD_VH = 10;
 
     useEffect(() => {
         setIsMounted(true);
@@ -26,6 +28,22 @@ const SideBar = () => {
             )
         );
     }, [pathname]);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            const scrollThreshold = (viewportHeight * SCROLL_THRESHOLD_VH) / 100;
+            setIsScrolled(scrollY > scrollThreshold);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        // Check initial scroll position
+        handleScroll();
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [SCROLL_THRESHOLD_VH]);
 
     const toggleSideBar = useCallback(() => {
         setIsOpen(prev => !prev);  // If "prev" is true, then "!prev" becomes false and vice-versa
@@ -97,7 +115,7 @@ const SideBar = () => {
     return (
         <div className="md:hidden block">
             <button
-                className={`fixed top-0 right-0 z-60 p-4 text-white text-2xl cursor-pointer transition-all duration-300 hover:scale-110`}
+                className={`fixed z-60 p-4 text-white text-2xl cursor-pointer transition-all duration-300 hover:scale-110 ${isScrolled ? " top-4 right-3" : " top-2 right-0"}`}
                 onClick={toggleSideBar}
                 aria-label={isOpen ? "Close sidebar" : "Open sidebar"}
                 aria-expanded={isOpen}
@@ -117,7 +135,7 @@ const SideBar = () => {
             {/* Sidebar - MODIFIED: Ensured consistent z-index value */}
             <div
                 ref={sideBarRef}
-                className="side-bar-bg fixed top-0 right-0 h-full w-80 z-40 transform translate-x-full opacity-0"
+                className="side-bar-bg fixed top-0 right-0 h-full w-80 z-55 transform translate-x-full opacity-0"
                 role="navigation"
                 aria-label="Mobile navigation"
             >

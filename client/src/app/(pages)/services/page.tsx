@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 
 const ServicesPageSkeleton = () => {
     return (
-        <div className="flex-center relative md:p-0 px-5 flex-col md:mb-40 mb-20">
+        <div className="flex-center relative px-5 flex-col md:mb-40 mb-20">
             <div className="animate-pulse bg-gray-200 h-96 w-full rounded-lg mb-8" />
             <div className="animate-pulse bg-gray-200 h-32 w-full rounded-lg" />
         </div>

@@ -67,6 +67,7 @@ export const projects: Project[] = [
     technologies: ["C++", "SFML"],
     category: "group",
     githubURL: "https://github.com/chyroshan066/brick-breaker",
+    repeat: true,
   },
 ];
 

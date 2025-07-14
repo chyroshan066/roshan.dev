@@ -70,20 +70,21 @@ const SocialLinkCard = memo(({ item }: { item: BentoSocialLink }) => (
                                 width={47}
                                 height={47}
                                 loading="lazy"
+                                className="block md:hidden lg:block"
                             />) : (
                             item.icon
                         )}
                         <h1 className="gradient-title md:text-3xl text-xl md:m-0 ms-5 font-medium">{item.name}</h1>
                     </div>
-                    <div className="lg:block md:hidden group-hover:translate-x-2 group-hover:-translate-y-1 group-hover:[filter:brightness(0)_saturate(100%)_invert(27%)_sepia(96%)_saturate(6916%)_hue-rotate(221deg)_brightness(91%)_contrast(105%)] transition-all duration-300">
+                    <div className=" group-hover:translate-x-2 group-hover:-translate-y-1 group-hover:[filter:brightness(0)_saturate(100%)_invert(27%)_sepia(96%)_saturate(6916%)_hue-rotate(221deg)_brightness(91%)_contrast(105%)] transition-all duration-300">
 
                         <Suspense fallback={
-                            <div className="w-[41px] h-[41px] bg-gray-200 animate-pulse rounded lg:scale-100 scale-50" />
+                            <div className="w-[41px] h-[41px] bg-gray-200 animate-pulse rounded lg:scale-100 md:scale-75 scale-50" />
                         }>
                             <LazyArrowUpRightIcon
                                 size={41}
                                 weight="bold"
-                                className="lg:scale-100 scale-50"
+                                className="lg:scale-100 md:scale-75 scale-50"
                             />
                         </Suspense>
 
@@ -125,7 +126,7 @@ const About = () => {
     return <>
         <section
             id="about"
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative px-5"
         >
 
             <GradientSpheres
@@ -133,7 +134,7 @@ const About = () => {
                 sphere2Class={"about-gradient-sphere about-sphere-2"}
             />
 
-            <div className="container w-full h-full md:my-40 my-20 relative z-10">
+            <div className=" w-full h-full md:my-40 my-20 relative z-10">
 
                 <TitleHeader
                     title={"About Me"}
@@ -190,12 +191,12 @@ const About = () => {
                             id="card"
                             className="md:col-span-4 col-span-12 row-span-4"
                         >
-                            <div className="bg-black-300 rounded-2xl p-7 w-full h-full">
+                            <div className="bg-black-300 rounded-2xl p-7 md:p-6 lg:p-7 w-full h-full">
                                 <div className="flex flex-col justify-between h-full">
                                     {MOTIVATION_TEXTS.map(text => (
                                         <h1
                                             key={text}
-                                            className="gradient-title md:text-5xl text-3xl font-bold animated-text"
+                                            className="gradient-title lg:text-5xl md:text-4xl text-3xl font-bold animated-text"
                                         >
                                             {text}
                                         </h1>

@@ -103,8 +103,8 @@ export const WorkExperienceDisplay = memo(() => {
     }), [handleMouseLeave]);
 
     return (
-        <div className="flex-center relative md:p-0 px-5">
-            <div className="container w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
+        <div className="flex-center relative px-5">
+            <div className="w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
 
                 <TitleHeader
                     title={"WORK EXPERIENCE"}

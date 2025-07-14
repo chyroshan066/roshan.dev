@@ -70,14 +70,14 @@ export const NavHeader: React.FC = () => {
     }, [SCROLL_THRESHOLD_VH]);
 
     const navbarClasses = useMemo(() =>
-        `container my-5 flex items-center justify-between transition-all duration-300 ${isScrolled
+        `w-full max-w-7xl mx-auto my-5 flex items-center justify-between transition-all duration-300 ${isScrolled
             ? 'backdrop-blur-md bg-gradient-to-br from-[#ff28d5]/15 to-[#1c34ff]/15 py-3 px-5 md:my-2 rounded-[40px]'
             : 'md:my-10'
         }`, [isScrolled]
     );
 
     return (
-        <div className="w-full flex-center fixed z-50 top-0 left-0 md:p-0 px-5">
+        <div className="w-full fixed z-50 top-0 left-0 px-5 flex justify-center">
             <div className={navbarClasses}>
 
                 <Logo size={"3xl"} />

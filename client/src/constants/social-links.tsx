@@ -7,7 +7,7 @@ export const bentoSocialLinks: BentoSocialLink[] = [
   {
     name: "Facebook",
     href: "https://www.facebook.com/chyroshan066/",
-    icon: <FacebookLogoIcon size={47} color="#a7a7a7" weight="bold" />,
+    icon: <FacebookLogoIcon size={47} color="#a7a7a7" weight="bold" className="block md:hidden lg:block" />,
   },
   {
     name: "Github",
@@ -17,11 +17,11 @@ export const bentoSocialLinks: BentoSocialLink[] = [
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/in/chyroshan066/",
-    icon: <LinkedinLogoIcon size={47} color="#a7a7a7" weight="bold" />,
+    icon: <LinkedinLogoIcon size={47} color="#a7a7a7" weight="bold" className="block md:hidden lg:block" />,
   },
   {
     name: "WhatsApp",
     href: "https://web.whatsapp.com/",
-    icon: <WhatsappLogoIcon size={47} color="#a7a7a7" weight="bold" />,
+    icon: <WhatsappLogoIcon size={47} color="#a7a7a7" weight="bold" className="block md:hidden lg:block" />,
   },
 ];

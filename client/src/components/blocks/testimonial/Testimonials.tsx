@@ -9,7 +9,7 @@ const Testimonials = () => {
     return <>
         <section
             id="testimonials"
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative px-5"
         >
 
             <GradientSpheres
@@ -18,7 +18,7 @@ const Testimonials = () => {
 
             />
 
-            <div className="w-full h-full container relative z-10 ">
+            <div className="w-full h-full relative z-10 ">
 
                 <TitleHeader
                     title={"TESTIMONIALS"}

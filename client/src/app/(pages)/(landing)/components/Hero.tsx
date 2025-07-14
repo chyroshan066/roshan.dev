@@ -9,7 +9,7 @@ import { ArrowDownIcon } from "@phosphor-icons/react";
 export const Hero: React.FC = memo(() => {
     return <>
         <section
-            className="w-screen h-dvh overflow-hidden relative text-white-50 px-5 md:p-0"
+            className="w-screen h-dvh overflow-hidden relative text-white-50 px-5"
         >
             <div className="gradient-box w-full h-96 absolute bottom-0 left-0 z-20 will-change-transform"></div>
 
@@ -19,7 +19,7 @@ export const Hero: React.FC = memo(() => {
             />
 
             <div className="h-full w-full flex-center">
-                <div className="container relative h-full w-full">
+                <div className="relative h-full w-full">
                     <div className="md:mt-40 mt-20">
                         <p className="font-medium md:text-2xl text-base">
                             👋 Hey, I&apos;m Here

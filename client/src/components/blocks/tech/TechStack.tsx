@@ -93,7 +93,7 @@ const TechStack = memo(() => {
 
     return <>
         <div className="w-full h-full">
-            <div className="container mx-auto md:p-0 px-5">
+            <div className="mx-auto px-5">
 
                 <TitleHeader
                     title={"TECH STACK"}

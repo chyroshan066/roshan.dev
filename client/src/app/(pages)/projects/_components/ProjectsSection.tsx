@@ -208,7 +208,7 @@ const ProjectsSection: React.FC = () => {
                 sphere2Class={"about-gradient-sphere about-sphere-2"}
             />
 
-            <div className="container w-full h-full md:mt-40 mt-20 mb-10 relative z-10 px-5 md:p-0">
+            <div className="w-full h-full md:mt-40 mt-20 mb-10 relative z-10 px-5">
 
                 <TitleHeader
                     title={"PROJECTS"}
@@ -218,8 +218,7 @@ const ProjectsSection: React.FC = () => {
                 <div className="md:mt-20 mt-10">
                     <div
                         ref={tabsRef}
-                        className="grid grid-cols-2 md:grid-cols-4 mb-12 space-x-2 space-y-2"
-                    // className="flex justify-center mb-12 space-x-2"
+                        className="grid grid-cols-2 md:grid-cols-4 mb-12 gap-3"
                     >
                         {tabItems.map((tab) => (
                             <button
@@ -243,11 +242,13 @@ const ProjectsSection: React.FC = () => {
                     >
 
                         {filteredProjects.map((project, index) => (
-                            <ProjectCard
-                                key={`${project.id}-${activeTab}`}
-                                project={project}
-                                index={index}
-                            />
+                            !project.repeat && (
+                                <ProjectCard
+                                    key={`${project.id}-${activeTab}`}
+                                    project={project}
+                                    index={index}
+                                />
+                            )
                         ))}
 
                     </div>

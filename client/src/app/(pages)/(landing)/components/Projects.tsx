@@ -18,7 +18,7 @@ const Projects = memo(() => {
             />
 
             <div className="w-full md:my-40 my-20 relative z-10">
-                <div className="container mx-auto md:p-0 px-5">
+                <div className="mx-auto px-5">
 
                     <TitleHeader
                         title={"My PROJECTS"}

@@ -226,14 +226,14 @@ const CertificateDisplay: React.FC = () => {
                 sphere2Class={"projects-gradient-sphere projects-sphere-2"}
             />
 
-            <div className="container w-full h-full md:my-40 my-20 relative z-10 md:px-0 px-6">
+            <div className="w-full h-full md:my-40 my-20 relative z-10 px-5">
 
                 <TitleHeader
                     title={"CERTIFICATIONS"}
                     text={"Validated skills through industry-recognized certifications and training."}
                 />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-20 mt-15">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-20 mt-15 md:px-0 px-1">
 
                     {memoizedCertificates.map((cert, index) => (
                         <CertificateCard

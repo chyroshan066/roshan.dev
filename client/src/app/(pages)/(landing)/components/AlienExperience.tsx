@@ -2,7 +2,7 @@
 
 import { OrbitControls } from "@react-three/drei"
 import { Canvas } from "@react-three/fiber"
-import { Suspense, useMemo } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 
 // dynamic loading is just like the lazy loading but with additional parameters
@@ -17,6 +17,27 @@ const LoadingFallback: React.FC = () => (
 );
 
 export const AlienExperience: React.FC = () => {
+    const [screenSize, setScreenSize] = useState<'mobile' | 'tablet' | 'desktop'>('desktop');
+
+    useEffect(() => {
+        const handleResize = () => {
+            const width = window.innerWidth;
+            if (width < 768) {
+                setScreenSize('mobile');
+            } else if (width < 1024) {
+                setScreenSize('tablet');
+            } else {
+                setScreenSize('desktop');
+            }
+        };
+
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const canvasConfig = useMemo(() => ({
         gl: {
             antialias: true,
@@ -59,14 +80,31 @@ export const AlienExperience: React.FC = () => {
         autoRotate: false,
         maxPolarAngle: Math.PI / 2, // Limit vertical rotation
         minPolarAngle: Math.PI / 4, // Limit vertical rotation
-        rotateSpeed: 0.5, // Slower rotation for better UX
+        rotateSpeed: screenSize === 'mobile' ? 0.3 : 0.5, // Slower rotation for better UX
     }), []);
 
-    const alienConfig = useMemo(() => ({
-        scale: 2,
-        position: [0, -5.5, 0] as [number, number, number],
-        rotation: [0, -0.5, 0] as [number, number, number],
-    }), []);
+    const alienConfig = useMemo(() => {
+        switch (screenSize) {
+            case 'mobile':
+                return {
+                    scale: 2, // Smaller scale for mobile
+                    position: [0, -5.5, 0] as [number, number, number], // Adjusted position
+                    rotation: [0, -0.5, 0] as [number, number, number], // Slight rotation adjustment
+                };
+            case 'tablet':
+                return {
+                    scale: 1.6, // Medium scale for tablets
+                    position: [0, -4.5, 0] as [number, number, number], // Adjusted position
+                    rotation: [0, -0.4, 0] as [number, number, number], // Slight rotation adjustment
+                };
+            default: // desktop
+                return {
+                    scale: 2,
+                    position: [0, -5.5, 0] as [number, number, number],
+                    rotation: [0, -0.5, 0] as [number, number, number],
+                };
+        }
+    }, [screenSize]);
 
     return (
         <div className="w-full h-full relative">

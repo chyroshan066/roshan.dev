@@ -68,7 +68,7 @@ const TestimonialCarousel = () => {
 
             {/* Arrow button */}
             <nav
-                className="mt-10 text-white-50 flex justify-end gap-5 md:-translate-x-32 -translate-x-5"
+                className="mt-20 text-white-50 flex justify-end gap-5 md:-translate-x-32 -translate-x-5"
                 aria-label="Testimonial navigation"
             >
                 <button
@@ -102,7 +102,7 @@ const TestimonialCarousel = () => {
             </nav>
 
             {/* Progress indicators for better UX */}
-            <div className="flex justify-center gap-2 mt-4">
+            <div className="flex justify-center gap-2 mt-6">
                 {testimonials.slice(0, -1).map((_, index) => (
                     <button
                         key={`indicator-${index}`}

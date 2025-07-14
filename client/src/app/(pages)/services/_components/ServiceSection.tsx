@@ -277,7 +277,7 @@ const ServicesSection: React.FC = () => {
                 sphere2Class={"about-gradient-sphere about-sphere-2"}
             />
 
-            <div className="container w-full h-full md:mt-40 mt-20 mb-10 relative z-10 px-5 md:p-0">
+            <div className="w-full h-full md:mt-40 mt-20 mb-10 relative z-10 px-5">
                 <TitleHeader
                     title={"SERVICES"}
                     text={"Transforming ideas into digital reality with cutting-edge technology and innovative solutions that drive measurable business impact."}

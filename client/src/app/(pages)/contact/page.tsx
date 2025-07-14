@@ -35,10 +35,10 @@ export default function Contact() {
     return <>
         <section
             id="contact"
-            className="flex-center relative md:p-0 px-5"
+            className="flex-center relative px-5"
             aria-labelledby="contact-title"
         >
-            <div className="w-full h-full container md:my-40 my-20">
+            <div className="w-full h-full md:my-40 my-20">
 
                 <TitleHeader
                     title={"Contact Me"}

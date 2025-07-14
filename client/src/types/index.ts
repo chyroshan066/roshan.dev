@@ -56,6 +56,7 @@ export interface Project extends BaseItem {
   category?: Category;
   liveURL?: string;
   githubURL?: string;
+  repeat?: boolean;
 }
 
 export interface Certificate {

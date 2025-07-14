@@ -254,14 +254,14 @@ const EducationTimeline = memo(() => {
     }, [hoveredItem, tooltipStyles, arrowStyles]);
 
     return (
-        <div className="flex-center relative md:p-0 px-5 w-full">
+        <div className="flex-center relative px-5 w-full">
 
             <GradientSpheres
                 sphere1Class={"about-gradient-sphere about-sphere-1"}
                 sphere2Class={"about-gradient-sphere about-sphere-2"}
             />
 
-            <div className="container w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
+            <div className="w-full h-full relative z-10 md:mb-40 mb-20 mt-10 md:mt-0">
 
                 <TitleHeader
                     title={"EDUCATION"}
