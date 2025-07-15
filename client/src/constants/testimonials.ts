@@ -29,6 +29,16 @@ export const testimonials: Testimonial[] = [
     facebookUrl: "https://www.facebook.com/rajesh.sharma.589961",
     instagramUrl: "https://www.instagram.com/rajeshh2602/",
   },
+  {
+    id: 4,
+    name: "Sumit Rijal",
+    pos: "Computer Engineering Undergrad",
+    review:`I had the pleasure of working alongside Roshan Chaudhary on a collaborative project where we developed a brick breaker game using C++ and the SFML library. From the very beginning, he demonstrated strong technical skills, a proactive mindset, and a genuine passion for game development.\n\nI’m confident that he will be a valuable asset to any team and I highly recommend him for any role that demands strong programming skills, teamwork, and creativity.`,
+    imgPath: "/images/testimonials/sumit-rijal.webp",
+    linkedinUrl: "https://www.linkedin.com/in/sumit-rijal-48bba7295/",
+    facebookUrl: "https://www.facebook.com/sumit.rijal.988",
+    instagramUrl: "https://www.instagram.com/sumitrijal01/",
+  },
 ] as const;
 
 export const TESTIMONIALS_COUNT = testimonials.length;
